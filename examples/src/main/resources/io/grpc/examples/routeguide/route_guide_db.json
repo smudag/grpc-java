@@ -1,5 +1,12 @@
 {
-  "feature": [{
+  "feature": [
+    {
+        "location": {
+            "latitude": 9999,
+            "longitude": -8888
+        },
+        "name": "Singapore"
+    },{
       "location": {
           "latitude": 407838351,
           "longitude": -746143763
