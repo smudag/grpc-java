@@ -8,6 +8,8 @@ cd /root/grpc-java/examples
 
 grep --include \*.json -rnw '/root/grpc-java/examples/' -e 'Singapore'
 
+grep --include \*.proto -rnw '/root/grpc-java/examples/src/main/proto/' -e 'HelloReply'
 
 grep --include \*.proto -rnw '/root/grpc-java/examples/src'   -e 'RouteNote' 
 
+find . -type f -name "HelloWorldServer"

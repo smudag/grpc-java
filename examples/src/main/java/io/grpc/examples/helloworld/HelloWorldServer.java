@@ -90,6 +90,7 @@ public class HelloWorldServer {
    public void sayHelloAgain(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
       HelloReply reply = HelloReply.newBuilder().setMessage("Hello again " + req.getName()).build();
       responseObserver.onNext(reply);
+        System.out.println(reply);
      responseObserver.onCompleted();
    }
   }
