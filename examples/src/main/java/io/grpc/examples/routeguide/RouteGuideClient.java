@@ -220,7 +220,7 @@ public class RouteGuideClient {
       RouteNote[] requests =
           {newNote("First message", 0, 0), newNote("Second message", 0, 10_000_000),
               newNote("Third message", 10_000_000, 0), newNote("Fourth message", 10_000_000, 10_000_000)};
-
+          
       for (RouteNote request : requests) {
         info("Sending message \"{0}\" at {1}, {2}", request.getMessage(), request.getLocation()
             .getLatitude(), request.getLocation().getLongitude());
@@ -272,7 +272,7 @@ public class RouteGuideClient {
       client.listFeatures(400000000, -750000000, 420000000, -730000000);
 
       // Record a few randomly selected points from the features file.
-      client.recordRoute(features, 10);
+      client.recordRoute(features, 1);
 
       // Send and receive some notes.
       CountDownLatch finishLatch = client.routeChat();

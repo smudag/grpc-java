@@ -222,7 +222,7 @@ public class RouteGuideServer {
         @Override
         public void onNext(RouteNote note) {
           List<RouteNote> notes = getOrCreateNotes(note.getLocation());
-
+      
           // Respond with all previous notes at this location.
           for (RouteNote prevNote : notes.toArray(new RouteNote[0])) {
             responseObserver.onNext(prevNote);
@@ -230,6 +230,7 @@ public class RouteGuideServer {
 
           // Now add the new note to the list
           notes.add(note);
+          System.out.println(notes);
         }
 
         @Override
