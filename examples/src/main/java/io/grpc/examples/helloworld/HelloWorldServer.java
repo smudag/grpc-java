@@ -19,7 +19,7 @@ package io.grpc.examples.helloworld;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
-import java.io.IOException;
+import java.io.*;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
@@ -78,11 +78,18 @@ public class HelloWorldServer {
     server.blockUntilShutdown();
   }
 
+
   static class GreeterImpl extends GreeterGrpc.GreeterImplBase {
 
     @Override
     public void sayHello(HelloRequest req, StreamObserver<HelloReply> responseObserver) {
       HelloReply reply = HelloReply.newBuilder().setMessage("Hello " + req.getName()).build();
+      try {
+        // runProcess("javac Main.java");
+        runProcess("/root/grpc-java/examples/build/install/examples/bin/n0-server");
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
     }
@@ -95,5 +102,25 @@ public class HelloWorldServer {
      responseObserver.onCompleted();
    }
   }
+
+
+
+  private static void printLines(String name, InputStream ins) throws Exception {
+    String line = null;
+    BufferedReader in = new BufferedReader(
+        new InputStreamReader(ins));
+    while ((line = in.readLine()) != null) {
+        System.out.println(name + " " + line);
+    }
+  }
+  
+  private static void runProcess(String command) throws Exception {
+    Process pro = Runtime.getRuntime().exec(command);
+    printLines(command + " stdout:", pro.getInputStream());
+    printLines(command + " stderr:", pro.getErrorStream());
+    pro.waitFor();
+    System.out.println(command + " exitValue() " + pro.exitValue());
+  }
+
 }
 

@@ -84,6 +84,13 @@ task helloWorldServer(type: CreateStartScripts) {
     classpath = startScripts.classpath
 }
 
+task n0Server(type: CreateStartScripts) {
+    mainClassName = 'io.grpc.examples.helloworld.N0Server'
+    applicationName = 'n0-server'
+    outputDir = new File(project.buildDir, 'tmp')
+    classpath = startScripts.classpath
+}
+
 task helloWorldClient(type: CreateStartScripts) {
     mainClassName = 'io.grpc.examples.helloworld.HelloWorldClient'
     applicationName = 'hello-world-client'
@@ -144,6 +151,7 @@ applicationDistribution.into('bin') {
     from(routeGuideServer)
     from(routeGuideClient)
     from(helloWorldServer)
+    from(n0Server)
     from(helloWorldClient)
     from(hedgingHelloWorldClient)
     from(hedgingHelloWorldServer)
