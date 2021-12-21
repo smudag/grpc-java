@@ -1,4 +1,5 @@
-cd /root/grpc-java/examples
+```
+cd /root/grpc-java/examples  
 ./gradlew installDist
 
 
@@ -14,7 +15,7 @@ grep --include \*.proto -rnw '/root/grpc-java/examples/src/main/proto/' -e 'Hell
 grep --include \*.proto -rnw '/root/grpc-java/examples/src'   -e 'RouteNote' 
 
 find . -type f -name "HelloWorldServer"
-
+```
 
 gRPC-Java - An RPC library and framework
 ========================================
