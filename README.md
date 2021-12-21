@@ -1,6 +1,5 @@
 ```
-cd /root/grpc-java/examples  
-./gradlew installDist
+cd /root/grpc-java/examples && ./gradlew installDist
 /root/grpc-java/examples/build/install/examples/bin/hello-world-server
 
 /root/grpc-java/examples/build/install/examples/bin/hello-world-client
