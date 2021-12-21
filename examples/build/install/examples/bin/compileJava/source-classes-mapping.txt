@@ -104,11 +104,10 @@ io/grpc/examples/manualflowcontrol/HelloReplyOrBuilder.java
  io.grpc.examples.manualflowcontrol.HelloReplyOrBuilder
 io/grpc/examples/routeguide/PointOrBuilder.java
  io.grpc.examples.routeguide.PointOrBuilder
-io/grpc/examples/routeguide/RouteGuideClient.java
- io.grpc.examples.routeguide.RouteGuideClient
- io.grpc.examples.routeguide.RouteGuideClient$1
- io.grpc.examples.routeguide.RouteGuideClient$2
- io.grpc.examples.routeguide.RouteGuideClient$TestHelper
+io/grpc/examples/helloworld/N0Server.java
+ io.grpc.examples.helloworld.N0Server
+ io.grpc.examples.helloworld.N0Server$1
+ io.grpc.examples.helloworld.N0Server$GreeterImpl
 io/grpc/examples/experimental/CompressingHelloWorldServerAllMethods.java
  io.grpc.examples.experimental.CompressingHelloWorldServerAllMethods
  io.grpc.examples.experimental.CompressingHelloWorldServerAllMethods$1
@@ -194,7 +193,8 @@ io/grpc/examples/routeguide/RouteGuideGrpc.java
  io.grpc.examples.routeguide.RouteGuideGrpc$RouteGuideImplBase
  io.grpc.examples.routeguide.RouteGuideGrpc$RouteGuideMethodDescriptorSupplier
  io.grpc.examples.routeguide.RouteGuideGrpc$RouteGuideStub
-io/grpc/examples/helloworld/N0Server.java
- io.grpc.examples.helloworld.N0Server
- io.grpc.examples.helloworld.N0Server$1
- io.grpc.examples.helloworld.N0Server$GreeterImpl
+io/grpc/examples/routeguide/RouteGuideClient.java
+ io.grpc.examples.routeguide.RouteGuideClient
+ io.grpc.examples.routeguide.RouteGuideClient$1
+ io.grpc.examples.routeguide.RouteGuideClient$2
+ io.grpc.examples.routeguide.RouteGuideClient$TestHelper
