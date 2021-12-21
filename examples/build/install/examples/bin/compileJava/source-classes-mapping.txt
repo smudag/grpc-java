@@ -198,3 +198,70 @@ io/grpc/examples/routeguide/FeatureDatabase.java
  io.grpc.examples.routeguide.FeatureDatabase
  io.grpc.examples.routeguide.FeatureDatabase$1
  io.grpc.examples.routeguide.FeatureDatabase$Builder
+io/grpc/examples/p4p/p4p/crypto/BitCommitment.java
+ io.grpc.examples.p4p.p4p.crypto.BitCommitment
+ io.grpc.examples.p4p.p4p.crypto.BitCommitment$BitCommitmentProof
+io/grpc/examples/p4p/p4p/sim/ServerTemp.java
+ io.grpc.examples.p4p.p4p.sim.ServerTemp
+io/grpc/examples/p4p/p4p/crypto/ThreeWayCommitment.java
+ io.grpc.examples.p4p.p4p.crypto.ThreeWayCommitment
+ io.grpc.examples.p4p.p4p.crypto.ThreeWayCommitment$ThreeWayCommitmentProof
+io/grpc/examples/p4p/p4p/bench/UserVector2Bench.java
+ io.grpc.examples.p4p.p4p.bench.UserVector2Bench
+ io.grpc.examples.p4p.p4p.bench.UserVector2Bench$L2NormBoundProof2
+io/grpc/examples/p4p/freenet/support/CPUInformation/AMDCPUInfo.java
+ io.grpc.examples.p4p.freenet.support.CPUInformation.AMDCPUInfo
+io/grpc/examples/p4p/p4p/util/Util.java
+ io.grpc.examples.p4p.p4p.util.Util
+io/grpc/examples/p4p/p4p/bench/P4PBench.java
+ io.grpc.examples.p4p.p4p.bench.P4PBench
+io/grpc/examples/p4p/freenet/support/CPUInformation/IntelCPUInfo.java
+ io.grpc.examples.p4p.freenet.support.CPUInformation.IntelCPUInfo
+io/grpc/examples/p4p/p4p/peer/P4PPeer.java
+ io.grpc.examples.p4p.p4p.peer.P4PPeer
+io/grpc/examples/p4p/freenet/support/CPUInformation/UnknownCPUException.java
+ io.grpc.examples.p4p.freenet.support.CPUInformation.UnknownCPUException
+io/grpc/examples/p4p/p4p/crypto/SquareCommitment.java
+ io.grpc.examples.p4p.p4p.crypto.SquareCommitment
+ io.grpc.examples.p4p.p4p.crypto.SquareCommitment$SquareCommitmentProof
+io/grpc/examples/p4p/p4p/server/P4PServer.java
+ io.grpc.examples.p4p.p4p.server.P4PServer
+ io.grpc.examples.p4p.p4p.server.P4PServer$UserInfo
+io/grpc/examples/p4p/net/i2p/util/NativeBigInteger.java
+ io.grpc.examples.p4p.net.i2p.util.NativeBigInteger
+io/grpc/examples/p4p/p4p/user/UserVector2.java
+ io.grpc.examples.p4p.p4p.user.UserVector2
+ io.grpc.examples.p4p.p4p.user.UserVector2$L2NormBoundProof2
+io/grpc/examples/p4p/p4p/util/P4PParameters.java
+ io.grpc.examples.p4p.p4p.util.P4PParameters
+io/grpc/examples/p4p/p4p/crypto/VectorCommitment.java
+ io.grpc.examples.p4p.p4p.crypto.VectorCommitment
+io/grpc/examples/p4p/freenet/support/CPUInformation/CPUInfo.java
+ io.grpc.examples.p4p.freenet.support.CPUInformation.CPUInfo
+io/grpc/examples/p4p/p4p/sim/P4PPeerTemp.java
+ io.grpc.examples.p4p.p4p.sim.P4PPeerTemp
+io/grpc/examples/p4p/net/i2p/util/HexDump.java
+ io.grpc.examples.p4p.net.i2p.util.HexDump
+io/grpc/examples/p4p/p4p/util/StopWatch.java
+ io.grpc.examples.p4p.p4p.util.StopWatch
+io/grpc/examples/p4p/p4p/crypto/Proof.java
+ io.grpc.examples.p4p.p4p.crypto.Proof
+io/grpc/examples/p4p/freenet/support/CPUInformation/CPUID.java
+ io.grpc.examples.p4p.freenet.support.CPUInformation.CPUID
+ io.grpc.examples.p4p.freenet.support.CPUInformation.CPUID$AMDInfoImpl
+ io.grpc.examples.p4p.freenet.support.CPUInformation.CPUID$CPUIDCPUInfo
+ io.grpc.examples.p4p.freenet.support.CPUInformation.CPUID$CPUIDResult
+ io.grpc.examples.p4p.freenet.support.CPUInformation.CPUID$IntelInfoImpl
+io/grpc/examples/p4p/p4p/user/UserVector.java
+ io.grpc.examples.p4p.p4p.user.UserVector
+ io.grpc.examples.p4p.p4p.user.UserVector$L2NormBoundProof
+io/grpc/examples/p4p/p4p/crypto/BitVectorCommitment.java
+ io.grpc.examples.p4p.p4p.crypto.BitVectorCommitment
+ io.grpc.examples.p4p.p4p.crypto.BitVectorCommitment$BitVectorCommitmentProof
+io/grpc/examples/p4p/p4p/crypto/Commitment.java
+ io.grpc.examples.p4p.p4p.crypto.Commitment
+io/grpc/examples/p4p/p4p/util/SparseMatrix.java
+ io.grpc.examples.p4p.p4p.util.SparseMatrix
+ io.grpc.examples.p4p.p4p.util.SparseMatrix$MatrixEntry
+io/grpc/examples/p4p/p4p/sim/P4PSim.java
+ io.grpc.examples.p4p.p4p.sim.P4PSim

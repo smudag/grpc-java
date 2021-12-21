@@ -164,7 +164,7 @@ public class P4PSim extends P4PParameters {
 
         // Generate the data and the checksum coefficient vector:
         try {
-            String fileName = "/Users/mac/Desktop/FedBFT/voting/output.txt";
+            String fileName = "/root/FedBFT/voting/output.txt";
             File myObj = new File(fileName);
             Path path = Paths.get(fileName);
             long dataLineNum = 0;

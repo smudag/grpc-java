@@ -147,6 +147,13 @@ task manualFlowControlServer(type: CreateStartScripts) {
     classpath = startScripts.classpath
 }
 
+task p4pSim(type: CreateStartScripts) {
+    mainClassName = 'io.grpc.examples.p4p.p4p.sim.P4PSim'
+    applicationName = 'p4p-sim'
+    outputDir = new File(project.buildDir, 'tmp')
+    classpath = startScripts.classpath
+}
+
 applicationDistribution.into('bin') {
     from(routeGuideServer)
     from(routeGuideClient)
@@ -160,5 +167,6 @@ applicationDistribution.into('bin') {
     from(compressingHelloWorldClient)
     from(manualFlowControlClient)
     from(manualFlowControlServer)
+    from(p4pSim)
     fileMode = 0755
 }
