@@ -264,6 +264,7 @@ public class RouteGuideServer {
       for (Feature feature : features) {
         if (feature.getLocation().getLatitude() == location.getLatitude()
             && feature.getLocation().getLongitude() == location.getLongitude()) {
+              System.out.println("Server found Feature:"+feature.getName());
           return feature;
         }
       }

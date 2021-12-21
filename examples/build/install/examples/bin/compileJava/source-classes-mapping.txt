@@ -96,18 +96,19 @@ io/grpc/examples/routeguide/Rectangle.java
  io.grpc.examples.routeguide.Rectangle
  io.grpc.examples.routeguide.Rectangle$1
  io.grpc.examples.routeguide.Rectangle$Builder
-io/grpc/examples/helloworld/HelloWorldServer.java
- io.grpc.examples.helloworld.HelloWorldServer
- io.grpc.examples.helloworld.HelloWorldServer$1
- io.grpc.examples.helloworld.HelloWorldServer$GreeterImpl
-io/grpc/examples/manualflowcontrol/HelloReplyOrBuilder.java
- io.grpc.examples.manualflowcontrol.HelloReplyOrBuilder
-io/grpc/examples/routeguide/PointOrBuilder.java
- io.grpc.examples.routeguide.PointOrBuilder
 io/grpc/examples/helloworld/N0Server.java
  io.grpc.examples.helloworld.N0Server
  io.grpc.examples.helloworld.N0Server$1
  io.grpc.examples.helloworld.N0Server$GreeterImpl
+io/grpc/examples/manualflowcontrol/HelloReplyOrBuilder.java
+ io.grpc.examples.manualflowcontrol.HelloReplyOrBuilder
+io/grpc/examples/routeguide/PointOrBuilder.java
+ io.grpc.examples.routeguide.PointOrBuilder
+io/grpc/examples/routeguide/RouteGuideClient.java
+ io.grpc.examples.routeguide.RouteGuideClient
+ io.grpc.examples.routeguide.RouteGuideClient$1
+ io.grpc.examples.routeguide.RouteGuideClient$2
+ io.grpc.examples.routeguide.RouteGuideClient$TestHelper
 io/grpc/examples/experimental/CompressingHelloWorldServerAllMethods.java
  io.grpc.examples.experimental.CompressingHelloWorldServerAllMethods
  io.grpc.examples.experimental.CompressingHelloWorldServerAllMethods$1
@@ -176,10 +177,10 @@ io/grpc/examples/routeguide/RouteSummary.java
  io.grpc.examples.routeguide.RouteSummary
  io.grpc.examples.routeguide.RouteSummary$1
  io.grpc.examples.routeguide.RouteSummary$Builder
-io/grpc/examples/routeguide/FeatureDatabase.java
- io.grpc.examples.routeguide.FeatureDatabase
- io.grpc.examples.routeguide.FeatureDatabase$1
- io.grpc.examples.routeguide.FeatureDatabase$Builder
+io/grpc/examples/helloworld/HelloWorldServer.java
+ io.grpc.examples.helloworld.HelloWorldServer
+ io.grpc.examples.helloworld.HelloWorldServer$1
+ io.grpc.examples.helloworld.HelloWorldServer$GreeterImpl
 io/grpc/examples/routeguide/RouteGuideGrpc.java
  io.grpc.examples.routeguide.RouteGuideGrpc
  io.grpc.examples.routeguide.RouteGuideGrpc$1
@@ -193,8 +194,7 @@ io/grpc/examples/routeguide/RouteGuideGrpc.java
  io.grpc.examples.routeguide.RouteGuideGrpc$RouteGuideImplBase
  io.grpc.examples.routeguide.RouteGuideGrpc$RouteGuideMethodDescriptorSupplier
  io.grpc.examples.routeguide.RouteGuideGrpc$RouteGuideStub
-io/grpc/examples/routeguide/RouteGuideClient.java
- io.grpc.examples.routeguide.RouteGuideClient
- io.grpc.examples.routeguide.RouteGuideClient$1
- io.grpc.examples.routeguide.RouteGuideClient$2
- io.grpc.examples.routeguide.RouteGuideClient$TestHelper
+io/grpc/examples/routeguide/FeatureDatabase.java
+ io.grpc.examples.routeguide.FeatureDatabase
+ io.grpc.examples.routeguide.FeatureDatabase$1
+ io.grpc.examples.routeguide.FeatureDatabase$Builder

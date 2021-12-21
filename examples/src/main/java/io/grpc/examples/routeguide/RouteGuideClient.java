@@ -57,7 +57,7 @@ public class RouteGuideClient {
    * Blocking unary call example.  Calls getFeature and prints the response.
    */
   public void getFeature(int lat, int lon) {
-    info("🌟🌟🌟 GetFeature: lat={0} lon={1}", lat, lon);
+    info(">>>>>>>>>>>>>>> getFeature: lat={0} lon={1}", lat, lon);
 
     Point request = Point.newBuilder().setLatitude(lat).setLongitude(lon).build();
 
@@ -123,7 +123,7 @@ public class RouteGuideClient {
    * server.
    */
   public void recordRoute(List<Feature> features, int numPoints) throws InterruptedException {
-    info("∫∫∫∆ RecordRoute");
+    info("<----------------> RecordRoute<-------------------->");
     final CountDownLatch finishLatch = new CountDownLatch(1);
     StreamObserver<RouteSummary> responseObserver = new StreamObserver<RouteSummary>() {
       @Override
@@ -188,7 +188,7 @@ public class RouteGuideClient {
    * chat messages that are sent from the server.
    */
   public CountDownLatch routeChat() {
-    info("≈≈≈ RouteChat");
+    info("---------->>>>>RouteChat");
     final CountDownLatch finishLatch = new CountDownLatch(1);
     StreamObserver<RouteNote> requestObserver =
         asyncStub.routeChat(new StreamObserver<RouteNote>() {
