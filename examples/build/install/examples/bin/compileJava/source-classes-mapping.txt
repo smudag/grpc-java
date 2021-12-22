@@ -72,6 +72,8 @@ io/grpc/examples/p4p/p4p/sim/Point.java
  io.grpc.examples.p4p.p4p.sim.Point
  io.grpc.examples.p4p.p4p.sim.Point$1
  io.grpc.examples.p4p.p4p.sim.Point$Builder
+io/grpc/examples/p4p/p4p/sim/IdstrOrBuilder.java
+ io.grpc.examples.p4p.p4p.sim.IdstrOrBuilder
 io/grpc/examples/experimental/CompressingHelloWorldServerPerMethod.java
  io.grpc.examples.experimental.CompressingHelloWorldServerPerMethod
  io.grpc.examples.experimental.CompressingHelloWorldServerPerMethod$1
@@ -114,6 +116,10 @@ io/grpc/examples/routeguide/FeatureOrBuilder.java
  io.grpc.examples.routeguide.FeatureOrBuilder
 io/grpc/examples/p4p/freenet/support/CPUInformation/CPUInfo.java
  io.grpc.examples.p4p.freenet.support.CPUInformation.CPUInfo
+io/grpc/examples/p4p/p4p/sim/Idstr.java
+ io.grpc.examples.p4p.p4p.sim.Idstr
+ io.grpc.examples.p4p.p4p.sim.Idstr$1
+ io.grpc.examples.p4p.p4p.sim.Idstr$Builder
 io/grpc/examples/routeguide/RouteGuideServer.java
  io.grpc.examples.routeguide.RouteGuideServer
  io.grpc.examples.routeguide.RouteGuideServer$1

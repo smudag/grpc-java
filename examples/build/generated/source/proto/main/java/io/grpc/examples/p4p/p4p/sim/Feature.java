@@ -4,11 +4,6 @@
 package io.grpc.examples.p4p.p4p.sim;
 
 /**
- * <pre>
- * A feature names something at a given point.
- * If a feature could not be named, the name is empty.
- * </pre>
- *
  * Protobuf type {@code p4p.p4p.sim.Feature}
  */
 public final class Feature extends
@@ -415,11 +410,6 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * A feature names something at a given point.
-   * If a feature could not be named, the name is empty.
-   * </pre>
-   *
    * Protobuf type {@code p4p.p4p.sim.Feature}
    */
   public static final class Builder extends
