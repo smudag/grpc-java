@@ -1,42 +1,42 @@
 {
   "feature": [
     {
-        "IDStr": "N0",
+        "idstr": "N0",
         "location": {
             "latitude": 9876,
             "longitude": -9876
         },
         "name": "Server"
     },{
-        "IDStr": "N1",
+        "idstr": "N1",
         "location": {
             "latitude": 1,
             "longitude": -1
         },
         "name": "Peer 1"
     },{
-        "IDStr": "N2",
+        "idstr": "N2",
         "location": {
             "latitude": -2,
             "longitude": 2
         },
         "name": "Peer 2"
     },{
-        "IDStr": "N3",
+        "idstr": "N3",
         "location": {
             "latitude": -3,
             "longitude": 3
         },
         "name": "Peer 3"
     },{
-        "IDStr": "N4",
+        "idstr": "N4",
         "location": {
             "latitude": -4,
             "longitude": 4
         },
         "name": "Peer 4"
     },{
-        "IDStr": "client",
+        "idstr": "client",
         "location": {
             "latitude": 5,
             "longitude": -5
