@@ -1,10 +1,11 @@
-`go run ~/grpc-go/examples/route_guide/server/server.go`   
+`go run ~/grpc-go/examples/p4p/server/server.go`   
 ```
 cd ~/grpc-go/examples/
 protoc --go_out=. --go_opt=paths=source_relative \
     --go-grpc_out=. --go-grpc_opt=paths=source_relative \
     p4p/p4p.proto
-```    
+```      
+    
 https://github.com/SheldonHH/p4g/blob/main/Dockerfile
 
 
