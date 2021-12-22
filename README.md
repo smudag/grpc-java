@@ -4,6 +4,7 @@ https://github.com/SheldonHH/p4g/blob/main/Dockerfile
 
 ```
 cd /root/grpc-java/examples && ./gradlew installDist
+/root/grpc-java/examples/build/install/examples/bin/p4p-coordinate
 /root/grpc-java/examples/build/install/examples/bin/p4p-sim
 
 /root/grpc-java/examples/build/install/examples/bin/hello-world-server
