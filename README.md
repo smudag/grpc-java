@@ -1,4 +1,4 @@
-`go run ~/grpc-go/examples/p4p/server/server.go`   
+`go run ~/grpc-go/examples/p4p/p4p/sim/server/server.go`   
 ```
 cd ~/grpc-go/examples/
 protoc --go_out=. --go_opt=paths=source_relative \
