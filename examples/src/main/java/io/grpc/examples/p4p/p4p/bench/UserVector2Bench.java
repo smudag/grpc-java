@@ -290,14 +290,14 @@ public class UserVector2Bench extends UserVector {
         // Pretend we can see the user vector and the checksum. In a real deployment, they
         // will only be half of them
         for(int i = 0; i < s.length; i++) {
-            // First make sure the checksums are computed correctly:
+// 1st make sure the checksums are computed correctly:
             if(s[i] != Math.abs(Util.innerProduct(c[i], data))) {
                 System.out.println("Checksum " + i + " not computed correctly!");
                 return false;
             }
         }
 
-        // Next check that the sum of squares does not have excessive bits:
+//2nd Squares Sum does not have excessive bits:
         if(bcProofs.length > Integer.toBinaryString(c.length).length()+2*l) {
             System.out.println("Sum of squares has too many bits: " + bcProofs.length
                     + ", the limit is " + (Integer.toBinaryString(c.length).length()+2*l));
@@ -307,7 +307,7 @@ public class UserVector2Bench extends UserVector {
         // We actually need to verify that the A in scProofs is commitment to s.
         // This should be done individually by the server and the privacy peer.
 
-        // Check the square proofs:
+//3d Check the square proofs:
         SquareCommitment sc = new SquareCommitment(g, h);
         for(int i = 0; i < scProofs.length; i++) {
             if(!sc.verify(scProofs[i])) {
@@ -324,6 +324,7 @@ public class UserVector2Bench extends UserVector {
         }
         z = z.multiply(z).mod(p);    // commitment[0] actually stores 2X
 
+//4th l2Proof.getCommitment()[0].equals(z)
         if(!l2Proof.getCommitment()[0].equals(z)) {
             System.out.println("Commitment to square sum wasn't computed correctly.");
             return false;
@@ -337,6 +338,7 @@ public class UserVector2Bench extends UserVector {
 
         BigInteger ZZ = BigInteger.ONE;
         for(int i = 0; i < bcProofs.length; i++) {
+//5th bc verification 
             if(!bc.verify(bcProofs[i])) {
                 System.out.println("Bit commitment verification " + i + " failed.");
                 return false;
@@ -349,7 +351,7 @@ public class UserVector2Bench extends UserVector {
             NativeBigInteger Z = (NativeBigInteger)bcProofs[i].getCommitment()[0];
             ZZ = ZZ.multiply(Z.modPow(e, p)).mod(p);
         }
-
+//6th Homomorphism
         if(!ZZ.equals(z)) {
             System.out.println("Homomorphism does not hold.");
             return false;

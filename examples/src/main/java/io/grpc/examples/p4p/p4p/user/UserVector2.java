@@ -686,7 +686,7 @@ public class UserVector2 extends UserVector {
         Commitment cm = new Commitment(g, h);
         ThreeWayCommitment tc = new ThreeWayCommitment(g, h, F);
         for(int i = 0; i < x.length; i++) {
-            // First make sure the checksums are computed correctly:
+//1. checksums are computed correctly:
             //if(s[i] != Math.abs(Util.innerProduct(c[i], data))) {
             if(x[i] != Util.mod(Util.innerProduct(c[i], u), F)) {
                 // We are doing server
@@ -695,14 +695,14 @@ public class UserVector2 extends UserVector {
                 return false;
             }
 
-            // Now check if the modular correctors, the Bs, are computed correctly
+//2. !B[i].equals(tcProofs[i)  modular correctors, the Bs, are computed correctly
             if(!B[i].equals(tcProofs[i].getCommitment()[0])) {
                 System.out.println("B[" + i + "]"
                         + " not computed correctly!");
                 return false;
             }
 
-            // Check the 3-way proofs
+//3. !tc.verify(tcProofs[i])) 3-way tcproofs
             if(!tc.verify(tcProofs[i])) {
                 System.out.println("3-Way proof " + i
                         + " not computed correctly!");
@@ -720,6 +720,8 @@ public class UserVector2 extends UserVector {
         int BL = bcProofs.length; // numBits,   squareSum =
         int CLA2l = Integer.toBinaryString(c.length).length()+2*l; //86
         P4PParameters.DEBUG("BL: " + BL + "CLA2L: "+CLA2l);
+
+//4. bcProofs.length > Square Sum exceed 
         if(bcProofs.length > Integer.toBinaryString(c.length).length()+2*l){
             System.out.println("Sum of squares has too many bits: "
                     + bcProofs.length
@@ -734,17 +736,20 @@ public class UserVector2 extends UserVector {
         for(int i = 0; i < scProofs.length; i++) {
             // First check that the square commitment encodes the correct
             // number i.e. the A in scProofs is the commitment to s.
+
+
+//5. !scProof[i] Fails
             if(!scProofs[i].getCommitment()[0].equals(S[i])) {
                 System.out.println("S[" + i + "] computed incroorectly.");
                 return false;
             }
 
+//6. !sc.verify(scProofs[i]) Square Verification Fail
             if(!sc.verify(scProofs[i])) {
                 System.out.println("Square verification " + i + " failed.");
                 return false;
             }
         }
-
         // Now the bit commitment for the sum. First check if the commitment is
         // computed correctly:
         BigInteger z = BigInteger.ONE;
@@ -753,12 +758,13 @@ public class UserVector2 extends UserVector {
         }
         z = z.multiply(z).mod(P4PParameters.p);    // commitment[0] actually stores 2X
 
+
+//7. !l2Proof.getCommitment()[0].equals(z) Fail
         if(!l2Proof.getCommitment()[0].equals(z)) {
             System.out.println("Commitment to square sum wasn't computed "
                     + "correctly.");
             return false;
         }
-
         // Then check each bits
         BitCommitment bc = new BitCommitment(g, h);
         BigInteger zz = BigInteger.ONE;
@@ -767,6 +773,9 @@ public class UserVector2 extends UserVector {
 
         BigInteger ZZ = BigInteger.ONE;
         for(int i = 0; i < bcProofs.length; i++) {
+            
+
+//8. !bc.verify(bcProofs[i]) Bit Commitment Verifcation 
             if(!bc.verify(bcProofs[i])) {
                 System.out.println("Bit commitment verification " + i
                         + " failed.");
@@ -783,6 +792,7 @@ public class UserVector2 extends UserVector {
             ZZ = ZZ.multiply(Z.modPow(e, P4PParameters.p)).mod(P4PParameters.p);
         }
 
+//9. ZZ Homomorphism doesn't hold
         if(!ZZ.equals(z)) {
             System.out.println("Homomorphism does not hold.");
             return false;

@@ -63,15 +63,16 @@ public final class P4PProto {
       "e\022$\n\010location\030\001 \001(\0132\022.p4p.p4p.sim.Point\022" +
       "\017\n\007message\030\002 \001(\t\"b\n\014RouteSummary\022\023\n\013poin" +
       "t_count\030\001 \001(\005\022\025\n\rfeature_count\030\002 \001(\005\022\020\n\010" +
-      "distance\030\003 \001(\005\022\024\n\014elapsed_time\030\004 \001(\0052\206\002\n" +
-      "\003P4P\0228\n\nGetFeature\022\022.p4p.p4p.sim.Point\032\024" +
-      ".p4p.p4p.sim.Feature\"\000\022@\n\014ListFeatures\022\026" +
-      ".p4p.p4p.sim.Rectangle\032\024.p4p.p4p.sim.Fea" +
-      "ture\"\0000\001\022@\n\013RecordRoute\022\022.p4p.p4p.sim.Po" +
-      "int\032\031.p4p.p4p.sim.RouteSummary\"\000(\001\022A\n\tRo" +
-      "uteChat\022\026.p4p.p4p.sim.RouteNote\032\026.p4p.p4" +
-      "p.sim.RouteNote\"\000(\0010\001B0\n\034io.grpc.example" +
-      "s.p4p.p4p.simB\010P4PProtoP\001\242\002\003RTGb\006proto3"
+      "distance\030\003 \001(\005\022\024\n\014elapsed_time\030\004 \001(\0052\215\002\n" +
+      "\nRouteGuide\0228\n\nGetFeature\022\022.p4p.p4p.sim." +
+      "Point\032\024.p4p.p4p.sim.Feature\"\000\022@\n\014ListFea" +
+      "tures\022\026.p4p.p4p.sim.Rectangle\032\024.p4p.p4p." +
+      "sim.Feature\"\0000\001\022@\n\013RecordRoute\022\022.p4p.p4p" +
+      ".sim.Point\032\031.p4p.p4p.sim.RouteSummary\"\000(" +
+      "\001\022A\n\tRouteChat\022\026.p4p.p4p.sim.RouteNote\032\026" +
+      ".p4p.p4p.sim.RouteNote\"\000(\0010\001B0\n\034io.grpc." +
+      "examples.p4p.p4p.simB\010P4PProtoP\001\242\002\003RTGb\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
