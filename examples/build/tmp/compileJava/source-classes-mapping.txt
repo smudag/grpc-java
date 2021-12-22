@@ -57,9 +57,8 @@ io/grpc/examples/helloworld/HelloRequestOrBuilder.java
  io.grpc.examples.helloworld.HelloRequestOrBuilder
 io/grpc/examples/p4p/freenet/support/CPUInformation/IntelCPUInfo.java
  io.grpc.examples.p4p.freenet.support.CPUInformation.IntelCPUInfo
-io/grpc/examples/p4p/p4p/util/SparseMatrix.java
- io.grpc.examples.p4p.p4p.util.SparseMatrix
- io.grpc.examples.p4p.p4p.util.SparseMatrix$MatrixEntry
+io/grpc/examples/p4p/p4p/sim/P4PSim.java
+ io.grpc.examples.p4p.p4p.sim.P4PSim
 io/grpc/examples/p4p/freenet/support/CPUInformation/UnknownCPUException.java
  io.grpc.examples.p4p.freenet.support.CPUInformation.UnknownCPUException
 io/grpc/examples/p4p/p4p/crypto/SquareCommitment.java
@@ -87,14 +86,14 @@ io/grpc/examples/routeguide/RouteNote.java
 io/grpc/examples/retrying/RetryingHelloWorldClient.java
  io.grpc.examples.retrying.RetryingHelloWorldClient
  io.grpc.examples.retrying.RetryingHelloWorldClient$1
-io/grpc/examples/routeguide/FeatureDatabase.java
- io.grpc.examples.routeguide.FeatureDatabase
- io.grpc.examples.routeguide.FeatureDatabase$1
- io.grpc.examples.routeguide.FeatureDatabase$Builder
+io/grpc/examples/p4p/p4p/server/P4PServer.java
+ io.grpc.examples.p4p.p4p.server.P4PServer
+ io.grpc.examples.p4p.p4p.server.P4PServer$UserInfo
 io/grpc/examples/p4p/net/i2p/util/NativeBigInteger.java
  io.grpc.examples.p4p.net.i2p.util.NativeBigInteger
-io/grpc/examples/p4p/p4p/peer/P4PPeer.java
- io.grpc.examples.p4p.p4p.peer.P4PPeer
+io/grpc/examples/p4p/p4p/user/UserVector2.java
+ io.grpc.examples.p4p.p4p.user.UserVector2
+ io.grpc.examples.p4p.p4p.user.UserVector2$L2NormBoundProof2
 io/grpc/examples/experimental/CompressingHelloWorldClient.java
  io.grpc.examples.experimental.CompressingHelloWorldClient
 io/grpc/examples/p4p/p4p/sim/RouteSummary.java
@@ -125,8 +124,12 @@ io/grpc/examples/p4p/net/i2p/util/HexDump.java
  io.grpc.examples.p4p.net.i2p.util.HexDump
 io/grpc/examples/routeguide/FeatureDatabaseOrBuilder.java
  io.grpc.examples.routeguide.FeatureDatabaseOrBuilder
-io/grpc/examples/p4p/p4p/sim/RectangleOrBuilder.java
- io.grpc.examples.p4p.p4p.sim.RectangleOrBuilder
+io/grpc/examples/p4p/p4p/sim/P4PCoordinate.java
+ io.grpc.examples.p4p.p4p.sim.P4PCoordinate
+ io.grpc.examples.p4p.p4p.sim.P4PCoordinate$1
+ io.grpc.examples.p4p.p4p.sim.P4PCoordinate$CoordinateService
+ io.grpc.examples.p4p.p4p.sim.P4PCoordinate$CoordinateService$1
+ io.grpc.examples.p4p.p4p.sim.P4PCoordinate$CoordinateService$2
 io/grpc/examples/p4p/freenet/support/CPUInformation/CPUID.java
  io.grpc.examples.p4p.freenet.support.CPUInformation.CPUID
  io.grpc.examples.p4p.freenet.support.CPUInformation.CPUID$AMDInfoImpl
@@ -187,10 +190,9 @@ io/grpc/examples/errorhandling/DetailErrorSample.java
  io.grpc.examples.errorhandling.DetailErrorSample$2
  io.grpc.examples.errorhandling.DetailErrorSample$3
  io.grpc.examples.errorhandling.DetailErrorSample$4
-io/grpc/examples/p4p/p4p/sim/RouteNote.java
- io.grpc.examples.p4p.p4p.sim.RouteNote
- io.grpc.examples.p4p.p4p.sim.RouteNote$1
- io.grpc.examples.p4p.p4p.sim.RouteNote$Builder
+io/grpc/examples/p4p/p4p/bench/UserVector2Bench.java
+ io.grpc.examples.p4p.p4p.bench.UserVector2Bench
+ io.grpc.examples.p4p.p4p.bench.UserVector2Bench$L2NormBoundProof2
 io/grpc/examples/p4p/p4p/sim/FeatureDatabaseOrBuilder.java
  io.grpc.examples.p4p.p4p.sim.FeatureDatabaseOrBuilder
 io/grpc/examples/advanced/HelloJsonClient.java
@@ -247,8 +249,8 @@ io/grpc/examples/hedging/HedgingHelloWorldServer.java
  io.grpc.examples.hedging.HedgingHelloWorldServer$1
  io.grpc.examples.hedging.HedgingHelloWorldServer$GreeterImpl
  io.grpc.examples.hedging.HedgingHelloWorldServer$LatencyInjectionInterceptor
-io/grpc/examples/p4p/p4p/crypto/Commitment.java
- io.grpc.examples.p4p.p4p.crypto.Commitment
+io/grpc/examples/p4p/p4p/sim/P4PGuideUtil.java
+ io.grpc.examples.p4p.p4p.sim.P4PGuideUtil
 io/grpc/examples/routeguide/RouteSummary.java
  io.grpc.examples.routeguide.RouteSummary
  io.grpc.examples.routeguide.RouteSummary$1
@@ -305,22 +307,20 @@ io/grpc/examples/routeguide/RouteGuideGrpc.java
 io/grpc/examples/p4p/p4p/crypto/BitVectorCommitment.java
  io.grpc.examples.p4p.p4p.crypto.BitVectorCommitment
  io.grpc.examples.p4p.p4p.crypto.BitVectorCommitment$BitVectorCommitmentProof
-io/grpc/examples/p4p/p4p/sim/P4PCoordinate.java
- io.grpc.examples.p4p.p4p.sim.P4PCoordinate
- io.grpc.examples.p4p.p4p.sim.P4PCoordinate$1
- io.grpc.examples.p4p.p4p.sim.P4PCoordinate$CoordinateService
- io.grpc.examples.p4p.p4p.sim.P4PCoordinate$CoordinateService$1
- io.grpc.examples.p4p.p4p.sim.P4PCoordinate$CoordinateService$2
-io/grpc/examples/p4p/p4p/server/P4PServer.java
- io.grpc.examples.p4p.p4p.server.P4PServer
- io.grpc.examples.p4p.p4p.server.P4PServer$UserInfo
-io/grpc/examples/p4p/p4p/user/UserVector2.java
- io.grpc.examples.p4p.p4p.user.UserVector2
- io.grpc.examples.p4p.p4p.user.UserVector2$L2NormBoundProof2
-io/grpc/examples/p4p/p4p/sim/P4PSim.java
- io.grpc.examples.p4p.p4p.sim.P4PSim
-io/grpc/examples/p4p/p4p/sim/P4PGuideUtil.java
- io.grpc.examples.p4p.p4p.sim.P4PGuideUtil
-io/grpc/examples/p4p/p4p/bench/UserVector2Bench.java
- io.grpc.examples.p4p.p4p.bench.UserVector2Bench
- io.grpc.examples.p4p.p4p.bench.UserVector2Bench$L2NormBoundProof2
+io/grpc/examples/p4p/p4p/sim/RouteNote.java
+ io.grpc.examples.p4p.p4p.sim.RouteNote
+ io.grpc.examples.p4p.p4p.sim.RouteNote$1
+ io.grpc.examples.p4p.p4p.sim.RouteNote$Builder
+io/grpc/examples/p4p/p4p/crypto/Commitment.java
+ io.grpc.examples.p4p.p4p.crypto.Commitment
+io/grpc/examples/p4p/p4p/util/SparseMatrix.java
+ io.grpc.examples.p4p.p4p.util.SparseMatrix
+ io.grpc.examples.p4p.p4p.util.SparseMatrix$MatrixEntry
+io/grpc/examples/p4p/p4p/peer/P4PPeer.java
+ io.grpc.examples.p4p.p4p.peer.P4PPeer
+io/grpc/examples/routeguide/FeatureDatabase.java
+ io.grpc.examples.routeguide.FeatureDatabase
+ io.grpc.examples.routeguide.FeatureDatabase$1
+ io.grpc.examples.routeguide.FeatureDatabase$Builder
+io/grpc/examples/p4p/p4p/sim/RectangleOrBuilder.java
+ io.grpc.examples.p4p.p4p.sim.RectangleOrBuilder
