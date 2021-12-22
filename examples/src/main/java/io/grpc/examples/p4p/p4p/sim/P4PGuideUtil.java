@@ -49,7 +49,7 @@ public class P4PGuideUtil {
    * Gets the default features file from classpath.
    */
   public static URL getDefaultFeaturesFile() {
-    return Rectangle.class.getResource("p4p_guide.json");
+    return Rectangle.class.getResource("p4p_guide_db.json");
   }
 
   /**
