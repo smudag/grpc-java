@@ -1,3 +1,4 @@
+`go run ~/grpc-go/examples/route_guide/server/server.go`
 https://github.com/SheldonHH/p4g/blob/main/Dockerfile
 
 
