@@ -3,7 +3,7 @@
 cd ~/grpc-go/examples/
 protoc --go_out=. --go_opt=paths=source_relative \
     --go-grpc_out=. --go-grpc_opt=paths=source_relative \
-    p4p/p4p.proto
+    p4p/p4p/sim/p4p/p4p.proto
 ```      
     
 https://github.com/SheldonHH/p4g/blob/main/Dockerfile
