@@ -274,24 +274,24 @@ public class P4PCoordinate {
                 } catch (Exception e) {
                    e.printStackTrace();
                 }
+              } else if(feature.getName().equals("client")){
+                  try{
+                    System.out.println("Start client Java ");
+                    runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-user");
+                    System.out.println("client Java Listening");
+                  } catch (Exception e) {
+                    e.printStackTrace();
+                }
               }
-              if(feature.getName().equals("client")){
+              else{
                 try{
-                  System.out.println("Start client Java ");
-                  runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-user");
-                  System.out.println("client Java Listening");
+                  runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-peer");
+                  System.out.println("Peer Java Listening");
                 } catch (Exception e) {
                    e.printStackTrace();
                }
               }
-              try{
-                runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-peer");
-                System.out.println("Peer Java Listening");
-              } catch (Exception e) {
-                 e.printStackTrace();
-             }
-
-          return feature;
+           return feature;
         }
       }
 

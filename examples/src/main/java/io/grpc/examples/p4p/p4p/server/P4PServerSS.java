@@ -33,7 +33,7 @@ public class P4PServerSS {
 
   private void start() throws IOException {
     /* The port on which the server should run */
-    int port = 50051;
+    int port = 9999;
     server = ServerBuilder.forPort(port)
         .addService(new P4PServerSSImpl())
         .build()
