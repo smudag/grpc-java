@@ -30,7 +30,6 @@ service RouteGuide {
   // position.
   rpc GetFeature(Point) returns (Feature) {}
 
-  rpc GetFeatureByIDString(idstring) returns (idstring) {}
   // A server-to-client streaming RPC.
   //
   // Obtains the Features available within the given Rectangle.  Results are

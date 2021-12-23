@@ -137,12 +137,6 @@ public class P4PCoordinate {
       responseObserver.onCompleted();
     }
 
-  //  //@Override
-    public String getFeatureByIDString(Idstring request, StreamObserver<Feature> responseObserver) {
-      // System.out.println(request);
-      return "s";
-    }
-
     /**
      * Gets all features contained within the given bounding {@link Rectangle}.
      *
