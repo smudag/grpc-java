@@ -72,10 +72,6 @@ io/grpc/examples/p4p/freenet/support/CPUInformation/IntelCPUInfo.java
  io.grpc.examples.p4p.freenet.support.CPUInformation.IntelCPUInfo
 io/grpc/examples/p4p/p4p/sim/P4PSim.java
  io.grpc.examples.p4p.p4p.sim.P4PSim
-io/grpc/examples/p4p/p4p/sim/idstring.java
- io.grpc.examples.p4p.p4p.sim.idstring
- io.grpc.examples.p4p.p4p.sim.idstring$1
- io.grpc.examples.p4p.p4p.sim.idstring$Builder
 io/grpc/examples/p4p/freenet/support/CPUInformation/UnknownCPUException.java
  io.grpc.examples.p4p.freenet.support.CPUInformation.UnknownCPUException
 io/grpc/examples/p4p/p4p/crypto/SquareCommitment.java
@@ -282,8 +278,6 @@ io/grpc/examples/p4p/p4p/sim/FeatureOrBuilder.java
  io.grpc.examples.p4p.p4p.sim.FeatureOrBuilder
 io/grpc/examples/p4p/p4p/util/StopWatch.java
  io.grpc.examples.p4p.p4p.util.StopWatch
-io/grpc/examples/p4p/p4p/sim/idstringOrBuilder.java
- io.grpc.examples.p4p.p4p.sim.idstringOrBuilder
 io/grpc/examples/p4p/p4p/crypto/Proof.java
  io.grpc.examples.p4p.p4p.crypto.Proof
 io/grpc/examples/helloworld/HelloWorldServer.java

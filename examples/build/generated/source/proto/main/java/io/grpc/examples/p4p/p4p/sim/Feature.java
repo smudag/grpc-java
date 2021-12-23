@@ -17,7 +17,6 @@ private static final long serialVersionUID = 0L;
   }
   private Feature() {
     name_ = "";
-    idstr_ = "";
   }
 
   @java.lang.Override
@@ -67,12 +66,6 @@ private static final long serialVersionUID = 0L;
               location_ = subBuilder.buildPartial();
             }
 
-            break;
-          }
-          case 26: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            idstr_ = s;
             break;
           }
           default: {
@@ -191,44 +184,6 @@ private static final long serialVersionUID = 0L;
     return getLocation();
   }
 
-  public static final int IDSTR_FIELD_NUMBER = 3;
-  private volatile java.lang.Object idstr_;
-  /**
-   * <code>string idstr = 3;</code>
-   * @return The idstr.
-   */
-  @java.lang.Override
-  public java.lang.String getIdstr() {
-    java.lang.Object ref = idstr_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      idstr_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string idstr = 3;</code>
-   * @return The bytes for idstr.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getIdstrBytes() {
-    java.lang.Object ref = idstr_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      idstr_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
   private byte memoizedIsInitialized = -1;
   @java.lang.Override
   public final boolean isInitialized() {
@@ -249,9 +204,6 @@ private static final long serialVersionUID = 0L;
     if (location_ != null) {
       output.writeMessage(2, getLocation());
     }
-    if (!getIdstrBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 3, idstr_);
-    }
     unknownFields.writeTo(output);
   }
 
@@ -267,9 +219,6 @@ private static final long serialVersionUID = 0L;
     if (location_ != null) {
       size += com.google.protobuf.CodedOutputStream
         .computeMessageSize(2, getLocation());
-    }
-    if (!getIdstrBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, idstr_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -293,8 +242,6 @@ private static final long serialVersionUID = 0L;
       if (!getLocation()
           .equals(other.getLocation())) return false;
     }
-    if (!getIdstr()
-        .equals(other.getIdstr())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -312,8 +259,6 @@ private static final long serialVersionUID = 0L;
       hash = (37 * hash) + LOCATION_FIELD_NUMBER;
       hash = (53 * hash) + getLocation().hashCode();
     }
-    hash = (37 * hash) + IDSTR_FIELD_NUMBER;
-    hash = (53 * hash) + getIdstr().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
@@ -455,8 +400,6 @@ private static final long serialVersionUID = 0L;
         location_ = null;
         locationBuilder_ = null;
       }
-      idstr_ = "";
-
       return this;
     }
 
@@ -489,7 +432,6 @@ private static final long serialVersionUID = 0L;
       } else {
         result.location_ = locationBuilder_.build();
       }
-      result.idstr_ = idstr_;
       onBuilt();
       return result;
     }
@@ -544,10 +486,6 @@ private static final long serialVersionUID = 0L;
       }
       if (other.hasLocation()) {
         mergeLocation(other.getLocation());
-      }
-      if (!other.getIdstr().isEmpty()) {
-        idstr_ = other.idstr_;
-        onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -827,82 +765,6 @@ private static final long serialVersionUID = 0L;
         location_ = null;
       }
       return locationBuilder_;
-    }
-
-    private java.lang.Object idstr_ = "";
-    /**
-     * <code>string idstr = 3;</code>
-     * @return The idstr.
-     */
-    public java.lang.String getIdstr() {
-      java.lang.Object ref = idstr_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        idstr_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string idstr = 3;</code>
-     * @return The bytes for idstr.
-     */
-    public com.google.protobuf.ByteString
-        getIdstrBytes() {
-      java.lang.Object ref = idstr_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        idstr_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string idstr = 3;</code>
-     * @param value The idstr to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIdstr(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      idstr_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string idstr = 3;</code>
-     * @return This builder for chaining.
-     */
-    public Builder clearIdstr() {
-      
-      idstr_ = getDefaultInstance().getIdstr();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string idstr = 3;</code>
-     * @param value The bytes for idstr to set.
-     * @return This builder for chaining.
-     */
-    public Builder setIdstrBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      idstr_ = value;
-      onChanged();
-      return this;
     }
     @java.lang.Override
     public final Builder setUnknownFields(

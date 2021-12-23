@@ -53,16 +53,4 @@ public interface FeatureOrBuilder extends
    * <code>.p4p.p4p.sim.Point location = 2;</code>
    */
   io.grpc.examples.p4p.p4p.sim.PointOrBuilder getLocationOrBuilder();
-
-  /**
-   * <code>string idstr = 3;</code>
-   * @return The idstr.
-   */
-  java.lang.String getIdstr();
-  /**
-   * <code>string idstr = 3;</code>
-   * @return The bytes for idstr.
-   */
-  com.google.protobuf.ByteString
-      getIdstrBytes();
 }
