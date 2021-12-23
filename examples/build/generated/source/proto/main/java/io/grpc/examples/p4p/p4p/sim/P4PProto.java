@@ -25,10 +25,10 @@ public final class P4PProto {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_p4p_p4p_sim_Rectangle_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_p4p_p4p_sim_Idstr_descriptor;
+    internal_static_p4p_p4p_sim_idstring_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_p4p_p4p_sim_Idstr_fieldAccessorTable;
+      internal_static_p4p_p4p_sim_idstring_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
     internal_static_p4p_p4p_sim_Feature_descriptor;
   static final 
@@ -61,25 +61,26 @@ public final class P4PProto {
       "\n\tp4p.proto\022\013p4p.p4p.sim\",\n\005Point\022\020\n\010lat" +
       "itude\030\001 \001(\005\022\021\n\tlongitude\030\002 \001(\005\"K\n\tRectan" +
       "gle\022\036\n\002lo\030\001 \001(\0132\022.p4p.p4p.sim.Point\022\036\n\002h" +
-      "i\030\002 \001(\0132\022.p4p.p4p.sim.Point\"\026\n\005Idstr\022\r\n\005" +
-      "idstr\030\003 \001(\t\"L\n\007Feature\022\014\n\004name\030\001 \001(\t\022$\n\010" +
-      "location\030\002 \001(\0132\022.p4p.p4p.sim.Point\022\r\n\005id" +
-      "str\030\003 \001(\t\"8\n\017FeatureDatabase\022%\n\007feature\030" +
-      "\001 \003(\0132\024.p4p.p4p.sim.Feature\"B\n\tRouteNote" +
-      "\022$\n\010location\030\001 \001(\0132\022.p4p.p4p.sim.Point\022\017" +
-      "\n\007message\030\002 \001(\t\"b\n\014RouteSummary\022\023\n\013point" +
-      "_count\030\001 \001(\005\022\025\n\rfeature_count\030\002 \001(\005\022\020\n\010d" +
-      "istance\030\003 \001(\005\022\024\n\014elapsed_time\030\004 \001(\0052\310\002\n\n" +
-      "RouteGuide\0228\n\nGetFeature\022\022.p4p.p4p.sim.P" +
-      "oint\032\024.p4p.p4p.sim.Feature\"\000\0229\n\013GetIDStr" +
-      "ing\022\022.p4p.p4p.sim.Point\032\024.p4p.p4p.sim.Fe" +
-      "ature\"\000\022@\n\014ListFeatures\022\026.p4p.p4p.sim.Re" +
-      "ctangle\032\024.p4p.p4p.sim.Feature\"\0000\001\022@\n\013Rec" +
-      "ordRoute\022\022.p4p.p4p.sim.Point\032\031.p4p.p4p.s" +
-      "im.RouteSummary\"\000(\001\022A\n\tRouteChat\022\026.p4p.p" +
-      "4p.sim.RouteNote\032\026.p4p.p4p.sim.RouteNote" +
-      "\"\000(\0010\001B0\n\034io.grpc.examples.p4p.p4p.simB\010" +
-      "P4PProtoP\001\242\002\003RTGb\006proto3"
+      "i\030\002 \001(\0132\022.p4p.p4p.sim.Point\"\034\n\010idstring\022" +
+      "\020\n\010idstring\030\001 \001(\t\"L\n\007Feature\022\014\n\004name\030\001 \001" +
+      "(\t\022$\n\010location\030\002 \001(\0132\022.p4p.p4p.sim.Point" +
+      "\022\r\n\005idstr\030\003 \001(\t\"8\n\017FeatureDatabase\022%\n\007fe" +
+      "ature\030\001 \003(\0132\024.p4p.p4p.sim.Feature\"B\n\tRou" +
+      "teNote\022$\n\010location\030\001 \001(\0132\022.p4p.p4p.sim.P" +
+      "oint\022\017\n\007message\030\002 \001(\t\"b\n\014RouteSummary\022\023\n" +
+      "\013point_count\030\001 \001(\005\022\025\n\rfeature_count\030\002 \001(" +
+      "\005\022\020\n\010distance\030\003 \001(\005\022\024\n\014elapsed_time\030\004 \001(" +
+      "\0052\325\002\n\nRouteGuide\0228\n\nGetFeature\022\022.p4p.p4p" +
+      ".sim.Point\032\024.p4p.p4p.sim.Feature\"\000\022F\n\024Ge" +
+      "tFeatureByIDString\022\025.p4p.p4p.sim.idstrin" +
+      "g\032\025.p4p.p4p.sim.idstring\"\000\022@\n\014ListFeatur" +
+      "es\022\026.p4p.p4p.sim.Rectangle\032\024.p4p.p4p.sim" +
+      ".Feature\"\0000\001\022@\n\013RecordRoute\022\022.p4p.p4p.si" +
+      "m.Point\032\031.p4p.p4p.sim.RouteSummary\"\000(\001\022A" +
+      "\n\tRouteChat\022\026.p4p.p4p.sim.RouteNote\032\026.p4" +
+      "p.p4p.sim.RouteNote\"\000(\0010\001B0\n\034io.grpc.exa" +
+      "mples.p4p.p4p.simB\010P4PProtoP\001\242\002\003RTGb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -97,12 +98,12 @@ public final class P4PProto {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_p4p_p4p_sim_Rectangle_descriptor,
         new java.lang.String[] { "Lo", "Hi", });
-    internal_static_p4p_p4p_sim_Idstr_descriptor =
+    internal_static_p4p_p4p_sim_idstring_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_p4p_p4p_sim_Idstr_fieldAccessorTable = new
+    internal_static_p4p_p4p_sim_idstring_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_p4p_p4p_sim_Idstr_descriptor,
-        new java.lang.String[] { "Idstr", });
+        internal_static_p4p_p4p_sim_idstring_descriptor,
+        new java.lang.String[] { "Idstring", });
     internal_static_p4p_p4p_sim_Feature_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_p4p_p4p_sim_Feature_fieldAccessorTable = new

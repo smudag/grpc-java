@@ -30,7 +30,7 @@ service RouteGuide {
   // position.
   rpc GetFeature(Point) returns (Feature) {}
 
-  rpc GetIDString(Point) returns (Feature) {}
+  rpc GetFeatureByIDString(idstring) returns (idstring) {}
   // A server-to-client streaming RPC.
   //
   // Obtains the Features available within the given Rectangle.  Results are
@@ -75,8 +75,8 @@ message Rectangle {
 //
 // If a feature could not be named, the name is empty.
 
-message Idstr{
-  string idstr = 3;
+message idstring{
+  string idstring = 1;
 }
 
 message Feature {

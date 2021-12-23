@@ -49,35 +49,35 @@ public final class RouteGuideGrpc {
     return getGetFeatureMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.sim.Point,
-      io.grpc.examples.p4p.p4p.sim.Feature> getGetIDStringMethod;
+  private static volatile io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.sim.idstring,
+      io.grpc.examples.p4p.p4p.sim.idstring> getGetFeatureByIDStringMethod;
 
   @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "GetIDString",
-      requestType = io.grpc.examples.p4p.p4p.sim.Point.class,
-      responseType = io.grpc.examples.p4p.p4p.sim.Feature.class,
+      fullMethodName = SERVICE_NAME + '/' + "GetFeatureByIDString",
+      requestType = io.grpc.examples.p4p.p4p.sim.idstring.class,
+      responseType = io.grpc.examples.p4p.p4p.sim.idstring.class,
       methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.sim.Point,
-      io.grpc.examples.p4p.p4p.sim.Feature> getGetIDStringMethod() {
-    io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.sim.Point, io.grpc.examples.p4p.p4p.sim.Feature> getGetIDStringMethod;
-    if ((getGetIDStringMethod = RouteGuideGrpc.getGetIDStringMethod) == null) {
+  public static io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.sim.idstring,
+      io.grpc.examples.p4p.p4p.sim.idstring> getGetFeatureByIDStringMethod() {
+    io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.sim.idstring, io.grpc.examples.p4p.p4p.sim.idstring> getGetFeatureByIDStringMethod;
+    if ((getGetFeatureByIDStringMethod = RouteGuideGrpc.getGetFeatureByIDStringMethod) == null) {
       synchronized (RouteGuideGrpc.class) {
-        if ((getGetIDStringMethod = RouteGuideGrpc.getGetIDStringMethod) == null) {
-          RouteGuideGrpc.getGetIDStringMethod = getGetIDStringMethod =
-              io.grpc.MethodDescriptor.<io.grpc.examples.p4p.p4p.sim.Point, io.grpc.examples.p4p.p4p.sim.Feature>newBuilder()
+        if ((getGetFeatureByIDStringMethod = RouteGuideGrpc.getGetFeatureByIDStringMethod) == null) {
+          RouteGuideGrpc.getGetFeatureByIDStringMethod = getGetFeatureByIDStringMethod =
+              io.grpc.MethodDescriptor.<io.grpc.examples.p4p.p4p.sim.idstring, io.grpc.examples.p4p.p4p.sim.idstring>newBuilder()
               .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetIDString"))
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "GetFeatureByIDString"))
               .setSampledToLocalTracing(true)
               .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.examples.p4p.p4p.sim.Point.getDefaultInstance()))
+                  io.grpc.examples.p4p.p4p.sim.idstring.getDefaultInstance()))
               .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.examples.p4p.p4p.sim.Feature.getDefaultInstance()))
-              .setSchemaDescriptor(new RouteGuideMethodDescriptorSupplier("GetIDString"))
+                  io.grpc.examples.p4p.p4p.sim.idstring.getDefaultInstance()))
+              .setSchemaDescriptor(new RouteGuideMethodDescriptorSupplier("GetFeatureByIDString"))
               .build();
         }
       }
     }
-    return getGetIDStringMethod;
+    return getGetFeatureByIDStringMethod;
   }
 
   private static volatile io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.sim.Rectangle,
@@ -239,9 +239,9 @@ public final class RouteGuideGrpc {
 
     /**
      */
-    public void getIDString(io.grpc.examples.p4p.p4p.sim.Point request,
-        io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.sim.Feature> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetIDStringMethod(), responseObserver);
+    public void getFeatureByIDString(io.grpc.examples.p4p.p4p.sim.idstring request,
+        io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.sim.idstring> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getGetFeatureByIDStringMethod(), responseObserver);
     }
 
     /**
@@ -291,12 +291,12 @@ public final class RouteGuideGrpc {
                 io.grpc.examples.p4p.p4p.sim.Feature>(
                   this, METHODID_GET_FEATURE)))
           .addMethod(
-            getGetIDStringMethod(),
+            getGetFeatureByIDStringMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
-                io.grpc.examples.p4p.p4p.sim.Point,
-                io.grpc.examples.p4p.p4p.sim.Feature>(
-                  this, METHODID_GET_IDSTRING)))
+                io.grpc.examples.p4p.p4p.sim.idstring,
+                io.grpc.examples.p4p.p4p.sim.idstring>(
+                  this, METHODID_GET_FEATURE_BY_IDSTRING)))
           .addMethod(
             getListFeaturesMethod(),
             io.grpc.stub.ServerCalls.asyncServerStreamingCall(
@@ -355,10 +355,10 @@ public final class RouteGuideGrpc {
 
     /**
      */
-    public void getIDString(io.grpc.examples.p4p.p4p.sim.Point request,
-        io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.sim.Feature> responseObserver) {
+    public void getFeatureByIDString(io.grpc.examples.p4p.p4p.sim.idstring request,
+        io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.sim.idstring> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getGetIDStringMethod(), getCallOptions()), request, responseObserver);
+          getChannel().newCall(getGetFeatureByIDStringMethod(), getCallOptions()), request, responseObserver);
     }
 
     /**
@@ -434,9 +434,9 @@ public final class RouteGuideGrpc {
 
     /**
      */
-    public io.grpc.examples.p4p.p4p.sim.Feature getIDString(io.grpc.examples.p4p.p4p.sim.Point request) {
+    public io.grpc.examples.p4p.p4p.sim.idstring getFeatureByIDString(io.grpc.examples.p4p.p4p.sim.idstring request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getGetIDStringMethod(), getCallOptions(), request);
+          getChannel(), getGetFeatureByIDStringMethod(), getCallOptions(), request);
     }
 
     /**
@@ -488,15 +488,15 @@ public final class RouteGuideGrpc {
 
     /**
      */
-    public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.p4p.p4p.sim.Feature> getIDString(
-        io.grpc.examples.p4p.p4p.sim.Point request) {
+    public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.p4p.p4p.sim.idstring> getFeatureByIDString(
+        io.grpc.examples.p4p.p4p.sim.idstring request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getGetIDStringMethod(), getCallOptions()), request);
+          getChannel().newCall(getGetFeatureByIDStringMethod(), getCallOptions()), request);
     }
   }
 
   private static final int METHODID_GET_FEATURE = 0;
-  private static final int METHODID_GET_IDSTRING = 1;
+  private static final int METHODID_GET_FEATURE_BY_IDSTRING = 1;
   private static final int METHODID_LIST_FEATURES = 2;
   private static final int METHODID_RECORD_ROUTE = 3;
   private static final int METHODID_ROUTE_CHAT = 4;
@@ -522,9 +522,9 @@ public final class RouteGuideGrpc {
           serviceImpl.getFeature((io.grpc.examples.p4p.p4p.sim.Point) request,
               (io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.sim.Feature>) responseObserver);
           break;
-        case METHODID_GET_IDSTRING:
-          serviceImpl.getIDString((io.grpc.examples.p4p.p4p.sim.Point) request,
-              (io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.sim.Feature>) responseObserver);
+        case METHODID_GET_FEATURE_BY_IDSTRING:
+          serviceImpl.getFeatureByIDString((io.grpc.examples.p4p.p4p.sim.idstring) request,
+              (io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.sim.idstring>) responseObserver);
           break;
         case METHODID_LIST_FEATURES:
           serviceImpl.listFeatures((io.grpc.examples.p4p.p4p.sim.Rectangle) request,
@@ -598,7 +598,7 @@ public final class RouteGuideGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new RouteGuideFileDescriptorSupplier())
               .addMethod(getGetFeatureMethod())
-              .addMethod(getGetIDStringMethod())
+              .addMethod(getGetFeatureByIDStringMethod())
               .addMethod(getListFeaturesMethod())
               .addMethod(getRecordRouteMethod())
               .addMethod(getRouteChatMethod())

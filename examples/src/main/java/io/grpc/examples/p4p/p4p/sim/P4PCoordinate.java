@@ -70,7 +70,7 @@ public class P4PCoordinate {
     server.start();
     logger.info("Server started, listening on " + port);
     Runtime.getRuntime().addShutdownHook(new Thread() {
-      @Override
+      //@Override
       public void run() {
         // Use stderr here since the logger may have been reset by its JVM shutdown hook.
         System.err.println("*** shutting down gRPC server since JVM is shutting down");
@@ -114,7 +114,8 @@ public class P4PCoordinate {
    *
    * <p>See route_guide.proto for details of the methods.
    */
-  private static class CoordinateService extends RouteGuideGrpc.RouteGuideImplBase {
+  // private static class CoordinateService extends RouteGuideGrpc.RouteGuideImplBase {
+  private static class CoordinateService {
     private final Collection<Feature> features;
     private final ConcurrentMap<Point, List<RouteNote>> routeNotes =
         new ConcurrentHashMap<Point, List<RouteNote>>();
@@ -130,14 +131,16 @@ public class P4PCoordinate {
      * @param request the requested location for the feature.
      * @param responseObserver the observer that will receive the feature at the requested point.
      */
-    @Override
+    // //@Override
     public void getFeature(Point request, StreamObserver<Feature> responseObserver) {
       responseObserver.onNext(checkFeature(request));
       responseObserver.onCompleted();
     }
 
-    public void getFeatureByIDString(Idstr request, StreamObserver<Feature> responseObserver) {
-      System.out.println(request);
+  //  //@Override
+    public String getFeatureByIDString(Idstring request, StreamObserver<Feature> responseObserver) {
+      // System.out.println(request);
+      return "s";
     }
 
     /**
@@ -146,7 +149,7 @@ public class P4PCoordinate {
      * @param request the bounding rectangle for the requested features.
      * @param responseObserver the observer that will receive the features.
      */
-    @Override
+    //@Override
     public void listFeatures(Rectangle request, StreamObserver<Feature> responseObserver) {
       int left = min(request.getLo().getLongitude(), request.getHi().getLongitude());
       int right = max(request.getLo().getLongitude(), request.getHi().getLongitude());
@@ -174,7 +177,7 @@ public class P4PCoordinate {
      * @param responseObserver an observer to receive the response summary.
      * @return an observer to receive the requested route points.
      */
-    @Override
+    //@Override
     public StreamObserver<Point> recordRoute(final StreamObserver<RouteSummary> responseObserver) {
       return new StreamObserver<Point>() {
         int pointCount;
@@ -183,7 +186,7 @@ public class P4PCoordinate {
         Point previous;
         final long startTime = System.nanoTime();
 
-        @Override
+        //@Override
         public void onNext(Point point) {
           pointCount++;
           if (P4PGuideUtil.exists(checkFeature(point))) {
@@ -197,12 +200,12 @@ public class P4PCoordinate {
           previous = point;
         }
 
-        @Override
+        //@Override
         public void onError(Throwable t) {
           logger.log(Level.WARNING, "recordRoute cancelled");
         }
 
-        @Override
+        //@Override
         public void onCompleted() {
           long seconds = NANOSECONDS.toSeconds(System.nanoTime() - startTime);
           responseObserver.onNext(RouteSummary.newBuilder().setPointCount(pointCount)
@@ -220,10 +223,10 @@ public class P4PCoordinate {
      * @param responseObserver an observer to receive the stream of previous messages.
      * @return an observer to handle requested message/location pairs.
      */
-    @Override
+    //@Override
     public StreamObserver<RouteNote> routeChat(final StreamObserver<RouteNote> responseObserver) {
       return new StreamObserver<RouteNote>() {
-        @Override
+        //@Override
         public void onNext(RouteNote note) {
           List<RouteNote> notes = getOrCreateNotes(note.getLocation());
       
@@ -237,12 +240,12 @@ public class P4PCoordinate {
           System.out.println(notes);
         }
 
-        @Override
+        //@Override
         public void onError(Throwable t) {
           logger.log(Level.WARNING, "routeChat cancelled");
         }
 
-        @Override
+        //@Override
         public void onCompleted() {
           responseObserver.onCompleted();
         }
