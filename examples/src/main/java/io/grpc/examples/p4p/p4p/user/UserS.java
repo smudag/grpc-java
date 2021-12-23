@@ -17,7 +17,7 @@ public class UserS {
 
   private void start() throws IOException {
     /* The port on which the server should run */
-    int port = 50051;
+    int port = 1111;
     server = ServerBuilder.forPort(port)
         .addService(new UserSImpl())
         .build()
@@ -59,6 +59,7 @@ public class UserS {
   public static void main(String[] args) throws IOException, InterruptedException {
     final UserS server = new UserS();
     server.start();
+    System.out.println("UserS start !!");
     server.blockUntilShutdown();
   }
 

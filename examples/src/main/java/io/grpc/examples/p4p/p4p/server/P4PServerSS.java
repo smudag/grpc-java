@@ -74,6 +74,7 @@ public class P4PServerSS {
    */
   public static void main(String[] args) throws IOException, InterruptedException {
     final P4PServerSS server = new P4PServerSS();
+    System.out.println("P4PServer start !!");
     server.start();
     server.blockUntilShutdown();
   }
