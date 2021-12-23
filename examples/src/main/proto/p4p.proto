@@ -21,7 +21,7 @@ option objc_class_prefix = "RTG";
 package p4p.p4p.sim;
 
 // Interface exported by the server.
-service RouteGuide {
+service P4PCoordiante {
   // A simple RPC.
   //
   // Obtains the feature at a given position.
