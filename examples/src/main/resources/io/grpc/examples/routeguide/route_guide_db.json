@@ -2,15 +2,39 @@
   "feature": [
     {
         "location": {
-            "latitude": 9999,
-            "longitude": -8888
+            "latitude": 1,
+            "longitude": 1
         },
-        "name": "SingaporeAAAA"
+        "name": "Peer N1"
+    }, {
+        "location": {
+            "latitude": 2,
+            "longitude": 2
+        },
+        "name": "Peer N2"
     },{
         "location": {
-            "latitude": 409146138,
-            "longitude": -746188906
+            "latitude": 3,
+            "longitude": 3
         },
-        "name": "Berkshire Valley Management Area Trail, Jefferson, NJ, USA"
+        "name": "Peer N3"
+    },{
+        "location": {
+            "latitude": 4,
+            "longitude": 4
+        },
+        "name": "Peer N4"
+    },{
+        "location": {
+            "latitude": 9999,
+            "longitude": 9999
+        },
+        "name": "Server N0"
+    },{
+        "location": {
+            "latitude": 1111,
+            "longitude": 1111
+        },
+        "name": "Client"
     }]
 }
