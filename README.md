@@ -12,7 +12,7 @@ protoc --go_out=. --go_opt=paths=source_relative \
     
 protoc --go_out=. --go_opt=paths=source_relative \
     --go-grpc_out=. --go-grpc_opt=paths=source_relative \
-    p4p/p4p/user/user.proto
+    p4p/p4p/user/users.proto
     
     
 go run ~/grpc-go/examples/p4p/p4p/sim/server/server.go   
