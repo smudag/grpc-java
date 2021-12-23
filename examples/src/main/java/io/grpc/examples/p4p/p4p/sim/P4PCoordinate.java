@@ -114,8 +114,8 @@ public class P4PCoordinate {
    *
    * <p>See route_guide.proto for details of the methods.
    */
-  // private static class CoordinateService extends RouteGuideGrpc.RouteGuideImplBase {
-  private static class CoordinateService {
+  private static class CoordinateService extends RouteGuideGrpc.RouteGuideImplBase {
+  // private static class CoordinateService {
     private final Collection<Feature> features;
     private final ConcurrentMap<Point, List<RouteNote>> routeNotes =
         new ConcurrentHashMap<Point, List<RouteNote>>();
