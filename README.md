@@ -1,3 +1,7 @@
+https://stackoverflow.com/questions/4585929/how-to-use-cp-command-to-exclude-a-specific-directory
+
+
+
 `go run ~/grpc-go/examples/p4p/p4p/sim/server/server.go`   
 ```
 cd ~/grpc-go/examples/
@@ -13,6 +17,9 @@ https://github.com/SheldonHH/p4g/blob/main/Dockerfile
 
 ```
 cd /root/grpc-java/examples && rm -r build && ./gradlew installDist
+/root/grpc-java/examples/build/install/examples/bin/p4p-coordinate
+/root/grpc-java/examples/build/install/examples/bin/p4p-sim
+
 /root/grpc-java/examples/build/install/examples/bin/hello-world-server
 
 /root/grpc-java/examples/build/install/examples/bin/hello-world-client
