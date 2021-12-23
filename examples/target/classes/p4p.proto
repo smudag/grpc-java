@@ -74,10 +74,6 @@ message Rectangle {
 //
 // If a feature could not be named, the name is empty.
 
-message idstring{
-  string idstring = 1;
-}
-
 message Feature {
   // The name of the feature.
   string name = 1;
@@ -85,7 +81,6 @@ message Feature {
   // The point where the feature is detected.
   Point location = 2;
 
-  string idstr = 3;
 }
 
 // Not used in the RPC.  Instead, this is here for the form serialized to disk.
