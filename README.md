@@ -1,3 +1,7 @@
+https://stackoverflow.com/questions/4585929/how-to-use-cp-command-to-exclude-a-specific-directory
+
+
+
 `go run ~/grpc-go/examples/p4p/p4p/sim/server/server.go`   
 ```
 cd ~/grpc-go/examples/
