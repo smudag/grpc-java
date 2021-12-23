@@ -18,7 +18,7 @@ option java_package = "io.grpc.examples.p4p.p4p.server";
 option java_outer_classname = "P4PServerSSProto";
 option objc_class_prefix = "HLW";
 
-package proto;
+package p4p.p4p.server;
 
 // The greeting service definition.
 service P4PServerSS {

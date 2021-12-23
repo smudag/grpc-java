@@ -15,7 +15,7 @@ public final class P4PPeerGrpc {
 
   private P4PPeerGrpc() {}
 
-  public static final String SERVICE_NAME = "proto.P4PPeer";
+  public static final String SERVICE_NAME = "p4p.p4p.peer.P4PPeer";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.peer.P4PPeerRequest,

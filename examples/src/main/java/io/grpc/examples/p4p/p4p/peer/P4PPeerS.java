@@ -86,13 +86,14 @@ public class P4PPeerS {
       P4PPeerReply reply = P4PPeerReply.newBuilder().setMessage("Hello " + req.getName()).build();
       try {
         // runProcess("javac Main.java");
-        runProcess("/root/grpc-java/examples/build/install/examples/bin/n0-server");
+        // runProcess("/root/grpc-java/examples/build/install/examples/bin/n0-server");
       } catch (Exception e) {
         e.printStackTrace();
       }
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
     }
+
    @Override
    public void sayHelloAgain(P4PPeerRequest req, StreamObserver<P4PPeerReply> responseObserver) {
       P4PPeerReply reply = P4PPeerReply.newBuilder().setMessage("Hello again " + req.getName()).build();

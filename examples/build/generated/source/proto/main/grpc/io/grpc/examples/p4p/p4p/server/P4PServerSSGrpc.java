@@ -15,7 +15,7 @@ public final class P4PServerSSGrpc {
 
   private P4PServerSSGrpc() {}
 
-  public static final String SERVICE_NAME = "proto.P4PServerSS";
+  public static final String SERVICE_NAME = "p4p.p4p.server.P4PServerSS";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.server.P4PServerSSRequest,

@@ -98,6 +98,13 @@ task helloWorldServer(type: CreateStartScripts) {
     classpath = startScripts.classpath
 }
 
+task helloWorldClient(type: CreateStartScripts) {
+    mainClassName = 'io.grpc.examples.helloworld.HelloWorldClient'
+    applicationName = 'hello-world-server'
+    outputDir = new File(project.buildDir, 'tmp')
+    classpath = startScripts.classpath
+}
+
 task n0Server(type: CreateStartScripts) {
     mainClassName = 'io.grpc.examples.helloworld.N0Server'
     applicationName = 'n0-server'
@@ -105,9 +112,23 @@ task n0Server(type: CreateStartScripts) {
     classpath = startScripts.classpath
 }
 
-task helloWorldClient(type: CreateStartScripts) {
-    mainClassName = 'io.grpc.examples.helloworld.HelloWorldClient'
-    applicationName = 'hello-world-client'
+task p4pServer(type: CreateStartScripts) {
+    mainClassName = 'io.grpc.examples.p4p.p4p.server.P4PServerSS'
+    applicationName = 'p4p-server'
+    outputDir = new File(project.buildDir, 'tmp')
+    classpath = startScripts.classpath
+}
+
+task p4pPeer(type: CreateStartScripts) {
+    mainClassName = 'io.grpc.examples.p4p.p4p.peer.P4PPeerS'
+    applicationName = 'p4p-peer'
+    outputDir = new File(project.buildDir, 'tmp')
+    classpath = startScripts.classpath
+}
+
+task p4pUser(type: CreateStartScripts) {
+    mainClassName = 'io.grpc.examples.p4p.p4p.user.UserS'
+    applicationName = 'p4p-user'
     outputDir = new File(project.buildDir, 'tmp')
     classpath = startScripts.classpath
 }
@@ -176,5 +197,8 @@ applicationDistribution.into('bin') {
     from(manualFlowControlServer)
     from(p4pSim)
     from(p4pCoordinate)
+    from(p4pPeer)
+    from(p4pServer)
+    from(p4pUser)
     fileMode = 0755
 }

@@ -86,7 +86,7 @@ public class P4PServerSS {
       P4PServerSSReply reply = P4PServerSSReply.newBuilder().setMessage("Hello " + req.getName()).build();
       try {
         // runProcess("javac Main.java");
-        runProcess("/root/grpc-java/examples/build/install/examples/bin/n0-server");
+          System.out.println("N0 Java Up");
       } catch (Exception e) {
         e.printStackTrace();
       }

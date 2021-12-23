@@ -15,15 +15,15 @@ public final class P4PPeerProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_proto_P4PPeerRequest_descriptor;
+    internal_static_p4p_p4p_peer_P4PPeerRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_proto_P4PPeerRequest_fieldAccessorTable;
+      internal_static_p4p_p4p_peer_P4PPeerRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_proto_P4PPeerReply_descriptor;
+    internal_static_p4p_p4p_peer_P4PPeerReply_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_proto_P4PPeerReply_fieldAccessorTable;
+      internal_static_p4p_p4p_peer_P4PPeerReply_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -33,30 +33,30 @@ public final class P4PPeerProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\rp4ppeer.proto\022\005proto\"\036\n\016P4PPeerRequest" +
-      "\022\014\n\004name\030\001 \001(\t\"\037\n\014P4PPeerReply\022\017\n\007messag" +
-      "e\030\001 \001(\t2\202\001\n\007P4PPeer\0228\n\010SayHello\022\025.proto." +
-      "P4PPeerRequest\032\023.proto.P4PPeerReply\"\000\022=\n" +
-      "\rSayHelloAgain\022\025.proto.P4PPeerRequest\032\023." +
-      "proto.P4PPeerReply\"\000B5\n\035io.grpc.examples" +
-      ".p4p.p4p.peerB\014P4PPeerProtoP\001\242\002\003HLWb\006pro" +
-      "to3"
+      "\n\rp4ppeer.proto\022\014p4p.p4p.peer\"\036\n\016P4PPeer" +
+      "Request\022\014\n\004name\030\001 \001(\t\"\037\n\014P4PPeerReply\022\017\n" +
+      "\007message\030\001 \001(\t2\236\001\n\007P4PPeer\022F\n\010SayHello\022\034" +
+      ".p4p.p4p.peer.P4PPeerRequest\032\032.p4p.p4p.p" +
+      "eer.P4PPeerReply\"\000\022K\n\rSayHelloAgain\022\034.p4" +
+      "p.p4p.peer.P4PPeerRequest\032\032.p4p.p4p.peer" +
+      ".P4PPeerReply\"\000B5\n\035io.grpc.examples.p4p." +
+      "p4p.peerB\014P4PPeerProtoP\001\242\002\003HLWb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_proto_P4PPeerRequest_descriptor =
+    internal_static_p4p_p4p_peer_P4PPeerRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_proto_P4PPeerRequest_fieldAccessorTable = new
+    internal_static_p4p_p4p_peer_P4PPeerRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_proto_P4PPeerRequest_descriptor,
+        internal_static_p4p_p4p_peer_P4PPeerRequest_descriptor,
         new java.lang.String[] { "Name", });
-    internal_static_proto_P4PPeerReply_descriptor =
+    internal_static_p4p_p4p_peer_P4PPeerReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_proto_P4PPeerReply_fieldAccessorTable = new
+    internal_static_p4p_p4p_peer_P4PPeerReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_proto_P4PPeerReply_descriptor,
+        internal_static_p4p_p4p_peer_P4PPeerReply_descriptor,
         new java.lang.String[] { "Message", });
   }
 

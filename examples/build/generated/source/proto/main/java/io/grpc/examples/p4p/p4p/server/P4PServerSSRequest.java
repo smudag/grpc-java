@@ -8,11 +8,11 @@ package io.grpc.examples.p4p.p4p.server;
  * The request message containing the user's name.
  * </pre>
  *
- * Protobuf type {@code proto.P4PServerSSRequest}
+ * Protobuf type {@code p4p.p4p.server.P4PServerSSRequest}
  */
 public final class P4PServerSSRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:proto.P4PServerSSRequest)
+    // @@protoc_insertion_point(message_implements:p4p.p4p.server.P4PServerSSRequest)
     P4PServerSSRequestOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use P4PServerSSRequest.newBuilder() to construct.
@@ -80,13 +80,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.grpc.examples.p4p.p4p.server.P4PServerSSProto.internal_static_proto_P4PServerSSRequest_descriptor;
+    return io.grpc.examples.p4p.p4p.server.P4PServerSSProto.internal_static_p4p_p4p_server_P4PServerSSRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.grpc.examples.p4p.p4p.server.P4PServerSSProto.internal_static_proto_P4PServerSSRequest_fieldAccessorTable
+    return io.grpc.examples.p4p.p4p.server.P4PServerSSProto.internal_static_p4p_p4p_server_P4PServerSSRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             io.grpc.examples.p4p.p4p.server.P4PServerSSRequest.class, io.grpc.examples.p4p.p4p.server.P4PServerSSRequest.Builder.class);
   }
@@ -288,21 +288,21 @@ private static final long serialVersionUID = 0L;
    * The request message containing the user's name.
    * </pre>
    *
-   * Protobuf type {@code proto.P4PServerSSRequest}
+   * Protobuf type {@code p4p.p4p.server.P4PServerSSRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:proto.P4PServerSSRequest)
+      // @@protoc_insertion_point(builder_implements:p4p.p4p.server.P4PServerSSRequest)
       io.grpc.examples.p4p.p4p.server.P4PServerSSRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.grpc.examples.p4p.p4p.server.P4PServerSSProto.internal_static_proto_P4PServerSSRequest_descriptor;
+      return io.grpc.examples.p4p.p4p.server.P4PServerSSProto.internal_static_p4p_p4p_server_P4PServerSSRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.grpc.examples.p4p.p4p.server.P4PServerSSProto.internal_static_proto_P4PServerSSRequest_fieldAccessorTable
+      return io.grpc.examples.p4p.p4p.server.P4PServerSSProto.internal_static_p4p_p4p_server_P4PServerSSRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.grpc.examples.p4p.p4p.server.P4PServerSSRequest.class, io.grpc.examples.p4p.p4p.server.P4PServerSSRequest.Builder.class);
     }
@@ -333,7 +333,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.grpc.examples.p4p.p4p.server.P4PServerSSProto.internal_static_proto_P4PServerSSRequest_descriptor;
+      return io.grpc.examples.p4p.p4p.server.P4PServerSSProto.internal_static_p4p_p4p_server_P4PServerSSRequest_descriptor;
     }
 
     @java.lang.Override
@@ -523,10 +523,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:proto.P4PServerSSRequest)
+    // @@protoc_insertion_point(builder_scope:p4p.p4p.server.P4PServerSSRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:proto.P4PServerSSRequest)
+  // @@protoc_insertion_point(class_scope:p4p.p4p.server.P4PServerSSRequest)
   private static final io.grpc.examples.p4p.p4p.server.P4PServerSSRequest DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new io.grpc.examples.p4p.p4p.server.P4PServerSSRequest();

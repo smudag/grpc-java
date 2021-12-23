@@ -28,7 +28,7 @@ import static java.util.concurrent.TimeUnit.NANOSECONDS;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -266,6 +266,30 @@ public class P4PCoordinate {
         if (feature.getLocation().getLatitude() == location.getLatitude()
             && feature.getLocation().getLongitude() == location.getLongitude()) {
               System.out.println("Server found Feature:"+feature.getName());
+              System.out.println(feature.getName().getClass());
+              if(feature.getName().equals("N0")){
+                try{
+                    runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-server");
+                    System.out.println("N0 Java Up");
+                } catch (Exception e) {
+                   e.printStackTrace();
+                }
+              }
+              if(feature.getName().equals("client")){
+                try{
+                  runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-user");
+                  System.out.println("client Java Listening");
+                } catch (Exception e) {
+                   e.printStackTrace();
+               }
+              }
+              try{
+                runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-peer");
+                System.out.println("Peer Java Listening");
+              } catch (Exception e) {
+                 e.printStackTrace();
+             }
+
           return feature;
         }
       }
@@ -297,5 +321,23 @@ public class P4PCoordinate {
 
       return (int) (r * c);
     }
+  }
+
+
+  private static void printLines(String name, InputStream ins) throws Exception {
+    String line = null;
+    BufferedReader in = new BufferedReader(
+        new InputStreamReader(ins));
+    while ((line = in.readLine()) != null) {
+        System.out.println(name + " " + line);
+    }
+  }
+
+  private static void runProcess(String command) throws Exception {
+    Process pro = Runtime.getRuntime().exec(command);
+    printLines(command + " stdout:", pro.getInputStream());
+    printLines(command + " stderr:", pro.getErrorStream());
+    pro.waitFor();
+    System.out.println(command + " exitValue() " + pro.exitValue());
   }
 }

@@ -4,7 +4,7 @@
 package io.grpc.examples.p4p.p4p.peer;
 
 public interface P4PPeerReplyOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:proto.P4PPeerReply)
+    // @@protoc_insertion_point(interface_extends:p4p.p4p.peer.P4PPeerReply)
     com.google.protobuf.MessageOrBuilder {
 
   /**

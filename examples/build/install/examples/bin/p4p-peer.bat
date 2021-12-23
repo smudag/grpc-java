@@ -17,7 +17,7 @@
 @if "%DEBUG%" == "" @echo off
 @rem ##########################################################################
 @rem
-@rem  hello-world-client startup script for Windows
+@rem  p4p-peer startup script for Windows
 @rem
 @rem ##########################################################################
 
@@ -32,7 +32,7 @@ set APP_HOME=%DIRNAME%..
 @rem Resolve any "." and ".." in APP_HOME to make it shorter.
 for %%i in ("%APP_HOME%") do set APP_HOME=%%~fi
 
-@rem Add default JVM options here. You can also use JAVA_OPTS and HELLO_WORLD_CLIENT_OPTS to pass JVM options to this script.
+@rem Add default JVM options here. You can also use JAVA_OPTS and P4P_PEER_OPTS to pass JVM options to this script.
 set DEFAULT_JVM_OPTS=
 
 @rem Find java.exe
@@ -70,17 +70,17 @@ goto fail
 set CLASSPATH=%APP_HOME%\lib\examples.jar;%APP_HOME%\lib\grpc-protobuf-1.42.1.jar;%APP_HOME%\lib\grpc-stub-1.42.1.jar;%APP_HOME%\lib\protobuf-java-util-3.17.2.jar;%APP_HOME%\lib\grpc-netty-shaded-1.42.1.jar;%APP_HOME%\lib\grpc-protobuf-lite-1.42.1.jar;%APP_HOME%\lib\grpc-core-1.42.1.jar;%APP_HOME%\lib\grpc-api-1.42.1.jar;%APP_HOME%\lib\guava-30.1-android.jar;%APP_HOME%\lib\jsr305-3.0.2.jar;%APP_HOME%\lib\proto-google-common-protos-2.0.1.jar;%APP_HOME%\lib\protobuf-java-3.17.2.jar;%APP_HOME%\lib\error_prone_annotations-2.9.0.jar;%APP_HOME%\lib\gson-2.8.6.jar;%APP_HOME%\lib\perfmark-api-0.23.0.jar;%APP_HOME%\lib\grpc-context-1.42.1.jar;%APP_HOME%\lib\failureaccess-1.0.1.jar;%APP_HOME%\lib\listenablefuture-9999.0-empty-to-avoid-conflict-with-guava.jar;%APP_HOME%\lib\checker-compat-qual-2.5.5.jar;%APP_HOME%\lib\j2objc-annotations-1.3.jar;%APP_HOME%\lib\annotations-4.1.1.4.jar;%APP_HOME%\lib\animal-sniffer-annotations-1.19.jar
 
 
-@rem Execute hello-world-client
-"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %HELLO_WORLD_CLIENT_OPTS%  -classpath "%CLASSPATH%" io.grpc.examples.helloworld.HelloWorldClient %*
+@rem Execute p4p-peer
+"%JAVA_EXE%" %DEFAULT_JVM_OPTS% %JAVA_OPTS% %P4P_PEER_OPTS%  -classpath "%CLASSPATH%" io.grpc.examples.p4p.p4p.peer.P4PPeerS %*
 
 :end
 @rem End local scope for the variables with windows NT shell
 if "%ERRORLEVEL%"=="0" goto mainEnd
 
 :fail
-rem Set variable HELLO_WORLD_CLIENT_EXIT_CONSOLE if you need the _script_ return code instead of
+rem Set variable P4P_PEER_EXIT_CONSOLE if you need the _script_ return code instead of
 rem the _cmd.exe /c_ return code!
-if  not "" == "%HELLO_WORLD_CLIENT_EXIT_CONSOLE%" exit 1
+if  not "" == "%P4P_PEER_EXIT_CONSOLE%" exit 1
 exit /b 1
 
 :mainEnd

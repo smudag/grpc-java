@@ -18,7 +18,7 @@
 
 ##############################################################################
 ##
-##  hello-world-client start up script for UN*X
+##  p4p-server start up script for UN*X
 ##
 ##############################################################################
 
@@ -40,10 +40,10 @@ cd "`dirname \"$PRG\"`/.." >/dev/null
 APP_HOME="`pwd -P`"
 cd "$SAVED" >/dev/null
 
-APP_NAME="hello-world-client"
+APP_NAME="p4p-server"
 APP_BASE_NAME=`basename "$0"`
 
-# Add default JVM options here. You can also use JAVA_OPTS and HELLO_WORLD_CLIENT_OPTS to pass JVM options to this script.
+# Add default JVM options here. You can also use JAVA_OPTS and P4P_SERVER_OPTS to pass JVM options to this script.
 DEFAULT_JVM_OPTS=""
 
 # Use the maximum available, or set MAX_FD != -1 to use that value.
@@ -180,6 +180,6 @@ save () {
 APP_ARGS=`save "$@"`
 
 # Collect all arguments for the java command, following the shell quoting and substitution rules
-eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $HELLO_WORLD_CLIENT_OPTS -classpath "\"$CLASSPATH\"" io.grpc.examples.helloworld.HelloWorldClient "$APP_ARGS"
+eval set -- $DEFAULT_JVM_OPTS $JAVA_OPTS $P4P_SERVER_OPTS -classpath "\"$CLASSPATH\"" io.grpc.examples.p4p.p4p.server.P4PServerSS "$APP_ARGS"
 
 exec "$JAVACMD" "$@"

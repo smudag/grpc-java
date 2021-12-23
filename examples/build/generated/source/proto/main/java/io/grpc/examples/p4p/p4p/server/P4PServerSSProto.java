@@ -15,15 +15,15 @@ public final class P4PServerSSProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_proto_P4PServerSSRequest_descriptor;
+    internal_static_p4p_p4p_server_P4PServerSSRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_proto_P4PServerSSRequest_fieldAccessorTable;
+      internal_static_p4p_p4p_server_P4PServerSSRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_proto_P4PServerSSReply_descriptor;
+    internal_static_p4p_p4p_server_P4PServerSSReply_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_proto_P4PServerSSReply_fieldAccessorTable;
+      internal_static_p4p_p4p_server_P4PServerSSReply_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -33,31 +33,32 @@ public final class P4PServerSSProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021p4pserverss.proto\022\005proto\"\"\n\022P4PServerS" +
-      "SRequest\022\014\n\004name\030\001 \001(\t\"#\n\020P4PServerSSRep" +
-      "ly\022\017\n\007message\030\001 \001(\t2\226\001\n\013P4PServerSS\022@\n\010S" +
-      "ayHello\022\031.proto.P4PServerSSRequest\032\027.pro" +
-      "to.P4PServerSSReply\"\000\022E\n\rSayHelloAgain\022\031" +
-      ".proto.P4PServerSSRequest\032\027.proto.P4PSer" +
-      "verSSReply\"\000B;\n\037io.grpc.examples.p4p.p4p" +
-      ".serverB\020P4PServerSSProtoP\001\242\002\003HLWb\006proto" +
-      "3"
+      "\n\021p4pserverss.proto\022\016p4p.p4p.server\"\"\n\022P" +
+      "4PServerSSRequest\022\014\n\004name\030\001 \001(\t\"#\n\020P4PSe" +
+      "rverSSReply\022\017\n\007message\030\001 \001(\t2\272\001\n\013P4PServ" +
+      "erSS\022R\n\010SayHello\022\".p4p.p4p.server.P4PSer" +
+      "verSSRequest\032 .p4p.p4p.server.P4PServerS" +
+      "SReply\"\000\022W\n\rSayHelloAgain\022\".p4p.p4p.serv" +
+      "er.P4PServerSSRequest\032 .p4p.p4p.server.P" +
+      "4PServerSSReply\"\000B;\n\037io.grpc.examples.p4" +
+      "p.p4p.serverB\020P4PServerSSProtoP\001\242\002\003HLWb\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_proto_P4PServerSSRequest_descriptor =
+    internal_static_p4p_p4p_server_P4PServerSSRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_proto_P4PServerSSRequest_fieldAccessorTable = new
+    internal_static_p4p_p4p_server_P4PServerSSRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_proto_P4PServerSSRequest_descriptor,
+        internal_static_p4p_p4p_server_P4PServerSSRequest_descriptor,
         new java.lang.String[] { "Name", });
-    internal_static_proto_P4PServerSSReply_descriptor =
+    internal_static_p4p_p4p_server_P4PServerSSReply_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_proto_P4PServerSSReply_fieldAccessorTable = new
+    internal_static_p4p_p4p_server_P4PServerSSReply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_proto_P4PServerSSReply_descriptor,
+        internal_static_p4p_p4p_server_P4PServerSSReply_descriptor,
         new java.lang.String[] { "Message", });
   }
 
