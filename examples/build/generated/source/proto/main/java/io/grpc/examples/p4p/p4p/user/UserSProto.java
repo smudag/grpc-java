@@ -43,10 +43,10 @@ public final class UserSProto {
       "st\022\014\n\004data\030\001 \001(\014\"\035\n\nUserSReply\022\017\n\007messag" +
       "e\030\001 \001(\t2\364\001\n\005UserS\022J\n\010SayHello\022\036.p4p.p4p." +
       "user.p4p.UserSRequest\032\034.p4p.p4p.user.p4p" +
+      ".UserSReply\"\000\022N\n\007SayData\022#.p4p.p4p.user." +
+      "p4p.BytesDataSRequest\032\034.p4p.p4p.user.p4p" +
       ".UserSReply\"\000\022O\n\rSayHelloAgain\022\036.p4p.p4p" +
       ".user.p4p.UserSRequest\032\034.p4p.p4p.user.p4" +
-      "p.UserSReply\"\000\022N\n\007SayData\022#.p4p.p4p.user" +
-      ".p4p.BytesDataSRequest\032\034.p4p.p4p.user.p4" +
       "p.UserSReply\"\000B3\n\035io.grpc.examples.p4p.p" +
       "4p.userB\nUserSProtoP\001\242\002\003HLWb\006proto3"
     };

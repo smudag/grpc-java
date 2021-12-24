@@ -25,9 +25,10 @@ service UserS {
   // Sends a greeting
   rpc SayHello (UserSRequest) returns (UserSReply) {}
   // Sends another greeting
-  rpc SayHelloAgain (UserSRequest) returns (UserSReply) {}
 
   rpc SayData (BytesDataSRequest) returns (UserSReply) {}
+  rpc SayHelloAgain (UserSRequest) returns (UserSReply) {}
+
 }
 
 // The request message containing the user's name.

@@ -49,37 +49,6 @@ public final class UserSGrpc {
     return getSayHelloMethod;
   }
 
-  private static volatile io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.user.UserSRequest,
-      io.grpc.examples.p4p.p4p.user.UserSReply> getSayHelloAgainMethod;
-
-  @io.grpc.stub.annotations.RpcMethod(
-      fullMethodName = SERVICE_NAME + '/' + "SayHelloAgain",
-      requestType = io.grpc.examples.p4p.p4p.user.UserSRequest.class,
-      responseType = io.grpc.examples.p4p.p4p.user.UserSReply.class,
-      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
-  public static io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.user.UserSRequest,
-      io.grpc.examples.p4p.p4p.user.UserSReply> getSayHelloAgainMethod() {
-    io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.user.UserSRequest, io.grpc.examples.p4p.p4p.user.UserSReply> getSayHelloAgainMethod;
-    if ((getSayHelloAgainMethod = UserSGrpc.getSayHelloAgainMethod) == null) {
-      synchronized (UserSGrpc.class) {
-        if ((getSayHelloAgainMethod = UserSGrpc.getSayHelloAgainMethod) == null) {
-          UserSGrpc.getSayHelloAgainMethod = getSayHelloAgainMethod =
-              io.grpc.MethodDescriptor.<io.grpc.examples.p4p.p4p.user.UserSRequest, io.grpc.examples.p4p.p4p.user.UserSReply>newBuilder()
-              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
-              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SayHelloAgain"))
-              .setSampledToLocalTracing(true)
-              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.examples.p4p.p4p.user.UserSRequest.getDefaultInstance()))
-              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
-                  io.grpc.examples.p4p.p4p.user.UserSReply.getDefaultInstance()))
-              .setSchemaDescriptor(new UserSMethodDescriptorSupplier("SayHelloAgain"))
-              .build();
-        }
-      }
-    }
-    return getSayHelloAgainMethod;
-  }
-
   private static volatile io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.user.BytesDataSRequest,
       io.grpc.examples.p4p.p4p.user.UserSReply> getSayDataMethod;
 
@@ -109,6 +78,37 @@ public final class UserSGrpc {
       }
     }
     return getSayDataMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.user.UserSRequest,
+      io.grpc.examples.p4p.p4p.user.UserSReply> getSayHelloAgainMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SayHelloAgain",
+      requestType = io.grpc.examples.p4p.p4p.user.UserSRequest.class,
+      responseType = io.grpc.examples.p4p.p4p.user.UserSReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.user.UserSRequest,
+      io.grpc.examples.p4p.p4p.user.UserSReply> getSayHelloAgainMethod() {
+    io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.user.UserSRequest, io.grpc.examples.p4p.p4p.user.UserSReply> getSayHelloAgainMethod;
+    if ((getSayHelloAgainMethod = UserSGrpc.getSayHelloAgainMethod) == null) {
+      synchronized (UserSGrpc.class) {
+        if ((getSayHelloAgainMethod = UserSGrpc.getSayHelloAgainMethod) == null) {
+          UserSGrpc.getSayHelloAgainMethod = getSayHelloAgainMethod =
+              io.grpc.MethodDescriptor.<io.grpc.examples.p4p.p4p.user.UserSRequest, io.grpc.examples.p4p.p4p.user.UserSReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SayHelloAgain"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.grpc.examples.p4p.p4p.user.UserSRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.grpc.examples.p4p.p4p.user.UserSReply.getDefaultInstance()))
+              .setSchemaDescriptor(new UserSMethodDescriptorSupplier("SayHelloAgain"))
+              .build();
+        }
+      }
+    }
+    return getSayHelloAgainMethod;
   }
 
   /**
@@ -173,20 +173,17 @@ public final class UserSGrpc {
     }
 
     /**
-     * <pre>
-     * Sends another greeting
-     * </pre>
-     */
-    public void sayHelloAgain(io.grpc.examples.p4p.p4p.user.UserSRequest request,
-        io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.user.UserSReply> responseObserver) {
-      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSayHelloAgainMethod(), responseObserver);
-    }
-
-    /**
      */
     public void sayData(io.grpc.examples.p4p.p4p.user.BytesDataSRequest request,
         io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.user.UserSReply> responseObserver) {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSayDataMethod(), responseObserver);
+    }
+
+    /**
+     */
+    public void sayHelloAgain(io.grpc.examples.p4p.p4p.user.UserSRequest request,
+        io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.user.UserSReply> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSayHelloAgainMethod(), responseObserver);
     }
 
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
@@ -199,19 +196,19 @@ public final class UserSGrpc {
                 io.grpc.examples.p4p.p4p.user.UserSReply>(
                   this, METHODID_SAY_HELLO)))
           .addMethod(
-            getSayHelloAgainMethod(),
-            io.grpc.stub.ServerCalls.asyncUnaryCall(
-              new MethodHandlers<
-                io.grpc.examples.p4p.p4p.user.UserSRequest,
-                io.grpc.examples.p4p.p4p.user.UserSReply>(
-                  this, METHODID_SAY_HELLO_AGAIN)))
-          .addMethod(
             getSayDataMethod(),
             io.grpc.stub.ServerCalls.asyncUnaryCall(
               new MethodHandlers<
                 io.grpc.examples.p4p.p4p.user.BytesDataSRequest,
                 io.grpc.examples.p4p.p4p.user.UserSReply>(
                   this, METHODID_SAY_DATA)))
+          .addMethod(
+            getSayHelloAgainMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                io.grpc.examples.p4p.p4p.user.UserSRequest,
+                io.grpc.examples.p4p.p4p.user.UserSReply>(
+                  this, METHODID_SAY_HELLO_AGAIN)))
           .build();
     }
   }
@@ -245,22 +242,19 @@ public final class UserSGrpc {
     }
 
     /**
-     * <pre>
-     * Sends another greeting
-     * </pre>
-     */
-    public void sayHelloAgain(io.grpc.examples.p4p.p4p.user.UserSRequest request,
-        io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.user.UserSReply> responseObserver) {
-      io.grpc.stub.ClientCalls.asyncUnaryCall(
-          getChannel().newCall(getSayHelloAgainMethod(), getCallOptions()), request, responseObserver);
-    }
-
-    /**
      */
     public void sayData(io.grpc.examples.p4p.p4p.user.BytesDataSRequest request,
         io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.user.UserSReply> responseObserver) {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getSayDataMethod(), getCallOptions()), request, responseObserver);
+    }
+
+    /**
+     */
+    public void sayHelloAgain(io.grpc.examples.p4p.p4p.user.UserSRequest request,
+        io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.user.UserSReply> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getSayHelloAgainMethod(), getCallOptions()), request, responseObserver);
     }
   }
 
@@ -292,20 +286,17 @@ public final class UserSGrpc {
     }
 
     /**
-     * <pre>
-     * Sends another greeting
-     * </pre>
-     */
-    public io.grpc.examples.p4p.p4p.user.UserSReply sayHelloAgain(io.grpc.examples.p4p.p4p.user.UserSRequest request) {
-      return io.grpc.stub.ClientCalls.blockingUnaryCall(
-          getChannel(), getSayHelloAgainMethod(), getCallOptions(), request);
-    }
-
-    /**
      */
     public io.grpc.examples.p4p.p4p.user.UserSReply sayData(io.grpc.examples.p4p.p4p.user.BytesDataSRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getSayDataMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public io.grpc.examples.p4p.p4p.user.UserSReply sayHelloAgain(io.grpc.examples.p4p.p4p.user.UserSRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getSayHelloAgainMethod(), getCallOptions(), request);
     }
   }
 
@@ -338,28 +329,25 @@ public final class UserSGrpc {
     }
 
     /**
-     * <pre>
-     * Sends another greeting
-     * </pre>
-     */
-    public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.p4p.p4p.user.UserSReply> sayHelloAgain(
-        io.grpc.examples.p4p.p4p.user.UserSRequest request) {
-      return io.grpc.stub.ClientCalls.futureUnaryCall(
-          getChannel().newCall(getSayHelloAgainMethod(), getCallOptions()), request);
-    }
-
-    /**
      */
     public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.p4p.p4p.user.UserSReply> sayData(
         io.grpc.examples.p4p.p4p.user.BytesDataSRequest request) {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getSayDataMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.p4p.p4p.user.UserSReply> sayHelloAgain(
+        io.grpc.examples.p4p.p4p.user.UserSRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getSayHelloAgainMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_SAY_HELLO = 0;
-  private static final int METHODID_SAY_HELLO_AGAIN = 1;
-  private static final int METHODID_SAY_DATA = 2;
+  private static final int METHODID_SAY_DATA = 1;
+  private static final int METHODID_SAY_HELLO_AGAIN = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -382,12 +370,12 @@ public final class UserSGrpc {
           serviceImpl.sayHello((io.grpc.examples.p4p.p4p.user.UserSRequest) request,
               (io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.user.UserSReply>) responseObserver);
           break;
-        case METHODID_SAY_HELLO_AGAIN:
-          serviceImpl.sayHelloAgain((io.grpc.examples.p4p.p4p.user.UserSRequest) request,
-              (io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.user.UserSReply>) responseObserver);
-          break;
         case METHODID_SAY_DATA:
           serviceImpl.sayData((io.grpc.examples.p4p.p4p.user.BytesDataSRequest) request,
+              (io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.user.UserSReply>) responseObserver);
+          break;
+        case METHODID_SAY_HELLO_AGAIN:
+          serviceImpl.sayHelloAgain((io.grpc.examples.p4p.p4p.user.UserSRequest) request,
               (io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.user.UserSReply>) responseObserver);
           break;
         default:
@@ -452,8 +440,8 @@ public final class UserSGrpc {
           serviceDescriptor = result = io.grpc.ServiceDescriptor.newBuilder(SERVICE_NAME)
               .setSchemaDescriptor(new UserSFileDescriptorSupplier())
               .addMethod(getSayHelloMethod())
-              .addMethod(getSayHelloAgainMethod())
               .addMethod(getSayDataMethod())
+              .addMethod(getSayHelloAgainMethod())
               .build();
         }
       }

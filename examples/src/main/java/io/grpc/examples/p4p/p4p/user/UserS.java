@@ -4,6 +4,9 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
 import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
@@ -72,27 +75,21 @@ public class UserS {
       try {
         // runProcess("javac Main.java");
           System.out.println("Hello " + req.getName());
+          convertToByteArray(req.getName());
       } catch (Exception e) {
         e.printStackTrace();
       }
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
     }
-
-    // @Override
-    public void SayData(BytesDataSRequest req, StreamObserver<UserSReply> responseObserver) {
-      UserSReply reply = UserSReply.newBuilder().setMessage("Hello getData").build();
-      try {
-        // runProcess("javac Main.java");
-          System.out.println("Hello " + req.getData());
-      } catch (Exception e) {
-        e.printStackTrace();
-      }
-      responseObserver.onNext(reply);
-      responseObserver.onCompleted();
-    }
-
-
+    // // @Override
+    // public void SayData(BytesDataSRequest req, StreamObserver<UserSReply> responseObserver) {
+    //   UserSReply reply = UserSReply.newBuilder().setMessage("Hello getData").build();
+    //   System.out.println("Hello " + req.getData());
+    
+    //   responseObserver.onNext(reply);
+    //   responseObserver.onCompleted();
+    // }
 
    @Override
    public void sayHelloAgain(UserSRequest req, StreamObserver<UserSReply> responseObserver) {
@@ -102,6 +99,8 @@ public class UserS {
         System.out.println(reply);
      responseObserver.onCompleted();
    }
+
+
   }
 
 
@@ -122,6 +121,16 @@ public class UserS {
     pro.waitFor();
     System.out.println(command + " exitValue() " + pro.exitValue());
   }
+
+
+  public static void convertToByteArray(String inputString) {
+    // String inputString = "Hello World!";
+   
+    Charset charset = Charset.forName("ASCII");
+    byte[] byteArrray = inputString.getBytes(charset);
+    System.out.println("byteArrray");
+    System.out.println(Arrays.toString(byteArrray));
+}
 
 }
 

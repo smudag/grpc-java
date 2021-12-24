@@ -25,9 +25,9 @@ service UserS {
   // Sends a greeting
   rpc SayHello (UserSRequest) returns (UserSReply) {}
   // Sends another greeting
-  rpc SayHelloAgain (UserSRequest) returns (UserSReply) {}
 
   rpc SayData (BytesDataSRequest) returns (UserSReply) {}
+
 }
 
 // The request message containing the user's name.
@@ -36,7 +36,9 @@ message UserSRequest {
 }
 
 message BytesDataSRequest {
-  bytes data = 1;
+  string data = 1;
+  // https://developers.google.com/protocol-buffers/docs/proto?csw=1#scalar
+  // https://stackoverflow.com/questions/8421050/how-to-encode-byte-in-proto-buffs
 }
 
 // The response message containing the greetings
