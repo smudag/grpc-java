@@ -18,7 +18,7 @@ option java_package = "io.grpc.examples.p4p.p4p.user";
 option java_outer_classname = "UserSProto";
 option objc_class_prefix = "HLW";
 
-package p4p.p4p.user;
+package p4p.p4p.user.p4p;
 
 // The greeting service definition.
 service UserS {
@@ -26,11 +26,17 @@ service UserS {
   rpc SayHello (UserSRequest) returns (UserSReply) {}
   // Sends another greeting
   rpc SayHelloAgain (UserSRequest) returns (UserSReply) {}
+
+  rpc SayData (BytesDataSRequest) returns (UserSReply) {}
 }
 
 // The request message containing the user's name.
 message UserSRequest {
   string name = 1;
+}
+
+message BytesDataSRequest {
+  bytes data = 1;
 }
 
 // The response message containing the greetings

@@ -44,6 +44,10 @@ io/grpc/examples/routeguide/Feature.java
  io.grpc.examples.routeguide.Feature
  io.grpc.examples.routeguide.Feature$1
  io.grpc.examples.routeguide.Feature$Builder
+io/grpc/examples/p4p/p4p/user/BytesDataSRequest.java
+ io.grpc.examples.p4p.p4p.user.BytesDataSRequest
+ io.grpc.examples.p4p.p4p.user.BytesDataSRequest$1
+ io.grpc.examples.p4p.p4p.user.BytesDataSRequest$Builder
 io/grpc/examples/manualflowcontrol/HelloRequest.java
  io.grpc.examples.manualflowcontrol.HelloRequest
  io.grpc.examples.manualflowcontrol.HelloRequest$1
@@ -415,5 +419,7 @@ io/grpc/examples/p4p/p4p/sim/RouteNote.java
  io.grpc.examples.p4p.p4p.sim.RouteNote$Builder
 io/grpc/examples/p4p/p4p/server/P4PServerSSReplyOrBuilder.java
  io.grpc.examples.p4p.p4p.server.P4PServerSSReplyOrBuilder
+io/grpc/examples/p4p/p4p/user/BytesDataSRequestOrBuilder.java
+ io.grpc.examples.p4p.p4p.user.BytesDataSRequestOrBuilder
 io/grpc/examples/p4p/p4p/user/UserSRequestOrBuilder.java
  io.grpc.examples.p4p.p4p.user.UserSRequestOrBuilder

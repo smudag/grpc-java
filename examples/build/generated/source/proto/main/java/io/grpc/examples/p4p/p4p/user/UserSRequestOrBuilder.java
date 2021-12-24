@@ -4,7 +4,7 @@
 package io.grpc.examples.p4p.p4p.user;
 
 public interface UserSRequestOrBuilder extends
-    // @@protoc_insertion_point(interface_extends:p4p.p4p.user.UserSRequest)
+    // @@protoc_insertion_point(interface_extends:p4p.p4p.user.p4p.UserSRequest)
     com.google.protobuf.MessageOrBuilder {
 
   /**

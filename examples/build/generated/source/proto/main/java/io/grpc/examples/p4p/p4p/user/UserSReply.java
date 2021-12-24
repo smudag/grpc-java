@@ -8,11 +8,11 @@ package io.grpc.examples.p4p.p4p.user;
  * The response message containing the greetings
  * </pre>
  *
- * Protobuf type {@code p4p.p4p.user.UserSReply}
+ * Protobuf type {@code p4p.p4p.user.p4p.UserSReply}
  */
 public final class UserSReply extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:p4p.p4p.user.UserSReply)
+    // @@protoc_insertion_point(message_implements:p4p.p4p.user.p4p.UserSReply)
     UserSReplyOrBuilder {
 private static final long serialVersionUID = 0L;
   // Use UserSReply.newBuilder() to construct.
@@ -80,13 +80,13 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_UserSReply_descriptor;
+    return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_p4p_UserSReply_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_UserSReply_fieldAccessorTable
+    return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_p4p_UserSReply_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
             io.grpc.examples.p4p.p4p.user.UserSReply.class, io.grpc.examples.p4p.p4p.user.UserSReply.Builder.class);
   }
@@ -288,21 +288,21 @@ private static final long serialVersionUID = 0L;
    * The response message containing the greetings
    * </pre>
    *
-   * Protobuf type {@code p4p.p4p.user.UserSReply}
+   * Protobuf type {@code p4p.p4p.user.p4p.UserSReply}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:p4p.p4p.user.UserSReply)
+      // @@protoc_insertion_point(builder_implements:p4p.p4p.user.p4p.UserSReply)
       io.grpc.examples.p4p.p4p.user.UserSReplyOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_UserSReply_descriptor;
+      return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_p4p_UserSReply_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_UserSReply_fieldAccessorTable
+      return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_p4p_UserSReply_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               io.grpc.examples.p4p.p4p.user.UserSReply.class, io.grpc.examples.p4p.p4p.user.UserSReply.Builder.class);
     }
@@ -333,7 +333,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_UserSReply_descriptor;
+      return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_p4p_UserSReply_descriptor;
     }
 
     @java.lang.Override
@@ -523,10 +523,10 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:p4p.p4p.user.UserSReply)
+    // @@protoc_insertion_point(builder_scope:p4p.p4p.user.p4p.UserSReply)
   }
 
-  // @@protoc_insertion_point(class_scope:p4p.p4p.user.UserSReply)
+  // @@protoc_insertion_point(class_scope:p4p.p4p.user.p4p.UserSReply)
   private static final io.grpc.examples.p4p.p4p.user.UserSReply DEFAULT_INSTANCE;
   static {
     DEFAULT_INSTANCE = new io.grpc.examples.p4p.p4p.user.UserSReply();

@@ -15,15 +15,20 @@ public final class UserSProto {
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_p4p_p4p_user_UserSRequest_descriptor;
+    internal_static_p4p_p4p_user_p4p_UserSRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_p4p_p4p_user_UserSRequest_fieldAccessorTable;
+      internal_static_p4p_p4p_user_p4p_UserSRequest_fieldAccessorTable;
   static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_p4p_p4p_user_UserSReply_descriptor;
+    internal_static_p4p_p4p_user_p4p_BytesDataSRequest_descriptor;
   static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_p4p_p4p_user_UserSReply_fieldAccessorTable;
+      internal_static_p4p_p4p_user_p4p_BytesDataSRequest_fieldAccessorTable;
+  static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_p4p_p4p_user_p4p_UserSReply_descriptor;
+  static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_p4p_p4p_user_p4p_UserSReply_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -33,30 +38,39 @@ public final class UserSProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013users.proto\022\014p4p.p4p.user\"\034\n\014UserSRequ" +
-      "est\022\014\n\004name\030\001 \001(\t\"\035\n\nUserSReply\022\017\n\007messa" +
-      "ge\030\001 \001(\t2\224\001\n\005UserS\022B\n\010SayHello\022\032.p4p.p4p" +
-      ".user.UserSRequest\032\030.p4p.p4p.user.UserSR" +
-      "eply\"\000\022G\n\rSayHelloAgain\022\032.p4p.p4p.user.U" +
-      "serSRequest\032\030.p4p.p4p.user.UserSReply\"\000B" +
-      "3\n\035io.grpc.examples.p4p.p4p.userB\nUserSP" +
-      "rotoP\001\242\002\003HLWb\006proto3"
+      "\n\013users.proto\022\020p4p.p4p.user.p4p\"\034\n\014UserS" +
+      "Request\022\014\n\004name\030\001 \001(\t\"!\n\021BytesDataSReque" +
+      "st\022\014\n\004data\030\001 \001(\014\"\035\n\nUserSReply\022\017\n\007messag" +
+      "e\030\001 \001(\t2\364\001\n\005UserS\022J\n\010SayHello\022\036.p4p.p4p." +
+      "user.p4p.UserSRequest\032\034.p4p.p4p.user.p4p" +
+      ".UserSReply\"\000\022O\n\rSayHelloAgain\022\036.p4p.p4p" +
+      ".user.p4p.UserSRequest\032\034.p4p.p4p.user.p4" +
+      "p.UserSReply\"\000\022N\n\007SayData\022#.p4p.p4p.user" +
+      ".p4p.BytesDataSRequest\032\034.p4p.p4p.user.p4" +
+      "p.UserSReply\"\000B3\n\035io.grpc.examples.p4p.p" +
+      "4p.userB\nUserSProtoP\001\242\002\003HLWb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         });
-    internal_static_p4p_p4p_user_UserSRequest_descriptor =
+    internal_static_p4p_p4p_user_p4p_UserSRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
-    internal_static_p4p_p4p_user_UserSRequest_fieldAccessorTable = new
+    internal_static_p4p_p4p_user_p4p_UserSRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_p4p_p4p_user_UserSRequest_descriptor,
+        internal_static_p4p_p4p_user_p4p_UserSRequest_descriptor,
         new java.lang.String[] { "Name", });
-    internal_static_p4p_p4p_user_UserSReply_descriptor =
+    internal_static_p4p_p4p_user_p4p_BytesDataSRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
-    internal_static_p4p_p4p_user_UserSReply_fieldAccessorTable = new
+    internal_static_p4p_p4p_user_p4p_BytesDataSRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_p4p_p4p_user_UserSReply_descriptor,
+        internal_static_p4p_p4p_user_p4p_BytesDataSRequest_descriptor,
+        new java.lang.String[] { "Data", });
+    internal_static_p4p_p4p_user_p4p_UserSReply_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_p4p_p4p_user_p4p_UserSReply_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_p4p_p4p_user_p4p_UserSReply_descriptor,
         new java.lang.String[] { "Message", });
   }
 

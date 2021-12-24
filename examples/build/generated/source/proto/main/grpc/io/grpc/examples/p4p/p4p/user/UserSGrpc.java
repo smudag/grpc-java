@@ -15,7 +15,7 @@ public final class UserSGrpc {
 
   private UserSGrpc() {}
 
-  public static final String SERVICE_NAME = "p4p.p4p.user.UserS";
+  public static final String SERVICE_NAME = "p4p.p4p.user.p4p.UserS";
 
   // Static method descriptors that strictly reflect the proto.
   private static volatile io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.user.UserSRequest,
@@ -78,6 +78,37 @@ public final class UserSGrpc {
       }
     }
     return getSayHelloAgainMethod;
+  }
+
+  private static volatile io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.user.BytesDataSRequest,
+      io.grpc.examples.p4p.p4p.user.UserSReply> getSayDataMethod;
+
+  @io.grpc.stub.annotations.RpcMethod(
+      fullMethodName = SERVICE_NAME + '/' + "SayData",
+      requestType = io.grpc.examples.p4p.p4p.user.BytesDataSRequest.class,
+      responseType = io.grpc.examples.p4p.p4p.user.UserSReply.class,
+      methodType = io.grpc.MethodDescriptor.MethodType.UNARY)
+  public static io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.user.BytesDataSRequest,
+      io.grpc.examples.p4p.p4p.user.UserSReply> getSayDataMethod() {
+    io.grpc.MethodDescriptor<io.grpc.examples.p4p.p4p.user.BytesDataSRequest, io.grpc.examples.p4p.p4p.user.UserSReply> getSayDataMethod;
+    if ((getSayDataMethod = UserSGrpc.getSayDataMethod) == null) {
+      synchronized (UserSGrpc.class) {
+        if ((getSayDataMethod = UserSGrpc.getSayDataMethod) == null) {
+          UserSGrpc.getSayDataMethod = getSayDataMethod =
+              io.grpc.MethodDescriptor.<io.grpc.examples.p4p.p4p.user.BytesDataSRequest, io.grpc.examples.p4p.p4p.user.UserSReply>newBuilder()
+              .setType(io.grpc.MethodDescriptor.MethodType.UNARY)
+              .setFullMethodName(generateFullMethodName(SERVICE_NAME, "SayData"))
+              .setSampledToLocalTracing(true)
+              .setRequestMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.grpc.examples.p4p.p4p.user.BytesDataSRequest.getDefaultInstance()))
+              .setResponseMarshaller(io.grpc.protobuf.ProtoUtils.marshaller(
+                  io.grpc.examples.p4p.p4p.user.UserSReply.getDefaultInstance()))
+              .setSchemaDescriptor(new UserSMethodDescriptorSupplier("SayData"))
+              .build();
+        }
+      }
+    }
+    return getSayDataMethod;
   }
 
   /**
@@ -151,6 +182,13 @@ public final class UserSGrpc {
       io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSayHelloAgainMethod(), responseObserver);
     }
 
+    /**
+     */
+    public void sayData(io.grpc.examples.p4p.p4p.user.BytesDataSRequest request,
+        io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.user.UserSReply> responseObserver) {
+      io.grpc.stub.ServerCalls.asyncUnimplementedUnaryCall(getSayDataMethod(), responseObserver);
+    }
+
     @java.lang.Override public final io.grpc.ServerServiceDefinition bindService() {
       return io.grpc.ServerServiceDefinition.builder(getServiceDescriptor())
           .addMethod(
@@ -167,6 +205,13 @@ public final class UserSGrpc {
                 io.grpc.examples.p4p.p4p.user.UserSRequest,
                 io.grpc.examples.p4p.p4p.user.UserSReply>(
                   this, METHODID_SAY_HELLO_AGAIN)))
+          .addMethod(
+            getSayDataMethod(),
+            io.grpc.stub.ServerCalls.asyncUnaryCall(
+              new MethodHandlers<
+                io.grpc.examples.p4p.p4p.user.BytesDataSRequest,
+                io.grpc.examples.p4p.p4p.user.UserSReply>(
+                  this, METHODID_SAY_DATA)))
           .build();
     }
   }
@@ -209,6 +254,14 @@ public final class UserSGrpc {
       io.grpc.stub.ClientCalls.asyncUnaryCall(
           getChannel().newCall(getSayHelloAgainMethod(), getCallOptions()), request, responseObserver);
     }
+
+    /**
+     */
+    public void sayData(io.grpc.examples.p4p.p4p.user.BytesDataSRequest request,
+        io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.user.UserSReply> responseObserver) {
+      io.grpc.stub.ClientCalls.asyncUnaryCall(
+          getChannel().newCall(getSayDataMethod(), getCallOptions()), request, responseObserver);
+    }
   }
 
   /**
@@ -246,6 +299,13 @@ public final class UserSGrpc {
     public io.grpc.examples.p4p.p4p.user.UserSReply sayHelloAgain(io.grpc.examples.p4p.p4p.user.UserSRequest request) {
       return io.grpc.stub.ClientCalls.blockingUnaryCall(
           getChannel(), getSayHelloAgainMethod(), getCallOptions(), request);
+    }
+
+    /**
+     */
+    public io.grpc.examples.p4p.p4p.user.UserSReply sayData(io.grpc.examples.p4p.p4p.user.BytesDataSRequest request) {
+      return io.grpc.stub.ClientCalls.blockingUnaryCall(
+          getChannel(), getSayDataMethod(), getCallOptions(), request);
     }
   }
 
@@ -287,10 +347,19 @@ public final class UserSGrpc {
       return io.grpc.stub.ClientCalls.futureUnaryCall(
           getChannel().newCall(getSayHelloAgainMethod(), getCallOptions()), request);
     }
+
+    /**
+     */
+    public com.google.common.util.concurrent.ListenableFuture<io.grpc.examples.p4p.p4p.user.UserSReply> sayData(
+        io.grpc.examples.p4p.p4p.user.BytesDataSRequest request) {
+      return io.grpc.stub.ClientCalls.futureUnaryCall(
+          getChannel().newCall(getSayDataMethod(), getCallOptions()), request);
+    }
   }
 
   private static final int METHODID_SAY_HELLO = 0;
   private static final int METHODID_SAY_HELLO_AGAIN = 1;
+  private static final int METHODID_SAY_DATA = 2;
 
   private static final class MethodHandlers<Req, Resp> implements
       io.grpc.stub.ServerCalls.UnaryMethod<Req, Resp>,
@@ -315,6 +384,10 @@ public final class UserSGrpc {
           break;
         case METHODID_SAY_HELLO_AGAIN:
           serviceImpl.sayHelloAgain((io.grpc.examples.p4p.p4p.user.UserSRequest) request,
+              (io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.user.UserSReply>) responseObserver);
+          break;
+        case METHODID_SAY_DATA:
+          serviceImpl.sayData((io.grpc.examples.p4p.p4p.user.BytesDataSRequest) request,
               (io.grpc.stub.StreamObserver<io.grpc.examples.p4p.p4p.user.UserSReply>) responseObserver);
           break;
         default:
@@ -380,6 +453,7 @@ public final class UserSGrpc {
               .setSchemaDescriptor(new UserSFileDescriptorSupplier())
               .addMethod(getSayHelloMethod())
               .addMethod(getSayHelloAgainMethod())
+              .addMethod(getSayDataMethod())
               .build();
         }
       }

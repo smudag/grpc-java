@@ -4,30 +4,26 @@
 package io.grpc.examples.p4p.p4p.user;
 
 /**
- * <pre>
- * The request message containing the user's name.
- * </pre>
- *
- * Protobuf type {@code p4p.p4p.user.p4p.UserSRequest}
+ * Protobuf type {@code p4p.p4p.user.p4p.BytesDataSRequest}
  */
-public final class UserSRequest extends
+public final class BytesDataSRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:p4p.p4p.user.p4p.UserSRequest)
-    UserSRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:p4p.p4p.user.p4p.BytesDataSRequest)
+    BytesDataSRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use UserSRequest.newBuilder() to construct.
-  private UserSRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use BytesDataSRequest.newBuilder() to construct.
+  private BytesDataSRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private UserSRequest() {
-    name_ = "";
+  private BytesDataSRequest() {
+    data_ = com.google.protobuf.ByteString.EMPTY;
   }
 
   @java.lang.Override
   @SuppressWarnings({"unused"})
   protected java.lang.Object newInstance(
       UnusedPrivateParameter unused) {
-    return new UserSRequest();
+    return new BytesDataSRequest();
   }
 
   @java.lang.Override
@@ -35,7 +31,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private UserSRequest(
+  private BytesDataSRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -54,9 +50,8 @@ private static final long serialVersionUID = 0L;
             done = true;
             break;
           case 10: {
-            java.lang.String s = input.readStringRequireUtf8();
 
-            name_ = s;
+            data_ = input.readBytes();
             break;
           }
           default: {
@@ -80,53 +75,26 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_p4p_UserSRequest_descriptor;
+    return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_p4p_BytesDataSRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_p4p_UserSRequest_fieldAccessorTable
+    return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_p4p_BytesDataSRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            io.grpc.examples.p4p.p4p.user.UserSRequest.class, io.grpc.examples.p4p.p4p.user.UserSRequest.Builder.class);
+            io.grpc.examples.p4p.p4p.user.BytesDataSRequest.class, io.grpc.examples.p4p.p4p.user.BytesDataSRequest.Builder.class);
   }
 
-  public static final int NAME_FIELD_NUMBER = 1;
-  private volatile java.lang.Object name_;
+  public static final int DATA_FIELD_NUMBER = 1;
+  private com.google.protobuf.ByteString data_;
   /**
-   * <code>string name = 1;</code>
-   * @return The name.
+   * <code>bytes data = 1;</code>
+   * @return The data.
    */
   @java.lang.Override
-  public java.lang.String getName() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      name_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string name = 1;</code>
-   * @return The bytes for name.
-   */
-  @java.lang.Override
-  public com.google.protobuf.ByteString
-      getNameBytes() {
-    java.lang.Object ref = name_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      name_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+  public com.google.protobuf.ByteString getData() {
+    return data_;
   }
 
   private byte memoizedIsInitialized = -1;
@@ -143,8 +111,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getNameBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
+    if (!data_.isEmpty()) {
+      output.writeBytes(1, data_);
     }
     unknownFields.writeTo(output);
   }
@@ -155,8 +123,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getNameBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
+    if (!data_.isEmpty()) {
+      size += com.google.protobuf.CodedOutputStream
+        .computeBytesSize(1, data_);
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -168,13 +137,13 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof io.grpc.examples.p4p.p4p.user.UserSRequest)) {
+    if (!(obj instanceof io.grpc.examples.p4p.p4p.user.BytesDataSRequest)) {
       return super.equals(obj);
     }
-    io.grpc.examples.p4p.p4p.user.UserSRequest other = (io.grpc.examples.p4p.p4p.user.UserSRequest) obj;
+    io.grpc.examples.p4p.p4p.user.BytesDataSRequest other = (io.grpc.examples.p4p.p4p.user.BytesDataSRequest) obj;
 
-    if (!getName()
-        .equals(other.getName())) return false;
+    if (!getData()
+        .equals(other.getData())) return false;
     if (!unknownFields.equals(other.unknownFields)) return false;
     return true;
   }
@@ -186,76 +155,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + NAME_FIELD_NUMBER;
-    hash = (53 * hash) + getName().hashCode();
+    hash = (37 * hash) + DATA_FIELD_NUMBER;
+    hash = (53 * hash) + getData().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static io.grpc.examples.p4p.p4p.user.UserSRequest parseFrom(
+  public static io.grpc.examples.p4p.p4p.user.BytesDataSRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.grpc.examples.p4p.p4p.user.UserSRequest parseFrom(
+  public static io.grpc.examples.p4p.p4p.user.BytesDataSRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.grpc.examples.p4p.p4p.user.UserSRequest parseFrom(
+  public static io.grpc.examples.p4p.p4p.user.BytesDataSRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.grpc.examples.p4p.p4p.user.UserSRequest parseFrom(
+  public static io.grpc.examples.p4p.p4p.user.BytesDataSRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.grpc.examples.p4p.p4p.user.UserSRequest parseFrom(byte[] data)
+  public static io.grpc.examples.p4p.p4p.user.BytesDataSRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static io.grpc.examples.p4p.p4p.user.UserSRequest parseFrom(
+  public static io.grpc.examples.p4p.p4p.user.BytesDataSRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static io.grpc.examples.p4p.p4p.user.UserSRequest parseFrom(java.io.InputStream input)
+  public static io.grpc.examples.p4p.p4p.user.BytesDataSRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static io.grpc.examples.p4p.p4p.user.UserSRequest parseFrom(
+  public static io.grpc.examples.p4p.p4p.user.BytesDataSRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static io.grpc.examples.p4p.p4p.user.UserSRequest parseDelimitedFrom(java.io.InputStream input)
+  public static io.grpc.examples.p4p.p4p.user.BytesDataSRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static io.grpc.examples.p4p.p4p.user.UserSRequest parseDelimitedFrom(
+  public static io.grpc.examples.p4p.p4p.user.BytesDataSRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static io.grpc.examples.p4p.p4p.user.UserSRequest parseFrom(
+  public static io.grpc.examples.p4p.p4p.user.BytesDataSRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static io.grpc.examples.p4p.p4p.user.UserSRequest parseFrom(
+  public static io.grpc.examples.p4p.p4p.user.BytesDataSRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -268,7 +237,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(io.grpc.examples.p4p.p4p.user.UserSRequest prototype) {
+  public static Builder newBuilder(io.grpc.examples.p4p.p4p.user.BytesDataSRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -284,30 +253,26 @@ private static final long serialVersionUID = 0L;
     return builder;
   }
   /**
-   * <pre>
-   * The request message containing the user's name.
-   * </pre>
-   *
-   * Protobuf type {@code p4p.p4p.user.p4p.UserSRequest}
+   * Protobuf type {@code p4p.p4p.user.p4p.BytesDataSRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:p4p.p4p.user.p4p.UserSRequest)
-      io.grpc.examples.p4p.p4p.user.UserSRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:p4p.p4p.user.p4p.BytesDataSRequest)
+      io.grpc.examples.p4p.p4p.user.BytesDataSRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_p4p_UserSRequest_descriptor;
+      return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_p4p_BytesDataSRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_p4p_UserSRequest_fieldAccessorTable
+      return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_p4p_BytesDataSRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              io.grpc.examples.p4p.p4p.user.UserSRequest.class, io.grpc.examples.p4p.p4p.user.UserSRequest.Builder.class);
+              io.grpc.examples.p4p.p4p.user.BytesDataSRequest.class, io.grpc.examples.p4p.p4p.user.BytesDataSRequest.Builder.class);
     }
 
-    // Construct using io.grpc.examples.p4p.p4p.user.UserSRequest.newBuilder()
+    // Construct using io.grpc.examples.p4p.p4p.user.BytesDataSRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -325,7 +290,7 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      name_ = "";
+      data_ = com.google.protobuf.ByteString.EMPTY;
 
       return this;
     }
@@ -333,17 +298,17 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_p4p_UserSRequest_descriptor;
+      return io.grpc.examples.p4p.p4p.user.UserSProto.internal_static_p4p_p4p_user_p4p_BytesDataSRequest_descriptor;
     }
 
     @java.lang.Override
-    public io.grpc.examples.p4p.p4p.user.UserSRequest getDefaultInstanceForType() {
-      return io.grpc.examples.p4p.p4p.user.UserSRequest.getDefaultInstance();
+    public io.grpc.examples.p4p.p4p.user.BytesDataSRequest getDefaultInstanceForType() {
+      return io.grpc.examples.p4p.p4p.user.BytesDataSRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public io.grpc.examples.p4p.p4p.user.UserSRequest build() {
-      io.grpc.examples.p4p.p4p.user.UserSRequest result = buildPartial();
+    public io.grpc.examples.p4p.p4p.user.BytesDataSRequest build() {
+      io.grpc.examples.p4p.p4p.user.BytesDataSRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -351,9 +316,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public io.grpc.examples.p4p.p4p.user.UserSRequest buildPartial() {
-      io.grpc.examples.p4p.p4p.user.UserSRequest result = new io.grpc.examples.p4p.p4p.user.UserSRequest(this);
-      result.name_ = name_;
+    public io.grpc.examples.p4p.p4p.user.BytesDataSRequest buildPartial() {
+      io.grpc.examples.p4p.p4p.user.BytesDataSRequest result = new io.grpc.examples.p4p.p4p.user.BytesDataSRequest(this);
+      result.data_ = data_;
       onBuilt();
       return result;
     }
@@ -392,19 +357,18 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof io.grpc.examples.p4p.p4p.user.UserSRequest) {
-        return mergeFrom((io.grpc.examples.p4p.p4p.user.UserSRequest)other);
+      if (other instanceof io.grpc.examples.p4p.p4p.user.BytesDataSRequest) {
+        return mergeFrom((io.grpc.examples.p4p.p4p.user.BytesDataSRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(io.grpc.examples.p4p.p4p.user.UserSRequest other) {
-      if (other == io.grpc.examples.p4p.p4p.user.UserSRequest.getDefaultInstance()) return this;
-      if (!other.getName().isEmpty()) {
-        name_ = other.name_;
-        onChanged();
+    public Builder mergeFrom(io.grpc.examples.p4p.p4p.user.BytesDataSRequest other) {
+      if (other == io.grpc.examples.p4p.p4p.user.BytesDataSRequest.getDefaultInstance()) return this;
+      if (other.getData() != com.google.protobuf.ByteString.EMPTY) {
+        setData(other.getData());
       }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
@@ -421,11 +385,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      io.grpc.examples.p4p.p4p.user.UserSRequest parsedMessage = null;
+      io.grpc.examples.p4p.p4p.user.BytesDataSRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (io.grpc.examples.p4p.p4p.user.UserSRequest) e.getUnfinishedMessage();
+        parsedMessage = (io.grpc.examples.p4p.p4p.user.BytesDataSRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -435,78 +399,36 @@ private static final long serialVersionUID = 0L;
       return this;
     }
 
-    private java.lang.Object name_ = "";
+    private com.google.protobuf.ByteString data_ = com.google.protobuf.ByteString.EMPTY;
     /**
-     * <code>string name = 1;</code>
-     * @return The name.
+     * <code>bytes data = 1;</code>
+     * @return The data.
      */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    @java.lang.Override
+    public com.google.protobuf.ByteString getData() {
+      return data_;
     }
     /**
-     * <code>string name = 1;</code>
-     * @return The bytes for name.
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string name = 1;</code>
-     * @param value The name to set.
+     * <code>bytes data = 1;</code>
+     * @param value The data to set.
      * @return This builder for chaining.
      */
-    public Builder setName(
-        java.lang.String value) {
+    public Builder setData(com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   
-      name_ = value;
+      data_ = value;
       onChanged();
       return this;
     }
     /**
-     * <code>string name = 1;</code>
+     * <code>bytes data = 1;</code>
      * @return This builder for chaining.
      */
-    public Builder clearName() {
+    public Builder clearData() {
       
-      name_ = getDefaultInstance().getName();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string name = 1;</code>
-     * @param value The bytes for name to set.
-     * @return This builder for chaining.
-     */
-    public Builder setNameBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      name_ = value;
+      data_ = getDefaultInstance().getData();
       onChanged();
       return this;
     }
@@ -523,41 +445,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:p4p.p4p.user.p4p.UserSRequest)
+    // @@protoc_insertion_point(builder_scope:p4p.p4p.user.p4p.BytesDataSRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:p4p.p4p.user.p4p.UserSRequest)
-  private static final io.grpc.examples.p4p.p4p.user.UserSRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:p4p.p4p.user.p4p.BytesDataSRequest)
+  private static final io.grpc.examples.p4p.p4p.user.BytesDataSRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new io.grpc.examples.p4p.p4p.user.UserSRequest();
+    DEFAULT_INSTANCE = new io.grpc.examples.p4p.p4p.user.BytesDataSRequest();
   }
 
-  public static io.grpc.examples.p4p.p4p.user.UserSRequest getDefaultInstance() {
+  public static io.grpc.examples.p4p.p4p.user.BytesDataSRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<UserSRequest>
-      PARSER = new com.google.protobuf.AbstractParser<UserSRequest>() {
+  private static final com.google.protobuf.Parser<BytesDataSRequest>
+      PARSER = new com.google.protobuf.AbstractParser<BytesDataSRequest>() {
     @java.lang.Override
-    public UserSRequest parsePartialFrom(
+    public BytesDataSRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new UserSRequest(input, extensionRegistry);
+      return new BytesDataSRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<UserSRequest> parser() {
+  public static com.google.protobuf.Parser<BytesDataSRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<UserSRequest> getParserForType() {
+  public com.google.protobuf.Parser<BytesDataSRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public io.grpc.examples.p4p.p4p.user.UserSRequest getDefaultInstanceForType() {
+  public io.grpc.examples.p4p.p4p.user.BytesDataSRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

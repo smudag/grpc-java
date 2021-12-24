@@ -71,13 +71,29 @@ public class UserS {
       UserSReply reply = UserSReply.newBuilder().setMessage("Hello " + req.getName()).build();
       try {
         // runProcess("javac Main.java");
-          System.out.println("N0 Java Up");
+          System.out.println("Hello " + req.getName());
       } catch (Exception e) {
         e.printStackTrace();
       }
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
     }
+
+    // @Override
+    public void SayData(BytesDataSRequest req, StreamObserver<UserSReply> responseObserver) {
+      UserSReply reply = UserSReply.newBuilder().setMessage("Hello getData").build();
+      try {
+        // runProcess("javac Main.java");
+          System.out.println("Hello " + req.getData());
+      } catch (Exception e) {
+        e.printStackTrace();
+      }
+      responseObserver.onNext(reply);
+      responseObserver.onCompleted();
+    }
+
+
+
    @Override
    public void sayHelloAgain(UserSRequest req, StreamObserver<UserSReply> responseObserver) {
       UserSReply reply = UserSReply.newBuilder().setMessage("Hello again " + req.getName()).build();
