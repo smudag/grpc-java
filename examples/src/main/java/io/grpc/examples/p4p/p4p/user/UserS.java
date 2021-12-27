@@ -1,4 +1,13 @@
 package io.grpc.examples.p4p.p4p.user;
+import io.grpc.examples.p4p.p4p.user.UserVector2;
+import io.grpc.examples.p4p.p4p.server.P4PServerSS;
+import io.grpc.examples.p4p.p4p.server.P4PServer;
+import io.grpc.examples.p4p.p4p.peer.P4PPeer;
+import io.grpc.examples.p4p.p4p.peer.P4PPeerS;
+import io.grpc.examples.p4p.p4p.sim.P4PSim;
+
+import io.grpc.examples.p4p.p4p.util.Util;
+import io.grpc.examples.p4p.net.i2p.util.NativeBigInteger;
 
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -60,6 +69,15 @@ public class UserS {
    * Main launches the server from the command line.
    */
   public static void main(String[] args) throws IOException, InterruptedException {
+    // System.out.println("Client args[0]: "+args[0]);
+    // String[] argStr = args[0].split(",");
+    // int m = Integer.parseInt(argStr[0]);
+    // long F = Long.parseLong(argStr[1]);
+    // int l = Integer.parseInt(argStr[2]);
+    // int zkpIterations = Integer.parseInt(argStr[3]);
+    // NativeBigInteger g = new NativeBigInteger(argStr[4]);
+    // NativeBigInteger h = new NativeBigInteger(argStr[5]);
+
     final UserS server = new UserS();
     server.start();
     System.out.println("UserS start !!");
@@ -73,9 +91,93 @@ public class UserS {
     public void sayHello(UserSRequest req, StreamObserver<UserSReply> responseObserver) {
       UserSReply reply = UserSReply.newBuilder().setMessage("Zero Knowledge Module[java] received: " + req.getName()).build();
       try {
-        // runProcess("javac Main.java");
+        int k = 512;     // Security parameter
+        int m = P4PSim.m;      // User vector dimension
+        int l = P4PSim.l;      // Bit length of L
+        long L = P4PSim.L;
+        long F = P4PSim.F;
+        long[] s = new long[m];
+        long[] v = new long[m];
+        NativeBigInteger g = P4PSim.g;
+        NativeBigInteger h = P4PSim.h;
+        boolean shouldPass;
+        boolean passed = true;
+        int nQulaifiedUsers = 0;
+
+        double delta = 1.5;
+        int nfails = 0;
+        double l2 = (double) L * delta;
+        for (int i = 0; i < m; i++) {
+          s[i] = 0;
+          v[i] = 0;
+        }
           System.out.println("Client Input: " + req.getName());
-          convertToLongArray(req.getName());
+          long[] data = convertToLongArray(req.getName());
+          UserVector2 uv = new UserVector2(data, F, l, g, h);
+          uv.generateShares();
+          P4PServer serverP = P4PServerSS.serverP;
+          uv.setChecksumCoefficientVectors(serverP.getChallengeVectors());
+
+          UserVector2.L2NormBoundProof2 peerProof =
+          (UserVector2.L2NormBoundProof2) uv.getL2NormBoundProof2(false);
+          UserVector2.L2NormBoundProof2 serverProof =
+          (UserVector2.L2NormBoundProof2) uv.getL2NormBoundProof2(true);
+
+          
+          serverP.setUserVector(0, uv.getU());
+          serverP.setProof(0, serverProof);
+          long[] vv = uv.getV();
+          UserVector2 pv = new UserVector2(m, F, l, g, h);
+          pv.setV(vv);
+          pv.setChecksumCoefficientVectors(serverP.getChallengeVectors());
+          boolean peerPassed = pv.verify2(peerProof); // 🌟 verify2 🌟
+          if (!peerPassed)
+          serverP.disqualifyUser(0); // on one USER //TODO: for (int i = 0; i < n; i++) {
+          else
+          serverP.setY(0, pv.getY());   
+          shouldPass = l2 < L;   // Correct shouldPass using actual data.
+          shouldPass = true;
+          if (shouldPass) {
+              nQulaifiedUsers++;
+              Util.vectorAdd(s, data, s, F);
+              Util.vectorAdd(v, vv, v, F);
+          }       
+          P4PPeer peer = P4PPeerS.peer;
+          peer.setPeerSum(v);
+          // verifierWatch.start();
+          serverP.compute(peer);          // 🌟 serverVerify 🐢🌟
+          // verifierWatch.pause();
+          long[] result = serverP.getVectorSum();
+
+          for (int ii = 0; ii < m; ii++) {
+            // 7.1 res[ii] != Util.mod(s[ii], F)
+              if (result[ii] != Util.mod(s[ii], F)) {
+                  System.out.println("\tElement " + ii
+                          + " don't agree. Computed: "
+                          + result[ii] + ", should be "
+                          + Util.mod(s[ii], F));
+                  passed = false;
+                  nfails++;
+                  break;
+              }
+          }
+          if (passed)
+              // System.out.println("Test " + kk + " passed. Number of qualified users "
+              System.out.println("Test 1 passed. Number of qualified users "
+
+                      + " should be " + nQulaifiedUsers + ". Server reported "
+                      + serverP.getNQulaifiedUsers());
+          else
+              // System.out.println("Test " + kk + " failed. Number of qualified users should be "
+              System.out.println("Test 1 failed. Number of qualified users should be "
+                      + nQulaifiedUsers + ". Server reported "
+                      + serverP.getNQulaifiedUsers());
+            
+                
+            
+
+  
+
       } catch (Exception e) {
         e.printStackTrace();
       }

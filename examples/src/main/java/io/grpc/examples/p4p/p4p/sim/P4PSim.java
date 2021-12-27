@@ -59,13 +59,15 @@ import io.grpc.examples.p4p.p4p.server.*;
  */
 
 public class P4PSim extends P4PParameters {
-    private static NativeBigInteger g = null;
-    private static NativeBigInteger h = null;
+    public static NativeBigInteger g = null;
+    public static NativeBigInteger h = null;
 
-    private static int k = 512;     // Security parameter
-    private static int m = 10000;      // User vector dimension
-    private static int n = 1;      // Number of users
-    private static int l = 40;      // Bit length of L
+    public static int k = 512;     // Security parameter
+    public static int m = 10000;      // User vector dimension
+    public static int n = 1;      // Number of users
+    public static int l = 40;      // Bit length of L
+    public static long F;
+    public static  long L;
 
     /**
      * Start a simulation.
@@ -390,8 +392,8 @@ public class P4PSim extends P4PParameters {
         // Setup the parameters:
         P4PParameters.initialize(k, false);
       
-        long L = ((long) 2) << l - 1;
-        long F = BigInteger.probablePrime(Math.min(l + 30, 62), rand).longValue();
+        L = ((long) 2) << l - 1;
+        F = BigInteger.probablePrime(Math.min(l + 30, 62), rand).longValue();
         // Make the field size to be 10 bits larger than l
 
         // Or just make F 62 bits? Note that we can't use 64 bit since there is no

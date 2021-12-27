@@ -31,6 +31,7 @@ public class P4PPeerS {
   private static final Logger logger = Logger.getLogger(P4PPeerS.class.getName());
 
   private Server server;
+  public static P4PPeer peer;
 
   private void start() throws IOException {
     /* The port on which the server should run */
@@ -83,7 +84,7 @@ public class P4PPeerS {
     NativeBigInteger g = new NativeBigInteger(argStr[4]);
     NativeBigInteger h = new NativeBigInteger(argStr[5]);
 
-    P4PPeerP peer = new P4PPeerP(m, F, l, zkpIterations, g, h);             
+    P4PPeer peer = new P4PPeer(m, F, l, zkpIterations, g, h);             
     // peer.setPeerSum(v);
 
     final P4PPeerS server = new P4PPeerS();

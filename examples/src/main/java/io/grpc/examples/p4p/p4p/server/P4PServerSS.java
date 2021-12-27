@@ -37,6 +37,7 @@ import io.grpc.examples.p4p.net.i2p.util.NativeBigInteger;
  */
 public class P4PServerSS {
   private static final Logger logger = Logger.getLogger(P4PServerSS.class.getName());
+  public static P4PServer serverP;
 
   private Server server;
 
@@ -91,7 +92,7 @@ public class P4PServerSS {
     NativeBigInteger g = new NativeBigInteger(argStr[4]);
     NativeBigInteger h = new NativeBigInteger(argStr[5]);
 
-    P4PServerP serverP = new P4PServerP(m,F,l,zkpIterations,g,h);
+    serverP = new P4PServer(m,F,l,zkpIterations,g,h);
     serverP.init();
     serverP.generateChallengeVectors();
 
