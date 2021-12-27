@@ -40,8 +40,7 @@ public class P4PServerSS {
 
   private Server server;
 
-  private void start() throws IOException {
- 
+  private void start() throws IOException { 
     /* The port on which the server should run */
     int port = 9999;
     server = ServerBuilder.forPort(port)
@@ -84,6 +83,18 @@ public class P4PServerSS {
    */
   public static void main(String[] args) throws IOException, InterruptedException {
     System.out.println("args[0]: "+args[0]);
+    String[] argStr = args[0].split(",");
+    int m = Integer.parseInt(argStr[0]);
+    long F = Long.parseLong(argStr[1]);
+    int l = Integer.parseInt(argStr[2]);
+    int zkpIterations = Integer.parseInt(argStr[3]);
+    NativeBigInteger g = new NativeBigInteger(argStr[4]);
+    NativeBigInteger h = new NativeBigInteger(argStr[5]);
+
+    P4PServerP serverP = new P4PServerP(m,F,l,zkpIterations,g,h);
+    serverP.init();
+    serverP.generateChallengeVectors();
+
     final P4PServerSS server = new P4PServerSS();
     System.out.println("P4PServerP start !!");
     server.start();

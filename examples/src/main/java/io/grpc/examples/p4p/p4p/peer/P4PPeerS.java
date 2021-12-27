@@ -22,6 +22,7 @@ import io.grpc.stub.StreamObserver;
 import java.io.*;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
+import io.grpc.examples.p4p.net.i2p.util.NativeBigInteger;
 
 /**
  * Server that manages startup/shutdown of a {@code P4PPeerS} server.
@@ -73,6 +74,18 @@ public class P4PPeerS {
    * Main launches the server from the command line.
    */
   public static void main(String[] args) throws IOException, InterruptedException {
+    System.out.println("args[0]: "+args[0]);
+    String[] argStr = args[0].split(",");
+    int m = Integer.parseInt(argStr[0]);
+    long F = Long.parseLong(argStr[1]);
+    int l = Integer.parseInt(argStr[2]);
+    int zkpIterations = Integer.parseInt(argStr[3]);
+    NativeBigInteger g = new NativeBigInteger(argStr[4]);
+    NativeBigInteger h = new NativeBigInteger(argStr[5]);
+
+    P4PPeerP peer = new P4PPeerP(m, F, l, zkpIterations, g, h);             
+    // peer.setPeerSum(v);
+
     final P4PPeerS server = new P4PPeerS();
     server.start();
     System.out.println("P4PServer start !!");
@@ -125,4 +138,50 @@ public class P4PPeerS {
   }
 
 }
+
+
+class P4PPeerP {
+  private NativeBigInteger g = null;
+  private NativeBigInteger h = null;
+
+  protected int m = -1;            // The dimension of user vector
+  protected long F = -1;
+  /**
+   * The order of the (small) finite field over which all the computations
+   * are carried out. It should be a prime of appropriate bit-length (e.g.
+   * 64 bits).
+   */
+
+  protected long L = -1;
+  protected int l;   // The max number of bits of the 2 norm of user vector
+  protected int N = 50;     // The number of chechsums to compute. Default 50
+  private int c[][] = null; // The challenge vectors
+  public long[] s = null;         // The accumulated vector sum
+  public long[] peerSum = null;   // The peer's share of the vector sum
+
+
+  /**
+   * Sets the peer's share of the vector sum
+   * @param vv    the sum of the peer's share of the user vector
+   */
+  public void setPeerSum(long[] vv) {
+      peerSum = vv;
+  }
+
+  public P4PPeerP(int m, long F, int l, int N, NativeBigInteger g,
+                   NativeBigInteger h) {
+      if(F < 0)
+          throw new RuntimeException("Field order must be positive.");
+
+      this.m = m;
+      this.F = F;
+      this.l = l;
+      this.L = ((long)1)<<l - 1;
+      this.N = N;
+      this.g = g;
+      this.h = h;
+  }
+
+}
+
 

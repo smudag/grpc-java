@@ -25,6 +25,7 @@ import static java.lang.Math.sqrt;
 import static java.lang.Math.toRadians;
 import static java.util.concurrent.TimeUnit.NANOSECONDS;
 
+import java.security.SecureRandom;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import io.grpc.stub.StreamObserver;
@@ -48,6 +49,7 @@ public class P4PCoordinate {
 
   private final int port;
   private final Server server;
+  private static String argSrtoSend;
 
   public P4PCoordinate(int port) throws IOException {
     this(port, P4PGuideUtil.getDefaultFeaturesFile());
@@ -68,19 +70,45 @@ public class P4PCoordinate {
   /** Start serving requests. */
   public void start() throws IOException {
     server.start();
-    P4PSim.initialize();
-    logger.info("Server started, listening on " + port);
+
+    SecureRandom rand = null;
+    try {
+        rand = SecureRandom.getInstance("SHA1PRNG");
+    } catch (java.security.NoSuchAlgorithmException e) {
+        System.err.println("NoSuchAlgorithmException!");
+        e.printStackTrace();
+        rand = new SecureRandom();
+    }
+    rand.nextBoolean();
+    argSrtoSend = P4PSim.initializeParams(rand);
+    String[] argArr = argSrtoSend.split(",");
+    int m = Integer.parseInt(argArr[0]);
+    long L = Long.parseLong(argArr[6]);
+    // long L = ((long) 2) << l - 1;
+    long[] s = new long[m];
+    long[] v = new long[m];
+    double delta = 1.5;
+    int nfails = 0;
+    double l2 = (double) L * delta;
+    for (int i = 0; i < m; i++) {
+      s[i] = 0;
+      v[i] = 0;
+  }
+
+
+    
+    logger.info("P4PCoordinate started, listening on " + port);
     Runtime.getRuntime().addShutdownHook(new Thread() {
       //@Override
       public void run() {
         // Use stderr here since the logger may have been reset by its JVM shutdown hook.
-        System.err.println("*** shutting down gRPC server since JVM is shutting down");
+        System.err.println("*** shutting down gRPC P4PCoordinate since JVM is shutting down");
         try {
           P4PCoordinate.this.stop();
         } catch (InterruptedException e) {
           e.printStackTrace(System.err);
         }
-        System.err.println("*** server shut down");
+        System.err.println("*** P4PCoordinate shut down");
       }
     });
   }
@@ -270,23 +298,23 @@ public class P4PCoordinate {
               System.out.println(feature.getName().getClass());
               if(feature.getName().equals("N0")){
                 try{
-                    runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-server 1");
+                    runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-server "+argSrtoSend);
                     System.out.println("Server N0 Java Up");
                 } catch (Exception e) {
                    e.printStackTrace();
                 }
               } else if(feature.getName().equals("client")){
                   try{
-                    System.out.println("Start client Java ");
-                    runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-user");
-                    System.out.println("client Java Listening");
+                    System.out.println("Start client Java");
+                    runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-user "+argSrtoSend);
+                    System.out.println("Client Java Listening");
                   } catch (Exception e) {
                     e.printStackTrace();
                 }
               }
               else{
                 try{
-                  runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-peer");
+                  runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-peer "+argSrtoSend);
                   System.out.println("Peer Java Listening");
                 } catch (Exception e) {
                    e.printStackTrace();

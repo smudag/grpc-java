@@ -256,6 +256,7 @@ io/grpc/examples/p4p/p4p/user/UserSGrpc.java
 io/grpc/examples/p4p/p4p/sim/RectangleOrBuilder.java
  io.grpc.examples.p4p.p4p.sim.RectangleOrBuilder
 io/grpc/examples/p4p/p4p/peer/P4PPeerS.java
+ io.grpc.examples.p4p.p4p.peer.P4PPeerP
  io.grpc.examples.p4p.p4p.peer.P4PPeerS
  io.grpc.examples.p4p.p4p.peer.P4PPeerS$1
  io.grpc.examples.p4p.p4p.peer.P4PPeerS$P4PPeerImpl

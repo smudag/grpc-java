@@ -71,73 +71,99 @@ public class P4PSim extends P4PParameters {
      * Start a simulation.
      */
     public static void main(String[] args) {
-        int nLoops = 1;
-        boolean doBench = false;
-        boolean worstcase = false;
-        int zkpIterations = 50;
+        // int nLoops = 1;
+        // boolean doBench = false;
+        // boolean worstcase = false;
+        // int zkpIterations = 50;
 
-        for (int i = 0; i < args.length; ) {
-            String arg = args[i++];
-            /**
-             * Test the worst case cost. i.e. every vector should pass. This is
-             * when the verifier spends longest time.
-             */
-            // Definie the number of iterations that the bound ZKP must have:
+        // for (int i = 0; i < args.length; ) {
+            // String arg = args[i++];
+        //     /**
+        //      * Test the worst case cost. i.e. every vector should pass. This is
+        //      * when the verifier spends longest time.
+        //      */
+        //     // Definie the number of iterations that the bound ZKP must have:
 
-            if (arg.length() > 0 && arg.charAt(0) == '-') {
-                if (arg.equals("-k")) {
-                    try {
-                        k = Integer.parseInt(args[i++]);
-                    } catch (NumberFormatException e) {
-                        k = 512;
-                    }
-                } else if (arg.equals("-m")) {
-                    try {
-                        m = Integer.parseInt(args[i++]);
-                    } catch (NumberFormatException e) {
-                        m = 10;
-                    }
-                } else if (arg.equals("-n")) {
-                    try {
-                        n = Integer.parseInt(args[i++]);
-                    } catch (NumberFormatException e) {
-                        n = 10;
-                    }
-                } else if (arg.equals("-N")) {
-                    try {
-                        zkpIterations = Integer.parseInt(args[i++]);
-                    } catch (NumberFormatException e) {
-                        zkpIterations = 50;
-                    }
-                } else if (arg.equals("-o")) {
-                    try {
-                        nLoops = Integer.parseInt(args[i++]);
-                    } catch (NumberFormatException e) {
-                        nLoops = 10;
-                    }
-                } else if (arg.equals("-l")) {
-                    try {
-                        l = Integer.parseInt(args[i++]);
-                    } catch (NumberFormatException e) {
-                        l = 40;
-                    }
-                } else if (arg.equals("-d")) {
-                    debug = true;
-                } else if (arg.equals("-w")) {
-                    worstcase = true;
-                } else if (arg.equals("-bench")) {
-                    doBench = true;
-                }
-            }
-        }
+        //     if (arg.length() > 0 && arg.charAt(0) == '-') {
+        //         if (arg.equals("-k")) {
+        //             try {
+        //                 k = Integer.parseInt(args[i++]);
+        //             } catch (NumberFormatException e) {
+        //                 k = 512;
+        //             }
+        //         } else if (arg.equals("-m")) {
+        //             try {
+        //                 m = Integer.parseInt(args[i++]);
+        //             } catch (NumberFormatException e) {
+        //                 m = 10;
+        //             }
+        //         } else if (arg.equals("-n")) {
+        //             try {
+        //                 n = Integer.parseInt(args[i++]);
+        //             } catch (NumberFormatException e) {
+        //                 n = 10;
+        //             }
+        //         } else if (arg.equals("-N")) {
+        //             try {
+        //                 zkpIterations = Integer.parseInt(args[i++]);
+        //             } catch (NumberFormatException e) {
+        //                 zkpIterations = 50;
+        //             }
+        //         } else if (arg.equals("-o")) {
+        //             try {
+        //                 nLoops = Integer.parseInt(args[i++]);
+        //             } catch (NumberFormatException e) {
+        //                 nLoops = 10;
+        //             }
+        //         } else if (arg.equals("-l")) {
+        //             try {
+        //                 l = Integer.parseInt(args[i++]);
+        //             } catch (NumberFormatException e) {
+        //                 l = 40;
+        //             }
+        //         } else if (arg.equals("-d")) {
+        //             debug = true;
+        //         } else if (arg.equals("-w")) {
+        //             worstcase = true;
+        //         } else if (arg.equals("-bench")) {
+        //             doBench = true;
+        //         }
+        //     }
+        // }
 
-        System.out.println("k = " + k);
-        System.out.println("m = " + m);
-        System.out.println("n = " + n);
-        System.out.println("nLoops = " + nLoops);
+        // System.out.println("k = " + k);
+        // System.out.println("m = " + m);
+        // System.out.println("n = " + n);
+        // System.out.println("nLoops = " + nLoops);
 
         // Setup the parameters:
-        P4PParameters.initialize(k, false);
+        // P4PParameters.initialize(k, false);
+        // SecureRandom rand = null;
+        // try {
+        //     rand = SecureRandom.getInstance("SHA1PRNG");
+        // } catch (java.security.NoSuchAlgorithmException e) {
+        //     System.err.println("NoSuchAlgorithmException!");
+        //     e.printStackTrace();
+        //     rand = new SecureRandom();
+        // }
+
+        // rand.nextBoolean();
+
+        // long L = ((long) 2) << l - 1;
+        // long F = BigInteger.probablePrime(Math.min(l + 30, 62), rand).longValue();
+        // // Make the field size to be 10 bits larger than l
+
+        // // Or just make F 62 bits? Note that we can't use 64 bit since there is no
+        // // unsigned long in java.
+        // //F = BigInteger.probablePrime(62, rand).longValue();
+
+        // int N = zkpIterations;
+        // System.out.println("l = " + l + ", L = " + L);
+        // System.out.println("F = " + F);
+        // System.out.println("zkpIterations = " + zkpIterations);
+
+        // Generate the data and the checksum coefficient vector:
+
         SecureRandom rand = null;
         try {
             rand = SecureRandom.getInstance("SHA1PRNG");
@@ -146,23 +172,8 @@ public class P4PSim extends P4PParameters {
             e.printStackTrace();
             rand = new SecureRandom();
         }
-
         rand.nextBoolean();
 
-        long L = ((long) 2) << l - 1;
-        long F = BigInteger.probablePrime(Math.min(l + 30, 62), rand).longValue();
-        // Make the field size to be 10 bits larger than l
-
-        // Or just make F 62 bits? Note that we can't use 64 bit since there is no
-        // unsigned long in java.
-        //F = BigInteger.probablePrime(62, rand).longValue();
-
-        int N = zkpIterations;
-        System.out.println("l = " + l + ", L = " + L);
-        System.out.println("F = " + F);
-        System.out.println("zkpIterations = " + zkpIterations);
-
-        // Generate the data and the checksum coefficient vector:
         try {
             String fileName = "/root/FedBFT/voting/output.txt";
             File myObj = new File(fileName);
@@ -186,11 +197,19 @@ public class P4PSim extends P4PParameters {
                 }
                 System.out.println(data);
 
-
 //                int[][] c = new int[zkpIterations][];
                 NativeBigInteger[] bi = P4PParameters.getGenerators(2);
                 g = bi[0];
                 h = bi[1];
+                
+                String[] argStr = initializeParams(rand).split(",");
+                int m = Integer.parseInt(argStr[0]);
+                long F = Long.parseLong(argStr[1]);
+                int l = Integer.parseInt(argStr[2]);
+                int zkpIterations = Integer.parseInt(argStr[3]);
+                NativeBigInteger g = new NativeBigInteger(argStr[4]);
+                NativeBigInteger h = new NativeBigInteger(argStr[5]);
+                long L = Long.parseLong(argStr[6]);
 
                 P4PServer server = new P4PServer(m, F, l, zkpIterations, g, h);
                 P4PPeer peer = new P4PPeer(m, F, l, zkpIterations, g, h);
@@ -202,146 +221,150 @@ public class P4PSim extends P4PParameters {
                 double delta = 1.5;
                 int nfails = 0;
 
-                for (int kk = 0; kk < nLoops; kk++) {
-                    int nQulaifiedUsers = 0;
-                    boolean passed = true;
-                    server.init(); // Must clear old states and data
-                    server.generateChallengeVectors();
-                    for (int i = 0; i < m; i++) {
-                        s[i] = 0;
-                        v[i] = 0;
-                    }
+                // for (int kk = 0; kk < nLoops; kk++) {
+                int nQulaifiedUsers = 0;
+                boolean passed = true;
+                server.init(); // Must clear old states and data
+                server.generateChallengeVectors();
+                for (int i = 0; i < m; i++) {
+                    s[i] = 0;
+                    v[i] = 0;
+                }
 // for each user
-                    for (int i = 0; i < n; i++) {
-                        long start = System.currentTimeMillis();
-                        long innerProductTime = 0;
-                        long randChallengeTime = 0;
-                        boolean shouldPass;
-                        // We should create a vector that passes the zkp
-                        if (worstcase) shouldPass = true;     // Test the worst case
-                        else shouldPass = rand.nextBoolean();
-                        //System.out.println("Loop " + kk + ", user " + i + ". shouldPass = " + shouldPass);
-                        if (shouldPass) delta = 0.5;
-                        else delta = 2.0;
-                        double l2 = (double) L * delta;
+                for (int i = 0; i < n; i++) {
+                    long start = System.currentTimeMillis();
+                    long innerProductTime = 0;
+                    long randChallengeTime = 0;
+                    boolean shouldPass;
+                    // We should create a vector that passes the zkp
+                    // if (worstcase) shouldPass = true;     // Test the worst case
+                    // else shouldPass = rand.nextBoolean();
+                    //System.out.println("Loop " + kk + ", user " + i + ". shouldPass = " + shouldPass);
+                    shouldPass= true;
+                    if (shouldPass) delta = 0.5;
+                    else delta = 2.0;
+                    double l2 = (double) L * delta;
 
 // 1⃣️. Generate Data & 🌛UserVector2
 
 //                    data = Util.randVector(m, F, l2);
-                        UserVector2 uv = new UserVector2(data, F, l, g, h);
+                    UserVector2 uv = new UserVector2(data, F, l, g, h);
 // UserVector2(data, F, l, g, h)
 
 
 // 2⃣️. Shares: u, v
-                        uv.generateShares();
+                    uv.generateShares();
 
 // 2.1 Set checkCoVector through server challenge_vector for each user 🐢
-                        uv.setChecksumCoefficientVectors(server.getChallengeVectors());
+                    uv.setChecksumCoefficientVectors(server.getChallengeVectors());
 
 // 🌟 prover start 🌟
-                        proverWatch.start();
+                    proverWatch.start();
 // peerProof, serverProof construct() 🐰 SquareSum.add()
-                        UserVector2.L2NormBoundProof2 peerProof =
-                                (UserVector2.L2NormBoundProof2) uv.getL2NormBoundProof2(false);
-                        UserVector2.L2NormBoundProof2 serverProof =
-                                (UserVector2.L2NormBoundProof2) uv.getL2NormBoundProof2(true);
-                        proverWatch.pause();
+                    UserVector2.L2NormBoundProof2 peerProof =
+                            (UserVector2.L2NormBoundProof2) uv.getL2NormBoundProof2(false);
+                    UserVector2.L2NormBoundProof2 serverProof =
+                            (UserVector2.L2NormBoundProof2) uv.getL2NormBoundProof2(true);
+                    proverWatch.pause();
 // 🌟 prover pause 🌟
 
 // 2.2 server.setUV(U),
-                        server.setUserVector(i, uv.getU());
+                    server.setUserVector(i, uv.getU());
 // 2.3 server.setProof
-                        server.setProof(i, serverProof);
+                    server.setProof(i, serverProof);
 
 //  3⃣️. The peer:
-                        long[] vv = uv.getV();
+                    long[] vv = uv.getV();
 //  3⃣.1 The peer: setV(); // 🌛 UserVector2(m, F, l, g, h)
-                        UserVector2 pv = new UserVector2(m, F, l, g, h);
-                        pv.setV(vv);
+                    UserVector2 pv = new UserVector2(m, F, l, g, h);
+                    pv.setV(vv);
 
 // 3.2 set CheCoVectors through server.ChallVector for Each User 🐢
-                        pv.setChecksumCoefficientVectors(server.getChallengeVectors());
-                        verifierWatch.start();
+                    pv.setChecksumCoefficientVectors(server.getChallengeVectors());
+                    verifierWatch.start();
 
 // 3.2 setChecksumCoefficientVectors through server Challenge_Vector for Each User
-                        boolean peerPassed = pv.verify2(peerProof); // 🌟 verify2 🌟
-                        verifierWatch.pause();
+                    boolean peerPassed = pv.verify2(peerProof); // 🌟 verify2 🌟
+                    verifierWatch.pause();
 
 
 // 4⃣️ !peerPassed  disqualifyUser(i),
 // server.setY():  commitments to the peer's share of the checksums, and forward to server
 // verify the proof,  // peerVerification returns true
-                        if (!peerPassed)
-                            server.disqualifyUser(i);
-                        else
-                            server.setY(i, pv.getY());
-                        /**
-                         * Note that peer's verification simply computes some
-                         * commitments the peer's shares of the checksums (i.e. the
-                         * Y's) which should be forwarded to the server. We simulate
-                         * this by the server.setY call. The server then use them to
-                         * verify the proof. This is where the real verification
-                         * happens. The peer's verification actually always returns
-                         * true.
-                         */
+                    if (!peerPassed)
+                        server.disqualifyUser(i);
+                    else
+                        server.setY(i, pv.getY());
+                    /**
+                     * Note that peer's verification simply computes some
+                     * commitments the peer's shares of the checksums (i.e. the
+                     * Y's) which should be forwarded to the server. We simulate
+                     * this by the server.setY call. The server then use them to
+                     * verify the proof. This is where the real verification
+                     * happens. The peer's verification actually always returns
+                     * true.
+                     */
 
-                        // 5⃣️ l2 < L = shouldPass
-                        shouldPass = l2 < L;   // Correct shouldPass using actual data.
-                        shouldPass = true;
-                        if (shouldPass) {
-                            nQulaifiedUsers++;
-                            Util.vectorAdd(s, data, s, F);
-                            Util.vectorAdd(v, vv, v, F);
-                        }
+                    // 5⃣️ l2 < L = shouldPass
+                    shouldPass = l2 < L;   // Correct shouldPass using actual data.
+                    shouldPass = true;
+                    if (shouldPass) {
+                        nQulaifiedUsers++;
+                        Util.vectorAdd(s, data, s, F);
+                        Util.vectorAdd(v, vv, v, F);
                     }
+                }
 
 // 6⃣️ server prepare to verify
 // server.setPeerSum()
 // server.compute()
-                    peer.setPeerSum(v);
-                    verifierWatch.start();
-                    server.compute(peer);          // 🌟 serverVerify 🐢🌟
-                    verifierWatch.pause();
+                peer.setPeerSum(v);
+                verifierWatch.start();
+                server.compute(peer);          // 🌟 serverVerify 🐢🌟
+                verifierWatch.pause();
 
 // 7⃣️ VectorSum()
-                    long[] result = server.getVectorSum();
+                long[] result = server.getVectorSum();
 
-                    for (int ii = 0; ii < m; ii++) {
+                for (int ii = 0; ii < m; ii++) {
 // 7.1 res[ii] != Util.mod(s[ii], F)
-                        if (result[ii] != Util.mod(s[ii], F)) {
-                            System.out.println("\tElement " + ii
-                                    + " don't agree. Computed: "
-                                    + result[ii] + ", should be "
-                                    + Util.mod(s[ii], F));
-                            passed = false;
-                            nfails++;
-                            break;
-                        }
+                    if (result[ii] != Util.mod(s[ii], F)) {
+                        System.out.println("\tElement " + ii
+                                + " don't agree. Computed: "
+                                + result[ii] + ", should be "
+                                + Util.mod(s[ii], F));
+                        passed = false;
+                        nfails++;
+                        break;
                     }
-                    if (passed)
-                        System.out.println("Test " + kk + " passed. Number of qualified users "
-                                + " should be " + nQulaifiedUsers + ". Server reported "
-                                + server.getNQulaifiedUsers());
-                    else
-                        System.out.println("Test " + kk + " failed. Number of qualified users should be "
-                                + nQulaifiedUsers + ". Server reported "
-                                + server.getNQulaifiedUsers());
-
                 }
+                if (passed)
+                    // System.out.println("Test " + kk + " passed. Number of qualified users "
+                    System.out.println("Test 1 passed. Number of qualified users "
+
+                            + " should be " + nQulaifiedUsers + ". Server reported "
+                            + server.getNQulaifiedUsers());
+                else
+                    // System.out.println("Test " + kk + " failed. Number of qualified users should be "
+                    System.out.println("Test 1 failed. Number of qualified users should be "
+                            + nQulaifiedUsers + ". Server reported "
+                            + server.getNQulaifiedUsers());
+
+                // } //comment nLoops
 
                 verifierWatch.stop();
                 proverWatch.stop();
                 long end = System.currentTimeMillis();
 
-                System.out.println("Total tests run: " + nLoops + ". Failed: " + nfails);
+                System.out.println("Total tests run: 1. Failed: " + nfails);
                 System.out.println("\n  Prover time            Verifier time           Total");
                 System.out.println("============================================================");
-                System.out.println("    " + (double) proverWatch.getElapsedTime() / nLoops
+                System.out.println("    " + (double) proverWatch.getElapsedTime() / 1
                         + "                 "
-                        + (double) verifierWatch.getElapsedTime() / nLoops
+                        + (double) verifierWatch.getElapsedTime() / 1
                         + "              "
                         + ((double) (proverWatch.getElapsedTime()
-                        + verifierWatch.getElapsedTime())) / nLoops);
+                        + verifierWatch.getElapsedTime())) / 1);
                 System.out.println("Note that the time is for all " + n + " users in ms.");
                 System.out.println("Also note that the prover needs to compute proofs"
                         + " for both the server and the privacy peer.");
@@ -356,29 +379,17 @@ public class P4PSim extends P4PParameters {
     }
 
 
-    public static String initialize(){
-        int nLoops = 1;
+    public static String initializeParams(SecureRandom rand){
         boolean doBench = false;
         boolean worstcase = false;
         int zkpIterations = 50;
         System.out.println("k = " + k);
         System.out.println("m = " + m);
         System.out.println("n = " + n);
-        System.out.println("nLoops = " + nLoops);
 
         // Setup the parameters:
         P4PParameters.initialize(k, false);
-        SecureRandom rand = null;
-        try {
-            rand = SecureRandom.getInstance("SHA1PRNG");
-        } catch (java.security.NoSuchAlgorithmException e) {
-            System.err.println("NoSuchAlgorithmException!");
-            e.printStackTrace();
-            rand = new SecureRandom();
-        }
-
-        rand.nextBoolean();
-
+      
         long L = ((long) 2) << l - 1;
         long F = BigInteger.probablePrime(Math.min(l + 30, 62), rand).longValue();
         // Make the field size to be 10 bits larger than l
@@ -398,7 +409,7 @@ public class P4PSim extends P4PParameters {
         
         // P4PServer server = new P4PServer(m, F, l, zkpIterations, g, h);
         String argStrtoSend = "";
-        argStrtoSend += m+","+F+","+l+","+zkpIterations+","+g+","+h;
+        argStrtoSend += m+","+F+","+l+","+zkpIterations+","+g+","+h+","+L;
         System.out.println("argStrtoSend: "+argStrtoSend);
         return argStrtoSend;
     }
