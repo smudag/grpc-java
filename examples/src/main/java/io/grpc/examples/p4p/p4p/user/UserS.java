@@ -218,22 +218,22 @@ public class UserS {
             System.out.println("Test 1 failed. Number of qualified users should be "
                     + nQulaifiedUsers + ". Server reported "
                     + serverP.getNQulaifiedUsers());
-         verifierWatch.stop();
-          proverWatch.stop();
-          long end = System.currentTimeMillis();
+        verifierWatch.stop();
+        proverWatch.stop();
+        long end = System.currentTimeMillis();
 
-          System.out.println("Total tests run: 1 . Failed: " + nfails);
-          System.out.println("\n  Prover time            Verifier time           Total");
-          System.out.println("============================================================");
-          System.out.println("    " + (double) proverWatch.getElapsedTime() / 1
-                  + "                 "
-                  + (double) verifierWatch.getElapsedTime() / 1
-                  + "              "
-                  + ((double) (proverWatch.getElapsedTime()
-                  + verifierWatch.getElapsedTime())) / 1);
-          System.out.println("Note that the time is for all users in ms.");
-          System.out.println("Also note that the prover needs to compute proofs"
-                  + " for both the server and the privacy peer.");
+        System.out.println("Total tests run: 1 . Failed: " + nfails);
+        System.out.println("\n  Prover time            Verifier time           Total");
+        System.out.println("============================================================");
+        System.out.println("    " + (double) proverWatch.getElapsedTime() / 1
+                + "                 "
+                + (double) verifierWatch.getElapsedTime() / 1
+                + "              "
+                + ((double) (proverWatch.getElapsedTime()
+                + verifierWatch.getElapsedTime())) / 1);
+        System.out.println("Note that the time is for all users in ms.");
+        System.out.println("Also note that the prover needs to compute proofs"
+                + " for both the server and the privacy peer.");
        
             
 
