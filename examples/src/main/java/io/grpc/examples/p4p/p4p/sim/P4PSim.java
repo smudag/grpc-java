@@ -48,7 +48,7 @@ import io.grpc.examples.p4p.p4p.util.Util;
 import io.grpc.examples.p4p.net.i2p.util.NativeBigInteger;
 
 import io.grpc.examples.p4p.p4p.peer.P4PPeer;
-import io.grpc.examples.p4p.p4p.server.P4PServer;
+import io.grpc.examples.p4p.p4p.server.*;
 
 /**
  * Providing a simulation framework for a P4P system. This allows one to debug
@@ -353,6 +353,54 @@ public class P4PSim extends P4PParameters {
             e.printStackTrace();
         }
 
+    }
+
+
+    public static String initialize(){
+        int nLoops = 1;
+        boolean doBench = false;
+        boolean worstcase = false;
+        int zkpIterations = 50;
+        System.out.println("k = " + k);
+        System.out.println("m = " + m);
+        System.out.println("n = " + n);
+        System.out.println("nLoops = " + nLoops);
+
+        // Setup the parameters:
+        P4PParameters.initialize(k, false);
+        SecureRandom rand = null;
+        try {
+            rand = SecureRandom.getInstance("SHA1PRNG");
+        } catch (java.security.NoSuchAlgorithmException e) {
+            System.err.println("NoSuchAlgorithmException!");
+            e.printStackTrace();
+            rand = new SecureRandom();
+        }
+
+        rand.nextBoolean();
+
+        long L = ((long) 2) << l - 1;
+        long F = BigInteger.probablePrime(Math.min(l + 30, 62), rand).longValue();
+        // Make the field size to be 10 bits larger than l
+
+        // Or just make F 62 bits? Note that we can't use 64 bit since there is no
+        // unsigned long in java.
+        //F = BigInteger.probablePrime(62, rand).longValue();
+
+        int N = zkpIterations;
+        System.out.println("l = " + l + ", L = " + L);
+        System.out.println("F = " + F);
+        System.out.println("zkpIterations = " + zkpIterations);
+
+        NativeBigInteger[] bi = P4PParameters.getGenerators(2);
+        g = bi[0];
+        h = bi[1];
+        
+        // P4PServer server = new P4PServer(m, F, l, zkpIterations, g, h);
+        String argStrtoSend = "";
+        argStrtoSend += m+","+F+","+l+","+zkpIterations+","+g+","+h;
+        System.out.println("argStrtoSend: "+argStrtoSend);
+        return argStrtoSend;
     }
 }
 

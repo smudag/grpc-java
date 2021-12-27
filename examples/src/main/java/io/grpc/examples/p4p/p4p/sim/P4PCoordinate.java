@@ -68,6 +68,7 @@ public class P4PCoordinate {
   /** Start serving requests. */
   public void start() throws IOException {
     server.start();
+    P4PSim.initialize();
     logger.info("Server started, listening on " + port);
     Runtime.getRuntime().addShutdownHook(new Thread() {
       //@Override
@@ -269,8 +270,8 @@ public class P4PCoordinate {
               System.out.println(feature.getName().getClass());
               if(feature.getName().equals("N0")){
                 try{
-                    runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-server");
-                    System.out.println("N0 Java Up");
+                    runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-server 1");
+                    System.out.println("Server N0 Java Up");
                 } catch (Exception e) {
                    e.printStackTrace();
                 }

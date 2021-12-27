@@ -156,6 +156,8 @@ io/grpc/examples/manualflowcontrol/HelloReply.java
  io.grpc.examples.manualflowcontrol.HelloReply$1
  io.grpc.examples.manualflowcontrol.HelloReply$Builder
 io/grpc/examples/p4p/p4p/server/P4PServerSS.java
+ io.grpc.examples.p4p.p4p.server.P4PServerP
+ io.grpc.examples.p4p.p4p.server.P4PServerP$UserInfo
  io.grpc.examples.p4p.p4p.server.P4PServerSS
  io.grpc.examples.p4p.p4p.server.P4PServerSS$1
  io.grpc.examples.p4p.p4p.server.P4PServerSS$P4PServerSSImpl
