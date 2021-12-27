@@ -40,7 +40,8 @@ public class P4PPeerS {
         .addService(new P4PPeerImpl())
         .build()
         .start();
-    logger.info("Server started, listening on " + port);
+    
+    logger.info("P4PPeerS listening on " + port);
     Runtime.getRuntime().addShutdownHook(new Thread() {
       @Override
       public void run() {
@@ -75,7 +76,6 @@ public class P4PPeerS {
    * Main launches the server from the command line.
    */
   public static void Main_s(String[] args) throws IOException, InterruptedException {
-    System.out.println("args[0]: "+args[0]);
     String[] argStr = args[0].split(",");
     int m = Integer.parseInt(argStr[0]);
     long F = Long.parseLong(argStr[1]);
@@ -84,12 +84,13 @@ public class P4PPeerS {
     NativeBigInteger g = new NativeBigInteger(argStr[4]);
     NativeBigInteger h = new NativeBigInteger(argStr[5]);
 
-    P4PPeer peer = new P4PPeer(m, F, l, zkpIterations, g, h);             
+    peer = new P4PPeer(m, F, l, zkpIterations, g, h);             
+    System.out.println("peer "+args[1]+" instantiated!");
     // peer.setPeerSum(v);
 
+    
     final P4PPeerS server = new P4PPeerS();
     server.start();
-    System.out.println("P4PServer start !!");
     server.blockUntilShutdown();
   }
 

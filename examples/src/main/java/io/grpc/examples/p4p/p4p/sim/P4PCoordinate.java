@@ -299,7 +299,7 @@ public class P4PCoordinate {
       for (Feature feature : features) {
         if (feature.getLocation().getLatitude() == location.getLatitude()
             && feature.getLocation().getLongitude() == location.getLongitude()) {
-              System.out.println("Server found Feature:"+feature.getName());
+              System.out.println("Correct flag Type from Golang: "+feature.getName());
               System.out.println(feature.getName().getClass());
               if(feature.getName().equals("N0")){
                 try{
@@ -321,7 +321,7 @@ public class P4PCoordinate {
               }
               else{
                 try{
-                  P4PPeerS.Main_s(new String[]{argSrtoSend});
+                  P4PPeerS.Main_s(new String[]{argSrtoSend,feature.getName()});
                   // runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-peer "+argSrtoSend);
                   System.out.println("Peer Java Listening");
                 } catch (Exception e) {

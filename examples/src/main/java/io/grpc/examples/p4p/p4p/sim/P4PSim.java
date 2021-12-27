@@ -63,7 +63,7 @@ public class P4PSim extends P4PParameters {
     public static NativeBigInteger h = null;
 
     public static int k = 512;     // Security parameter
-    public static int m = 10000;      // User vector dimension
+    public static int m = 3;      // User vector dimension
     public static int n = 1;      // Number of users
     public static int l = 40;      // Bit length of L
     public static long F;
@@ -73,100 +73,100 @@ public class P4PSim extends P4PParameters {
      * Start a simulation.
      */
     public static void main(String[] args) {
-        // int nLoops = 1;
-        // boolean doBench = false;
-        // boolean worstcase = false;
-        // int zkpIterations = 50;
+        int nLoops = 1;
+        boolean doBench = false;
+        boolean worstcase = false;
+        int zkpIterations = 50;
 
-        // for (int i = 0; i < args.length; ) {
-            // String arg = args[i++];
-        //     /**
-        //      * Test the worst case cost. i.e. every vector should pass. This is
-        //      * when the verifier spends longest time.
-        //      */
-        //     // Definie the number of iterations that the bound ZKP must have:
+        for (int i = 0; i < args.length; ) {
+            String arg = args[i++];
+            /**
+             * Test the worst case cost. i.e. every vector should pass. This is
+             * when the verifier spends longest time.
+             */
+            // Definie the number of iterations that the bound ZKP must have:
 
-        //     if (arg.length() > 0 && arg.charAt(0) == '-') {
-        //         if (arg.equals("-k")) {
-        //             try {
-        //                 k = Integer.parseInt(args[i++]);
-        //             } catch (NumberFormatException e) {
-        //                 k = 512;
-        //             }
-        //         } else if (arg.equals("-m")) {
-        //             try {
-        //                 m = Integer.parseInt(args[i++]);
-        //             } catch (NumberFormatException e) {
-        //                 m = 10;
-        //             }
-        //         } else if (arg.equals("-n")) {
-        //             try {
-        //                 n = Integer.parseInt(args[i++]);
-        //             } catch (NumberFormatException e) {
-        //                 n = 10;
-        //             }
-        //         } else if (arg.equals("-N")) {
-        //             try {
-        //                 zkpIterations = Integer.parseInt(args[i++]);
-        //             } catch (NumberFormatException e) {
-        //                 zkpIterations = 50;
-        //             }
-        //         } else if (arg.equals("-o")) {
-        //             try {
-        //                 nLoops = Integer.parseInt(args[i++]);
-        //             } catch (NumberFormatException e) {
-        //                 nLoops = 10;
-        //             }
-        //         } else if (arg.equals("-l")) {
-        //             try {
-        //                 l = Integer.parseInt(args[i++]);
-        //             } catch (NumberFormatException e) {
-        //                 l = 40;
-        //             }
-        //         } else if (arg.equals("-d")) {
-        //             debug = true;
-        //         } else if (arg.equals("-w")) {
-        //             worstcase = true;
-        //         } else if (arg.equals("-bench")) {
-        //             doBench = true;
-        //         }
-        //     }
-        // }
+            if (arg.length() > 0 && arg.charAt(0) == '-') {
+                if (arg.equals("-k")) {
+                    try {
+                        k = Integer.parseInt(args[i++]);
+                    } catch (NumberFormatException e) {
+                        k = 512;
+                    }
+                } else if (arg.equals("-m")) {
+                    try {
+                        m = Integer.parseInt(args[i++]);
+                    } catch (NumberFormatException e) {
+                        m = 10;
+                    }
+                } else if (arg.equals("-n")) {
+                    try {
+                        n = Integer.parseInt(args[i++]);
+                    } catch (NumberFormatException e) {
+                        n = 10;
+                    }
+                } else if (arg.equals("-N")) {
+                    try {
+                        zkpIterations = Integer.parseInt(args[i++]);
+                    } catch (NumberFormatException e) {
+                        zkpIterations = 50;
+                    }
+                } else if (arg.equals("-o")) {
+                    try {
+                        nLoops = Integer.parseInt(args[i++]);
+                    } catch (NumberFormatException e) {
+                        nLoops = 10;
+                    }
+                } else if (arg.equals("-l")) {
+                    try {
+                        l = Integer.parseInt(args[i++]);
+                    } catch (NumberFormatException e) {
+                        l = 40;
+                    }
+                } else if (arg.equals("-d")) {
+                    debug = true;
+                } else if (arg.equals("-w")) {
+                    worstcase = true;
+                } else if (arg.equals("-bench")) {
+                    doBench = true;
+                }
+            }
+        }
 
-        // System.out.println("k = " + k);
-        // System.out.println("m = " + m);
-        // System.out.println("n = " + n);
-        // System.out.println("nLoops = " + nLoops);
+        System.out.println("k = " + k);
+        System.out.println("m = " + m);
+        System.out.println("n = " + n);
+        System.out.println("nLoops = " + nLoops);
 
         // Setup the parameters:
-        // P4PParameters.initialize(k, false);
-        // SecureRandom rand = null;
-        // try {
-        //     rand = SecureRandom.getInstance("SHA1PRNG");
-        // } catch (java.security.NoSuchAlgorithmException e) {
-        //     System.err.println("NoSuchAlgorithmException!");
-        //     e.printStackTrace();
-        //     rand = new SecureRandom();
-        // }
+        P4PParameters.initialize(k, false);
+        SecureRandom rand = null;
+        try {
+            rand = SecureRandom.getInstance("SHA1PRNG");
+        } catch (java.security.NoSuchAlgorithmException e) {
+            System.err.println("NoSuchAlgorithmException!");
+            e.printStackTrace();
+            rand = new SecureRandom();
+        }
 
-        // rand.nextBoolean();
+        rand.nextBoolean();
 
-        // long L = ((long) 2) << l - 1;
-        // long F = BigInteger.probablePrime(Math.min(l + 30, 62), rand).longValue();
-        // // Make the field size to be 10 bits larger than l
+        long L = ((long) 2) << l - 1;
+        long F = BigInteger.probablePrime(Math.min(l + 30, 62), rand).longValue();
+        // Make the field size to be 10 bits larger than l
 
-        // // Or just make F 62 bits? Note that we can't use 64 bit since there is no
-        // // unsigned long in java.
-        // //F = BigInteger.probablePrime(62, rand).longValue();
+        // Or just make F 62 bits? Note that we can't use 64 bit since there is no
+        // unsigned long in java.
+        //F = BigInteger.probablePrime(62, rand).longValue();
 
-        // int N = zkpIterations;
-        // System.out.println("l = " + l + ", L = " + L);
-        // System.out.println("F = " + F);
-        // System.out.println("zkpIterations = " + zkpIterations);
+        int N = zkpIterations;
+        System.out.println("l = " + l + ", L = " + L);
+        System.out.println("F = " + F);
+        System.out.println("zkpIterations = " + zkpIterations);
 
         // Generate the data and the checksum coefficient vector:
 
-        SecureRandom rand = null;
+        // SecureRandom rand = null;
         try {
             rand = SecureRandom.getInstance("SHA1PRNG");
         } catch (java.security.NoSuchAlgorithmException e) {
@@ -205,13 +205,13 @@ public class P4PSim extends P4PParameters {
                 h = bi[1];
                 
                 String[] argStr = initializeParams(rand).split(",");
-                int m = Integer.parseInt(argStr[0]);
-                long F = Long.parseLong(argStr[1]);
-                int l = Integer.parseInt(argStr[2]);
-                int zkpIterations = Integer.parseInt(argStr[3]);
-                NativeBigInteger g = new NativeBigInteger(argStr[4]);
-                NativeBigInteger h = new NativeBigInteger(argStr[5]);
-                long L = Long.parseLong(argStr[6]);
+                m = Integer.parseInt(argStr[0]);
+                F = Long.parseLong(argStr[1]);
+                l = Integer.parseInt(argStr[2]);
+                zkpIterations = Integer.parseInt(argStr[3]);
+                g = new NativeBigInteger(argStr[4]);
+                h = new NativeBigInteger(argStr[5]);
+                L = Long.parseLong(argStr[6]);
 
                 P4PServer server = new P4PServer(m, F, l, zkpIterations, g, h);
                 P4PPeer peer = new P4PPeer(m, F, l, zkpIterations, g, h);

@@ -48,7 +48,7 @@ public class P4PServerSS {
         .addService(new P4PServerSSImpl())
         .build()
         .start();
-    logger.info("Server started, listening on " + port);
+    logger.info("P4PServerSS listening on " + port);
     Runtime.getRuntime().addShutdownHook(new Thread() {
       @Override
       public void run() {
@@ -83,7 +83,6 @@ public class P4PServerSS {
    * Main launches the server from the command line.
    */
   public static void Main_s(String[] args) throws IOException, InterruptedException {
-    System.out.println("args[0]: "+args[0]);
     String[] argStr = args[0].split(",");
     int m = Integer.parseInt(argStr[0]);
     long F = Long.parseLong(argStr[1]);
@@ -93,11 +92,11 @@ public class P4PServerSS {
     NativeBigInteger h = new NativeBigInteger(argStr[5]);
 
     serverP = new P4PServer(m,F,l,zkpIterations,g,h);
+    System.out.println("serverP N0 instantiated !");
+
     serverP.init();
     serverP.generateChallengeVectors();
-
     final P4PServerSS server = new P4PServerSS();
-    System.out.println("serverP N0 instantiated !!");
     server.start();
     server.blockUntilShutdown();
   }
