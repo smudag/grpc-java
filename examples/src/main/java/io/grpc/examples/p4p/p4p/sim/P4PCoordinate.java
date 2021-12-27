@@ -25,6 +25,11 @@ import static java.lang.Math.sqrt;
 import static java.lang.Math.toRadians;
 import static java.util.concurrent.TimeUnit.NANOSECONDS;
 
+
+import io.grpc.examples.p4p.p4p.user.UserS;
+import io.grpc.examples.p4p.p4p.server.P4PServerSS;
+import io.grpc.examples.p4p.p4p.peer.P4PPeerS;
+
 import java.security.SecureRandom;
 import io.grpc.Server;
 import io.grpc.ServerBuilder;
@@ -298,7 +303,8 @@ public class P4PCoordinate {
               System.out.println(feature.getName().getClass());
               if(feature.getName().equals("N0")){
                 try{
-                    runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-server "+argSrtoSend);
+                    P4PServerSS.Main_s(new String[]{argSrtoSend});
+                    // runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-server "+argSrtoSend);
                     System.out.println("Server N0 Java Up");
                 } catch (Exception e) {
                    e.printStackTrace();
@@ -306,7 +312,8 @@ public class P4PCoordinate {
               } else if(feature.getName().equals("client")){
                   try{
                     System.out.println("Start client Java");
-                    runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-user "+argSrtoSend);
+                    UserS.Main_s(new String[]{argSrtoSend});
+                    // runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-user "+argSrtoSend);
                     System.out.println("Client Java Listening");
                   } catch (Exception e) {
                     e.printStackTrace();
@@ -314,7 +321,8 @@ public class P4PCoordinate {
               }
               else{
                 try{
-                  runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-peer "+argSrtoSend);
+                  P4PPeerS.Main_s(new String[]{argSrtoSend});
+                  // runProcess("/root/grpc-java/examples/build/install/examples/bin/p4p-peer "+argSrtoSend);
                   System.out.println("Peer Java Listening");
                 } catch (Exception e) {
                    e.printStackTrace();
