@@ -71,10 +71,10 @@ public class UserS {
 
     @Override
     public void sayHello(UserSRequest req, StreamObserver<UserSReply> responseObserver) {
-      UserSReply reply = UserSReply.newBuilder().setMessage("Hello " + req.getName()).build();
+      UserSReply reply = UserSReply.newBuilder().setMessage("Zero Knowledge Module[java] received: " + req.getName()).build();
       try {
         // runProcess("javac Main.java");
-          System.out.println("Hello " + req.getName());
+          System.out.println("Client Input: " + req.getName());
           convertToByteArray(req.getName());
       } catch (Exception e) {
         e.printStackTrace();
