@@ -55,6 +55,7 @@ public class P4PCoordinate {
   private final int port;
   private final Server server;
   private static String argSrtoSend;
+  public static SecureRandom rand = null;
 
   public P4PCoordinate(int port) throws IOException {
     this(port, P4PGuideUtil.getDefaultFeaturesFile());
@@ -76,7 +77,7 @@ public class P4PCoordinate {
   public void start() throws IOException {
     server.start();
 
-    SecureRandom rand = null;
+    rand = null;
     try {
         rand = SecureRandom.getInstance("SHA1PRNG");
     } catch (java.security.NoSuchAlgorithmException e) {
@@ -86,19 +87,6 @@ public class P4PCoordinate {
     }
     rand.nextBoolean();
     argSrtoSend = P4PSim.initializeParams(rand);
-    String[] argArr = argSrtoSend.split(",");
-    int m = Integer.parseInt(argArr[0]);
-    long L = Long.parseLong(argArr[6]);
-    // long L = ((long) 2) << l - 1;
-    long[] s = new long[m];
-    long[] v = new long[m];
-    double delta = 1.5;
-    int nfails = 0;
-    double l2 = (double) L * delta;
-    for (int i = 0; i < m; i++) {
-      s[i] = 0;
-      v[i] = 0;
-  }
 
 
     

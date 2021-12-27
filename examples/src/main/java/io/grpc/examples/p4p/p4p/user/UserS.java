@@ -1,10 +1,14 @@
 package io.grpc.examples.p4p.p4p.user;
 import io.grpc.examples.p4p.p4p.user.UserVector2;
+import io.grpc.examples.p4p.p4p.util.StopWatch;
 import io.grpc.examples.p4p.p4p.server.P4PServerSS;
 import io.grpc.examples.p4p.p4p.server.P4PServer;
 import io.grpc.examples.p4p.p4p.peer.P4PPeer;
 import io.grpc.examples.p4p.p4p.peer.P4PPeerS;
 import io.grpc.examples.p4p.p4p.sim.P4PSim;
+import io.grpc.examples.p4p.p4p.sim.P4PCoordinate;
+import java.security.SecureRandom;
+
 
 import io.grpc.examples.p4p.p4p.util.Util;
 import io.grpc.examples.p4p.net.i2p.util.NativeBigInteger;
@@ -109,9 +113,10 @@ public class UserS {
       System.out.println("Check whether Server and Peer is up:");
       if(!IsServerPeerUp()) return;
       try {
+        boolean worstcase = false;
         int k = 512;     // Security parameter
         int m = P4PSim.m;      // User vector dimension
-
+        
         P4PServer serverP = P4PServerSS.serverP;
         serverP.init(); // Must clear old states and data
         serverP.generateChallengeVectors(); 
@@ -128,8 +133,17 @@ public class UserS {
         boolean passed = true;
         int nQulaifiedUsers = 0;
 
+
+        StopWatch proverWatch = new StopWatch();
+        StopWatch verifierWatch = new StopWatch();
         double delta = 1.5;
         int nfails = 0;
+        SecureRandom rand = P4PCoordinate.rand;
+        if (worstcase) shouldPass = true;     // Test the worst case
+        else shouldPass = rand.nextBoolean();
+        //System.out.println("Loop " + kk + ", user " + i + ". shouldPass = " + shouldPass);
+        if (shouldPass) delta = 0.5;
+        else delta = 2.0;
         double l2 = (double) L * delta;
 
         // System.out.println("serverP.getChallengeVectors(): "+serverP.getChallengeVectors());
@@ -139,17 +153,18 @@ public class UserS {
         }
         System.out.println("Client Input: " + req.getName());
         long[] data = convertToLongArray(req.getName());
-        System.out.println("long[] data: " + data);
+        System.out.println("long[] data: " + Arrays.toString(data));
         if(data.length != m) System.out.println("!!!! Wrong Length: "+ data.length +", correct length is "+m +"!!!!" );
         UserVector2 uv = new UserVector2(data, F, l, g, h);
         uv.generateShares();
         uv.setChecksumCoefficientVectors(serverP.getChallengeVectors());
 
+        proverWatch.start();
         UserVector2.L2NormBoundProof2 peerProof =
         (UserVector2.L2NormBoundProof2) uv.getL2NormBoundProof2(false);
         UserVector2.L2NormBoundProof2 serverProof =
         (UserVector2.L2NormBoundProof2) uv.getL2NormBoundProof2(true);
-
+        proverWatch.pause();
         
         serverP.setUserVector(0, uv.getU());
         serverP.setProof(0, serverProof);
@@ -157,7 +172,9 @@ public class UserS {
         UserVector2 pv = new UserVector2(m, F, l, g, h);
         pv.setV(vv);
         pv.setChecksumCoefficientVectors(serverP.getChallengeVectors());
+        verifierWatch.start();
         boolean peerPassed = pv.verify2(peerProof); // 🌟 verify2 🌟
+        verifierWatch.pause();
         if (!peerPassed)
         serverP.disqualifyUser(0); // on one USER //TODO: for (int i = 0; i < n; i++) {
         else
@@ -172,9 +189,9 @@ public class UserS {
 
         P4PPeer peer = P4PPeerS.peer;
         peer.setPeerSum(v);
-        // verifierWatch.start();
+        verifierWatch.start();
         serverP.compute(peer);          // 🌟 serverVerify 🐢🌟
-        // verifierWatch.pause();
+        verifierWatch.pause();
         long[] result = serverP.getVectorSum();
 
         for (int ii = 0; ii < m; ii++) {
@@ -201,6 +218,23 @@ public class UserS {
             System.out.println("Test 1 failed. Number of qualified users should be "
                     + nQulaifiedUsers + ". Server reported "
                     + serverP.getNQulaifiedUsers());
+         verifierWatch.stop();
+          proverWatch.stop();
+          long end = System.currentTimeMillis();
+
+          System.out.println("Total tests run: 1 . Failed: " + nfails);
+          System.out.println("\n  Prover time            Verifier time           Total");
+          System.out.println("============================================================");
+          System.out.println("    " + (double) proverWatch.getElapsedTime() / 1
+                  + "                 "
+                  + (double) verifierWatch.getElapsedTime() / 1
+                  + "              "
+                  + ((double) (proverWatch.getElapsedTime()
+                  + verifierWatch.getElapsedTime())) / 1);
+          System.out.println("Note that the time is for all users in ms.");
+          System.out.println("Also note that the prover needs to compute proofs"
+                  + " for both the server and the privacy peer.");
+       
             
 
       } catch (Exception e) {
