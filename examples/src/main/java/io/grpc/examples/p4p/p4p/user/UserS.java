@@ -109,7 +109,8 @@ public class UserS {
 
     @Override
     public void sayHello(UserSRequest req, StreamObserver<UserSReply> responseObserver) {
-      UserSReply reply = UserSReply.newBuilder().setMessage("Zero Knowledge Module[java] received: " + req.getName()).build();
+      // String stringInReply = "Zero Knowledge Module[java] received: " + req.getName();
+      String stringInReply = "Zero Knowledge Module[java] received. Verification Result is ";
       System.out.println("Check whether Server and Peer is up:");
       if(!IsServerPeerUp()) return;
       try {
@@ -235,12 +236,13 @@ public class UserS {
         System.out.println("Also note that the prover needs to compute proofs"
                 + " for both the server and the privacy peer.");
        
-            
-
+        stringInReply += ""+String.valueOf(passed);
+     
       } catch (Exception e) {
         e.printStackTrace();
         System.out.println("e.getMessage() UserS:"+e.getMessage());
       }
+      UserSReply reply = UserSReply.newBuilder().setMessage(stringInReply).build();
       responseObserver.onNext(reply);
       responseObserver.onCompleted();
     }
