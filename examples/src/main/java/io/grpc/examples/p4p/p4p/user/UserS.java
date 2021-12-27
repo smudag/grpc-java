@@ -9,7 +9,7 @@ import io.grpc.examples.p4p.p4p.sim.P4PSim;
 import io.grpc.examples.p4p.p4p.sim.P4PCoordinate;
 import java.security.SecureRandom;
 
-
+import java.util.ArrayList;
 import io.grpc.examples.p4p.p4p.util.Util;
 import io.grpc.examples.p4p.net.i2p.util.NativeBigInteger;
 
@@ -28,7 +28,7 @@ import java.util.logging.Logger;
  */
 public class UserS {
   private static final Logger logger = Logger.getLogger(UserS.class.getName());
-
+  private static ArrayList<long[]> dataArrayList = new ArrayList<long[]> ();
   private Server server;
 
   private void start() throws IOException {
@@ -153,8 +153,21 @@ public class UserS {
           v[i] = 0;
         }
         System.out.println("Client Input: " + req.getName());
+        
         long[] data = convertToLongArray(req.getName());
-        System.out.println("long[] data: " + Arrays.toString(data));
+        dataArrayList.add(data);
+        long[] s_d123 = new long[m];
+        System.out.println("Added to dataArrayList, long[] data: " + Arrays.toString(data));
+        if(dataArrayList.size() == 3){
+          Util.vectorThreeAdd(dataArrayList.get(0), dataArrayList.get(1), dataArrayList.get(2), s_d123, F);
+          System.out.println("d1: " + Arrays.toString(dataArrayList.get(0)));
+          System.out.println("d2: " + Arrays.toString(dataArrayList.get(1)));
+          System.out.println("d3: " + Arrays.toString(dataArrayList.get(2)));
+          System.out.println("d1+d2+d3: " + Arrays.toString(s_d123));
+          dataArrayList.clear();
+          System.out.println("dataArrayList.clear()");
+        }
+        
         if(data.length != m) System.out.println("!!!! Wrong Length: "+ data.length +", correct length is "+m +"!!!!" );
         UserVector2 uv = new UserVector2(data, F, l, g, h);
         uv.generateShares();

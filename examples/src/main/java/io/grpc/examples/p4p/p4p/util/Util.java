@@ -892,4 +892,18 @@ public class Util extends P4PParameters {
             s[j] = mod(v1[j] + v2[j], F);
         }
     }
+
+    public static void vectorThreeAdd(long[] v1, long[] v2, long[] v3, long[] s, long F) {
+        int m = s.length;
+        if(v1.length != m || v2.length != m || v3.length !=m)
+            throw new IllegalArgumentException("dimesionalities do not match!");
+
+        for(int j = 0; j < m; j++) {
+            // Assuming F is at least a few bits less than a long, a single
+            // addition won't cause overflow. So we can do mod afterwards.
+            // But we do need to do mod once for a few additions since the
+            // shares can be any number in Z_F.
+            s[j] = mod(v1[j] + v2[j] + v3[j], F);
+        }
+    }
 }
