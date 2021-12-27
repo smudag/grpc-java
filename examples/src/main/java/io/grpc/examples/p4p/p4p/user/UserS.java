@@ -75,7 +75,7 @@ public class UserS {
       try {
         // runProcess("javac Main.java");
           System.out.println("Client Input: " + req.getName());
-          convertToByteArray(req.getName());
+          convertToLongArray(req.getName());
       } catch (Exception e) {
         e.printStackTrace();
       }
@@ -123,13 +123,21 @@ public class UserS {
   }
 
 
-  public static void convertToByteArray(String inputString) {
+  public static long[] convertToLongArray(String inputString) {
     // String inputString = "Hello World!";
    
     Charset charset = Charset.forName("ASCII");
     byte[] byteArrray = inputString.getBytes(charset);
-    System.out.println("byteArrray");
-    System.out.println(Arrays.toString(byteArrray));
+
+    long[] data = new long[byteArrray.length-1];
+    for (int did = 0; did < byteArrray.length-1; did++) {
+        long a = (long) byteArrray[did];
+        data[did] = a;
+    }
+    // System.out.println(data);
+    System.out.println("data");
+    System.out.println(Arrays.toString(data));
+    return data;
 }
 
 }
