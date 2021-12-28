@@ -343,7 +343,7 @@ public class UserVector2 extends UserVector {
 
             Commitment cm = new Commitment(g, h);
             SquareCommitment sc = new SquareCommitment(g, h);
-            System.out.println("---------->c.length: <----------"+c.length);
+            P4PParameters.DEBUG("1. ---------->c.length: <----------"+c.length);
             for(int i = 0; i < c.length; i++) {
                 serverProof.checksums[i] = Util.mod(Util.innerProduct(c[i], u), F);
                 peerProof.checksums[i] = Util.mod(Util.innerProduct(c[i], v), F);
@@ -493,6 +493,7 @@ public class UserVector2 extends UserVector {
             serverProof.bcProofs =
                     new BitCommitment.BitCommitmentProof[numBits];
             BitCommitment bc = new BitCommitment(g, h);
+            P4PParameters.DEBUG("2. ------------> numBits-1: "+(numBits - 1)+"<------------");
             for(int i = 0; i < numBits - 1; i++) {
                 BigInteger cc = bc.commit(squareSum.testBit(i));
                 serverProof.bcProofs[i] =
@@ -524,10 +525,10 @@ public class UserVector2 extends UserVector {
 
             // Lets check it here:
             if(P4PParameters.debug) {
-                System.out.print("Checking homomorphism ...");
+                System.out.println("Checking homomorphism ...");
                 BigInteger ZZ = BigInteger.ONE;
                 BigInteger z = BigInteger.ZERO;
-                System.out.println("---------->numBits: <----------"+numBits);
+                P4PParameters.DEBUG("3.---------->numBits: <----------"+numBits);
                 for(int i = 0; i < numBits; i++) {
                     //BigInteger e = new BigInteger(new Long(((long)1)<<i).toString());  // 2^i
                     e = BigInteger.ZERO.setBit(i);
@@ -650,7 +651,7 @@ public class UserVector2 extends UserVector {
 
         // Peer just computes the commitments to the checksums
         Commitment cm = new Commitment(g, h);
-        System.out.println("---------->y.length: <----------"+y.length);
+        P4PParameters.DEBUG("4. ---------->y.length: <----------"+y.length);
         for(int i = 0; i < y.length; i++) {
             y[i] = Util.mod(Util.innerProduct(c[i], v), F);
             Y[i] =
@@ -687,7 +688,7 @@ public class UserVector2 extends UserVector {
         // Check the checksums and their commitments:
         Commitment cm = new Commitment(g, h);
         ThreeWayCommitment tc = new ThreeWayCommitment(g, h, F);
-        System.out.println("---------->x.length: <---------"+x.length);
+        P4PParameters.DEBUG("5. ---------->[1x+2MCB+3tc] x.length: <---------"+x.length);
         for(int i = 0; i < x.length; i++) {
 //1. checksums are computed correctly:
             //if(s[i] != Math.abs(Util.innerProduct(c[i], data))) {
@@ -736,7 +737,7 @@ public class UserVector2 extends UserVector {
 
         // Check the square proofs:
         SquareCommitment sc = new SquareCommitment(g, h);
-        System.out.println("---------->scProofs.length: <----------"+scProofs.length);
+        P4PParameters.DEBUG("6. ---------->[5sc+6sc] scProofs.length: <----------"+scProofs.length);
         for(int i = 0; i < scProofs.length; i++) {
             // First check that the square commitment encodes the correct
             // number i.e. the A in scProofs is the commitment to s.
@@ -757,7 +758,7 @@ public class UserVector2 extends UserVector {
         // Now the bit commitment for the sum. First check if the commitment is
         // computed correctly:
         BigInteger z = BigInteger.ONE;
-        System.out.println("---------->scProofs.length: <----------"+scProofs.length);
+        P4PParameters.DEBUG("7. ---------->scProofs.length: <----------"+scProofs.length);
         for(int i = 0; i < scProofs.length; i++) {
             z = z.multiply(scProofs[i].getCommitment()[1]).mod(P4PParameters.p);   // *= B
         }
@@ -777,7 +778,7 @@ public class UserVector2 extends UserVector {
         P4PParameters.DEBUG("Checking  " + bcProofs.length + " bit commitments");
 
         BigInteger ZZ = BigInteger.ONE;
-        System.out.println("---------->bcProofs.length: <----------"+bcProofs.length);
+        P4PParameters.DEBUG("8. ---------->[8bc]bcProofs.length: <----------"+bcProofs.length);
         for(int i = 0; i < bcProofs.length; i++) {
             
 
