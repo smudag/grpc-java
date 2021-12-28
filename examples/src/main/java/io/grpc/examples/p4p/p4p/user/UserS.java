@@ -157,7 +157,7 @@ public class UserS {
         long[] data = convertToLongArray(req.getName());
         dataArrayList.add(data);
         long[] s_d123 = new long[m];
-        System.out.println("Added to dataArrayList, long[] data: " + Arrays.toString(data));
+        System.out.println("Added to dataArrayList index "+(dataArrayList.size()-1)+" long[] data: " + Arrays.toString(data));
         if(dataArrayList.size() == 3){
           Util.vectorThreeAdd(dataArrayList.get(0), dataArrayList.get(1), dataArrayList.get(2), s_d123, F);
           System.out.println("d1: " + Arrays.toString(dataArrayList.get(0)));

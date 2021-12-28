@@ -343,6 +343,7 @@ public class UserVector2 extends UserVector {
 
             Commitment cm = new Commitment(g, h);
             SquareCommitment sc = new SquareCommitment(g, h);
+            System.out.println("---------->c.length: <----------"+c.length);
             for(int i = 0; i < c.length; i++) {
                 serverProof.checksums[i] = Util.mod(Util.innerProduct(c[i], u), F);
                 peerProof.checksums[i] = Util.mod(Util.innerProduct(c[i], v), F);
@@ -526,7 +527,7 @@ public class UserVector2 extends UserVector {
                 System.out.print("Checking homomorphism ...");
                 BigInteger ZZ = BigInteger.ONE;
                 BigInteger z = BigInteger.ZERO;
-
+                System.out.println("---------->numBits: <----------"+numBits);
                 for(int i = 0; i < numBits; i++) {
                     //BigInteger e = new BigInteger(new Long(((long)1)<<i).toString());  // 2^i
                     e = BigInteger.ZERO.setBit(i);
@@ -649,6 +650,7 @@ public class UserVector2 extends UserVector {
 
         // Peer just computes the commitments to the checksums
         Commitment cm = new Commitment(g, h);
+        System.out.println("---------->y.length: <----------"+y.length);
         for(int i = 0; i < y.length; i++) {
             y[i] = Util.mod(Util.innerProduct(c[i], v), F);
             Y[i] =
@@ -685,6 +687,7 @@ public class UserVector2 extends UserVector {
         // Check the checksums and their commitments:
         Commitment cm = new Commitment(g, h);
         ThreeWayCommitment tc = new ThreeWayCommitment(g, h, F);
+        System.out.println("---------->x.length: <---------"+x.length);
         for(int i = 0; i < x.length; i++) {
 //1. checksums are computed correctly:
             //if(s[i] != Math.abs(Util.innerProduct(c[i], data))) {
@@ -719,7 +722,7 @@ public class UserVector2 extends UserVector {
         // Next check that the sum of squares does not have excessive bits:
         int BL = bcProofs.length; // numBits,   squareSum =
         int CLA2l = Integer.toBinaryString(c.length).length()+2*l; //86
-        P4PParameters.DEBUG("BL: " + BL + "CLA2L: "+CLA2l);
+        P4PParameters.DEBUG("BL: " + BL + ".   CLA2L: "+CLA2l);
 
 //4. bcProofs.length > Square Sum exceed 
         if(bcProofs.length > Integer.toBinaryString(c.length).length()+2*l){
@@ -733,6 +736,7 @@ public class UserVector2 extends UserVector {
 
         // Check the square proofs:
         SquareCommitment sc = new SquareCommitment(g, h);
+        System.out.println("---------->scProofs.length: <----------"+scProofs.length);
         for(int i = 0; i < scProofs.length; i++) {
             // First check that the square commitment encodes the correct
             // number i.e. the A in scProofs is the commitment to s.
@@ -753,6 +757,7 @@ public class UserVector2 extends UserVector {
         // Now the bit commitment for the sum. First check if the commitment is
         // computed correctly:
         BigInteger z = BigInteger.ONE;
+        System.out.println("---------->scProofs.length: <----------"+scProofs.length);
         for(int i = 0; i < scProofs.length; i++) {
             z = z.multiply(scProofs[i].getCommitment()[1]).mod(P4PParameters.p);   // *= B
         }
@@ -772,6 +777,7 @@ public class UserVector2 extends UserVector {
         P4PParameters.DEBUG("Checking  " + bcProofs.length + " bit commitments");
 
         BigInteger ZZ = BigInteger.ONE;
+        System.out.println("---------->bcProofs.length: <----------"+bcProofs.length);
         for(int i = 0; i < bcProofs.length; i++) {
             
 

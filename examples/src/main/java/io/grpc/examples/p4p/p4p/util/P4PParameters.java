@@ -315,7 +315,7 @@ public class P4PParameters {
     /**
      * Debug helper
      */
-    static protected boolean debug = false;
+    static protected boolean debug = true;
     public static void DEBUG(String msg) {
         if(debug)
             System.out.println(msg);
