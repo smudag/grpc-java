@@ -51,7 +51,9 @@ zkpIterations, L2 Bound, Field, g, h
 
 
 ### 2. Start Server-N0 and Peer-N1 on FedBFT Golang
-
+```
+cd ~/FedBFT
+```    
 ```
 ./voting N0
 ./voting N1
