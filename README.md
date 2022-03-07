@@ -9,19 +9,14 @@ go build .
 cd ~/grpc-java/examples && rm -r build && ./gradlew installDist
 ```
 
-### 1. Start Server-N0 and Peer-N1 on FedBFT Golang
-
-```
-./voting N0
-./voting N1
-```
 
 
 
-### 2. Start P4P Coordinate ()
+
+### 1. Start P4P Coordinate ()
 Bind and start the server.  After this call returns, clients may begin connecting to the listening socket(s).   
 
-#### 2.1 initializeParams
+#### 1.1 initializeParams
 ```
 P4PSim.initializeParams(rand)
 ```
@@ -30,10 +25,19 @@ P4PCoordinate will initialzie P4PSim.initializeParams:
 zkpIterations, L2 Bound, Field, g, h
 ```     
      
-#### 2.2 recordRoute -> checkFeature    
+#### 1.2 recordRoute -> checkFeature    
 -> getName().equals("N0"): server N0    
 -> getName().equals("client"): Client    
 -> else: peer
+
+
+
+### 2. Start Server-N0 and Peer-N1 on FedBFT Golang
+
+```
+./voting N0
+./voting N1
+```
 
 
 `go run ~/grpc-go/examples/p4p/p4p/sim/server/server.go`   
