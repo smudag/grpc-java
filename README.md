@@ -13,18 +13,18 @@ https://github.com/SheldonHH/p4g/blob/main/Dockerfile
 
 
 ```
-cd /root/grpc-java/examples && rm -r build && ./gradlew installDist
-/root/grpc-java/examples/build/install/examples/bin/p4p-coordinate
-/root/grpc-java/examples/build/install/examples/bin/p4p-sim
+cd ~/grpc-java/examples && rm -r build && ./gradlew installDist
+~/grpc-java/examples/build/install/examples/bin/p4p-coordinate
+~/grpc-java/examples/build/install/examples/bin/p4p-sim
 
-/root/grpc-java/examples/build/install/examples/bin/hello-world-server
+~/grpc-java/examples/build/install/examples/bin/hello-world-server
 
-/root/grpc-java/examples/build/install/examples/bin/hello-world-client
+~/grpc-java/examples/build/install/examples/bin/hello-world-client
 ```
 
 Route
 ```
-/root/grpc-java/examples/build/install/examples/bin/route-guide-server
+~/grpc-java/examples/build/install/examples/bin/route-guide-server
 
 grep --include \*.java -e  'world'
 grep --include \*.json -rnw '/root/grpc-java/examples/' -e 'Singapore'
