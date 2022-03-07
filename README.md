@@ -9,7 +9,22 @@ go build .
 cd ~/grpc-java/examples && rm -r build && ./gradlew installDist
 ```
 
+#### build grpc-go
+```
+cd ~/FedBFT/
+protoc --go_out=. --go_opt=paths=source_relative \
+    --go-grpc_out=. --go-grpc_opt=paths=source_relative \
+    p4p/p4p/sim/p4p/p4p.proto
+    
+    
+protoc --go_out=. --go_opt=paths=source_relative \
+    --go-grpc_out=. --go-grpc_opt=paths=source_relative \
+    p4p/p4p/user/p4p/users.proto
+    
+cp -r  p4p/p4p/user/p4p ~/go/src/google.golang.org/grpc/examples/p4p/p4p/user/ 
 
+# go run ~/grpc-go/examples/p4p/p4p/sim/server/server.go   
+```  
 
 
 
@@ -27,6 +42,8 @@ P4PCoordinate will initialzie P4PSim.initializeParams:
 ```
 zkpIterations, L2 Bound, Field, g, h
 ```     
+
+
      
 #### 1.2 recordRoute -> checkFeature    
 -> getName().equals("N0"): server N0    
@@ -42,23 +59,7 @@ zkpIterations, L2 Bound, Field, g, h
 ./voting N1
 ```
 
-
-`go run ~/grpc-go/examples/p4p/p4p/sim/server/server.go`   
-```
-cd ~/grpc-go/examples/
-protoc --go_out=. --go_opt=paths=source_relative \
-    --go-grpc_out=. --go-grpc_opt=paths=source_relative \
-    p4p/p4p/sim/p4p/p4p.proto
     
-    
-protoc --go_out=. --go_opt=paths=source_relative \
-    --go-grpc_out=. --go-grpc_opt=paths=source_relative \
-    p4p/p4p/user/p4p/users.proto
-    
-cp -r  p4p/p4p/user/p4p ~/go/src/google.golang.org/grpc/examples/p4p/p4p/user/ 
-
-go run ~/grpc-go/examples/p4p/p4p/sim/server/server.go   
-```      
     
 https://github.com/SheldonHH/p4g/blob/main/Dockerfile
 
