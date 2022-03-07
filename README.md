@@ -1,18 +1,25 @@
 https://stackoverflow.com/questions/4585929/how-to-use-cp-command-to-exclude-a-specific-directory
 
-0. Build Golang FedBFT 
+0. Build Golang FedBFT & Java Peer-Privacy Application
 ```
 cd ~/FedBFT
 go build .
+
+
 ```
 
-2. Start Server and Peer on FedBFT
+1. Start Server and Peer on FedBFT
 
 ```
 ./voting N0
 ./voting N1
 ```
 
+```
+cd ~/grpc-java/examples && rm -r build && ./gradlew installDist
+```
+
+2. 
 
 `go run ~/grpc-go/examples/p4p/p4p/sim/server/server.go`   
 ```
