@@ -29,7 +29,7 @@ zkpIterations, L2 Bound, Field, g, h
      
 recordRoute -> checkFeature    
 -> getName().equals("N0"): server N0    
--> getName().equals("client"): Client 
+-> getName().equals("client"): Client    
 -> else: peer
 
 
