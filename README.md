@@ -3,7 +3,7 @@ https://stackoverflow.com/questions/4585929/how-to-use-cp-command-to-exclude-a-s
 ### 0. Build Golang FedBFT & Java Peer-Privacy Application
 
 ```
-cd ~/grpc-java/examples && rm -r build && ./gradlew installDist
+cd ~/grpc-java/examples && rm -rf build && ./gradlew installDist
 ```
 
 #### build grpc-go in `FedBFT/voting`
