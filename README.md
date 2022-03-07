@@ -15,7 +15,7 @@ cd ~/grpc-java/examples && rm -r build && ./gradlew installDist
 
 ### 1. Start P4P Coordinate ()
 ```
-./p4p-coordinate
+~/grpc-java/examples/build/install/examples/bin/p4p-coordinate
 ```    
 Bind and start the server.  After this call returns, clients may begin connecting to the listening socket(s).   
 
