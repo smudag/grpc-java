@@ -4,8 +4,9 @@ https://stackoverflow.com/questions/4585929/how-to-use-cp-command-to-exclude-a-s
 ```
 cd ~/FedBFT
 go build .
-
-
+```
+```
+cd ~/grpc-java/examples && rm -r build && ./gradlew installDist
 ```
 
 1. Start Server and Peer on FedBFT
@@ -15,9 +16,7 @@ go build .
 ./voting N1
 ```
 
-```
-cd ~/grpc-java/examples && rm -r build && ./gradlew installDist
-```
+
 
 2. 
 
