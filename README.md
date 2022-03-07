@@ -9,7 +9,7 @@ go build .
 cd ~/grpc-java/examples && rm -r build && ./gradlew installDist
 ```
 
-1. Start Server and Peer on FedBFT
+1. Start Server-N0 and Peer-N1 on FedBFT Golang
 
 ```
 ./voting N0
