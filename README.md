@@ -9,9 +9,9 @@ go build .
 cd ~/grpc-java/examples && rm -r build && ./gradlew installDist
 ```
 
-#### build grpc-go
+#### build grpc-go in `FedBFT/voting`
 ```
-cd ~/FedBFT/
+cd ~/FedBFT/voting
 protoc --go_out=. --go_opt=paths=source_relative \
     --go-grpc_out=. --go-grpc_opt=paths=source_relative \
     p4p/p4p/sim/p4p/p4p.proto
