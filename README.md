@@ -25,11 +25,12 @@ P4PSim.initializeParams(rand)
 P4PCoordinate will initialzie P4PSim.initializeParams:
 ```
 zkpIterations, L2 Bound, Field, g, h
-```
-
-recordRoute -> checkFeature 
--> getName().equals("N0"): server N0
--> getName().equals("client"): Client Java
+```    
+     
+recordRoute -> checkFeature    
+-> getName().equals("N0"): server N0    
+-> getName().equals("client"): Client 
+-> else: peer
 
 
 `go run ~/grpc-go/examples/p4p/p4p/sim/server/server.go`   
