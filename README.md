@@ -2,7 +2,7 @@ https://stackoverflow.com/questions/4585929/how-to-use-cp-command-to-exclude-a-s
 
 ### 0. Build Golang FedBFT & Java Peer-Privacy Application
 ```
-cd ~/FedBFT
+cd ~/fedbft
 go build .
 ```
 ```
@@ -11,7 +11,7 @@ cd ~/grpc-java/examples && rm -r build && ./gradlew installDist
 
 #### build grpc-go in `FedBFT/voting`
 ```
-cd ~/FedBFT/voting
+cd ~/fedbft/voting
 protoc --go_out=. --go_opt=paths=source_relative \
     --go-grpc_out=. --go-grpc_opt=paths=source_relative \
     p4p/p4p/sim/p4p/p4p.proto
