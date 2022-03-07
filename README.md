@@ -1,6 +1,6 @@
 https://stackoverflow.com/questions/4585929/how-to-use-cp-command-to-exclude-a-specific-directory
 
-0. Build Golang FedBFT & Java Peer-Privacy Application
+### 0. Build Golang FedBFT & Java Peer-Privacy Application
 ```
 cd ~/FedBFT
 go build .
@@ -9,7 +9,7 @@ go build .
 cd ~/grpc-java/examples && rm -r build && ./gradlew installDist
 ```
 
-1. Start Server-N0 and Peer-N1 on FedBFT Golang
+### 1. Start Server-N0 and Peer-N1 on FedBFT Golang
 
 ```
 ./voting N0
@@ -18,16 +18,19 @@ cd ~/grpc-java/examples && rm -r build && ./gradlew installDist
 
 
 
-2. Start P4P Coordinate ()
+### 2. Start P4P Coordinate ()
+Bind and start the server.  After this call returns, clients may begin connecting to the listening socket(s).   
+
+#### 2.1 initializeParams
 ```
 P4PSim.initializeParams(rand)
 ```
 P4PCoordinate will initialzie P4PSim.initializeParams:
 ```
 zkpIterations, L2 Bound, Field, g, h
-```    
+```     
      
-recordRoute -> checkFeature    
+#### 2.2 recordRoute -> checkFeature    
 -> getName().equals("N0"): server N0    
 -> getName().equals("client"): Client    
 -> else: peer
