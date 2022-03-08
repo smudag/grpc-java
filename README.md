@@ -1,10 +1,15 @@
 https://stackoverflow.com/questions/4585929/how-to-use-cp-command-to-exclude-a-specific-directory
 
+### 0. Build Golang FedBFT & Java Peer-Privacy Application
 
-
-`go run ~/grpc-go/examples/p4p/p4p/sim/server/server.go`   
 ```
-cd ~/grpc-go/examples/
+cd ~/grpc-java/examples && rm -rf build && ./gradlew installDist
+```
+
+#### build grpc-go in `FedBFT/voting`
+```
+cd ~/fedbft/voting
+go build .
 protoc --go_out=. --go_opt=paths=source_relative \
     --go-grpc_out=. --go-grpc_opt=paths=source_relative \
     p4p/p4p/sim/p4p/p4p.proto
@@ -16,8 +21,45 @@ protoc --go_out=. --go_opt=paths=source_relative \
     
 cp -r  p4p/p4p/user/p4p ~/go/src/google.golang.org/grpc/examples/p4p/p4p/user/ 
 
-go run ~/grpc-go/examples/p4p/p4p/sim/server/server.go   
-```      
+# go run ~/grpc-go/examples/p4p/p4p/sim/server/server.go   
+```  
+
+
+
+### 1. Start P4P Coordinate ()
+```
+~/grpc-java/examples/build/install/examples/bin/p4p-coordinate
+```    
+Bind and start the server.  After this call returns, clients may begin connecting to the listening socket(s).   
+
+#### 1.1 initializeParams
+```
+P4PSim.initializeParams(rand)
+```
+P4PCoordinate will initialzie P4PSim.initializeParams:
+```
+zkpIterations, L2 Bound, Field, g, h
+```     
+
+
+     
+#### 1.2 recordRoute -> checkFeature    
+-> getName().equals("N0"): server N0    
+-> getName().equals("client"): Client    
+-> else: peer
+
+
+
+### 2. Start Server-N0 and Peer-N1 on FedBFT Golang
+```
+cd ~/FedBFT
+```    
+```
+./voting N0
+./voting N1
+```
+
+    
     
 https://github.com/SheldonHH/p4g/blob/main/Dockerfile
 
