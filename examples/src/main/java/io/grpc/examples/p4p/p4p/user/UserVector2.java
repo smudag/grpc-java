@@ -392,7 +392,7 @@ public class UserVector2 extends UserVector {
                 sc.commit(cs, rr);
                 serverProof.scProofs[i]
                         = (SquareCommitment.SquareCommitmentProof)sc.getProof();
-                P4PParameters.DEBUG("checksum: " + cs);
+                // P4PParameters.DEBUG("checksum: " + cs);
 
                 if(P4PParameters.debug) {
                     // lets check here:

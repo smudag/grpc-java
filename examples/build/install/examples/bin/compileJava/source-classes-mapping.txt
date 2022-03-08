@@ -183,10 +183,6 @@ io/grpc/examples/p4p/p4p/crypto/VectorCommitment.java
  io.grpc.examples.p4p.p4p.crypto.VectorCommitment
 io/grpc/examples/p4p/p4p/sim/P4PPeerTemp.java
  io.grpc.examples.p4p.p4p.sim.P4PPeerTemp
-io/grpc/examples/p4p/p4p/sim/FeatureOrBuilder.java
- io.grpc.examples.p4p.p4p.sim.FeatureOrBuilder
-io/grpc/examples/p4p/p4p/util/StopWatch.java
- io.grpc.examples.p4p.p4p.util.StopWatch
 io/grpc/examples/p4p/p4p/server/P4PServerSSGrpc.java
  io.grpc.examples.p4p.p4p.server.P4PServerSSGrpc
  io.grpc.examples.p4p.p4p.server.P4PServerSSGrpc$1
@@ -200,6 +196,10 @@ io/grpc/examples/p4p/p4p/server/P4PServerSSGrpc.java
  io.grpc.examples.p4p.p4p.server.P4PServerSSGrpc$P4PServerSSImplBase
  io.grpc.examples.p4p.p4p.server.P4PServerSSGrpc$P4PServerSSMethodDescriptorSupplier
  io.grpc.examples.p4p.p4p.server.P4PServerSSGrpc$P4PServerSSStub
+io/grpc/examples/p4p/p4p/sim/FeatureOrBuilder.java
+ io.grpc.examples.p4p.p4p.sim.FeatureOrBuilder
+io/grpc/examples/p4p/p4p/util/StopWatch.java
+ io.grpc.examples.p4p.p4p.util.StopWatch
 io/grpc/examples/helloworld/HelloWorldServer.java
  io.grpc.examples.helloworld.HelloWorldServer
  io.grpc.examples.helloworld.HelloWorldServer$1
@@ -339,12 +339,12 @@ io/grpc/examples/p4p/p4p/peer/P4PPeerReplyOrBuilder.java
  io.grpc.examples.p4p.p4p.peer.P4PPeerReplyOrBuilder
 io/grpc/examples/manualflowcontrol/HelloReplyOrBuilder.java
  io.grpc.examples.manualflowcontrol.HelloReplyOrBuilder
+io/grpc/examples/p4p/p4p/sim/ServerTemp.java
+ io.grpc.examples.p4p.p4p.sim.ServerTemp
 io/grpc/examples/p4p/p4p/user/UserSRequest.java
  io.grpc.examples.p4p.p4p.user.UserSRequest
  io.grpc.examples.p4p.p4p.user.UserSRequest$1
  io.grpc.examples.p4p.p4p.user.UserSRequest$Builder
-io/grpc/examples/p4p/p4p/sim/ServerTemp.java
- io.grpc.examples.p4p.p4p.sim.ServerTemp
 io/grpc/examples/p4p/p4p/crypto/ThreeWayCommitment.java
  io.grpc.examples.p4p.p4p.crypto.ThreeWayCommitment
  io.grpc.examples.p4p.p4p.crypto.ThreeWayCommitment$ThreeWayCommitmentProof
