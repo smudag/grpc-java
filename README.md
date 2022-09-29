@@ -23,7 +23,7 @@ go run ~/grpc-go/examples/p4p/p4p/sim/server/server.go
 https://github.com/SheldonHH/p4g/blob/main/Dockerfile
 
 
-```
+```bash
 cd /root/grpc-java/examples && rm -r build && ./gradlew installDist
 /root/grpc-java/examples/build/install/examples/bin/p4p-coordinate
 /root/grpc-java/examples/build/install/examples/bin/p4p-sim
@@ -34,7 +34,7 @@ cd /root/grpc-java/examples && rm -r build && ./gradlew installDist
 ```
 
 Route
-```
+```bash
 /root/grpc-java/examples/build/install/examples/bin/route-guide-server
 
 grep --include \*.java -e  'world'
